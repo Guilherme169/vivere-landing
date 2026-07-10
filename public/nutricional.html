@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Vivere · Informações Nutricionais — Ingredientes, Calorias e Tabela Nutricional</title>
+  <meta name="description" content="Consulte ingredientes, calorias, proteínas, carboidratos, gorduras, sódio e alérgenos de todas as refeições Vivere. Ideal para quem faz dieta, conta calorias ou recebe orientação nutricional." />
+  <meta property="og:title" content="Vivere · Informações Nutricionais" />
+  <meta property="og:description" content="Tabela nutricional completa, ingredientes e alérgenos de todas as marmitas Vivere. Transparência total para clientes, nutricionistas e atletas." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:        #49b657;
+      --green-dark:   #3a9446;
+      --green-forest: #1f4a12;
+      --orange:       #ef8b3a;
+      --cream:        #f6f2eb;
+      --ink:          #111111;
+      --neutral:      #5f5f5f;
+      --white:        #ffffff;
+      --radius-card:  18px;
+      --radius-pill:  999px;
+      --shadow-card:  0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── LAYOUT ───────────────────────────────── */
+    .page-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    /* ─── BACK BUTTON ──────────────────────────── */
+    .back-btn {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .back-btn:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.16); transform: translateY(-1px); }
+    .back-btn svg { width: 14px; height: 14px; }
+
+    /* ─── HEADER ────────────────────────────────── */
+    .site-header {
+      background: #1F4A12;
+      color: var(--white);
+      padding: 80px 24px 44px;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      margin-bottom: 28px;
+    }
+    .logo-wrap img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .logo-wrap img { height: 76px; }
+    }
+    .logo-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 14px;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 26px;
+      color: var(--white);
+      margin: 0 auto;
+    }
+
+    .site-header h1 {
+      font-size: clamp(1.6rem, 7vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .site-header h1 em {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: normal;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .site-header p {
+      margin-top: 10px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.88);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .badge-strip span {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ─── INTRO ─────────────────────────────────── */
+    .intro-block {
+      background: var(--white);
+      margin: 20px 16px;
+      border-radius: var(--radius-card);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .intro-block .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(73,182,87,0.08);
+      border: 1px solid rgba(73,182,87,0.2);
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      margin-bottom: 8px;
+    }
+    .intro-block .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .intro-block .eyebrow span:last-child {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+    }
+    .intro-block p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* ─── SEARCH ─────────────────────────────────── */
+    .search-wrap {
+      padding: 0 16px;
+      margin-bottom: 12px;
+    }
+    .search-inner {
+      position: relative;
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      pointer-events: none;
+    }
+    .search-icon svg { width: 16px; height: 16px; }
+    #search-input {
+      width: 100%;
+      padding: 13px 16px 13px 42px;
+      border: 1.5px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      box-shadow: var(--shadow-card);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #search-input::placeholder { color: #bbb; }
+    #search-input:focus { border-color: var(--green); }
+
+    /* ─── FILTERS ────────────────────────────────── */
+    .filters-wrap {
+      padding: 0 16px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filters-wrap::-webkit-scrollbar { display: none; }
+    .filters-row {
+      display: flex;
+      gap: 8px;
+      width: max-content;
+      padding-bottom: 2px;
+    }
+    .filter-btn {
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1.5px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-pill);
+      padding: 8px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--neutral);
+      cursor: pointer;
+      transition: all 0.18s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .filter-btn:hover { border-color: var(--green); color: var(--green-dark); }
+    .filter-btn.active {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: var(--white);
+      box-shadow: 0 3px 10px rgba(58,148,70,0.35);
+    }
+
+    /* ─── EMPTY STATE ────────────────────────────── */
+    #no-results {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--neutral);
+    }
+    #no-results p { font-size: 13.5px; margin-top: 8px; }
+
+    /* ─── MEALS LIST ─────────────────────────────── */
+    .meals-list { padding: 0 16px; display: flex; flex-direction: column; gap: 14px; }
+
+    /* ─── MEAL CARD (accordion) ──────────────────── */
+    .meal-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .meal-card.hidden { display: none; }
+    .meal-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+    /* ── CARD TRIGGER (visible part, click to expand) ── */
+    .card-trigger {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .card-trigger:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+
+    /* ── CARD PHOTO ── */
+    .card-photo {
+      position: relative;
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .meal-card:hover .card-photo img { transform: scale(1.03); }
+    .card-photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 12px 10px;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
+    }
+
+    /* ── PHOTO MODAL ── */
+    .card-photo img { cursor: zoom-in; }
+    .photo-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .photo-modal-overlay.active { display: flex; }
+    .photo-modal-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+    }
+    .photo-modal-close {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── CATEGORY TAG ── */
+    .meal-category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-pill);
+      padding: 3px 9px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+    }
+
+    /* ── CARD SUMMARY ── */
+    .card-summary {
+      padding: 14px 16px 14px;
+    }
+
+    .meal-name-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .meal-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .meal-weight {
+      flex-shrink: 0;
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: var(--neutral);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    /* ── COMPACT MACROS ── */
+    .macros-quick {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .macro-q {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 8px 4px 6px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .macro-q .mq-icon { font-size: 14px; display: block; margin-bottom: 3px; }
+    .macro-q .mq-val {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .macro-q .mq-unit { font-size: 9px; font-weight: 600; color: var(--neutral); }
+    .macro-q .mq-label { display: block; font-size: 8.5px; font-weight: 600; color: #aaa; margin-top: 1px; text-transform: uppercase; letter-spacing: 0.03em; }
+
+    .macro-q.kcal { border-top: 2px solid var(--green); }
+    .macro-q.kcal .mq-val { color: var(--green-forest); }
+    .macro-q.prot { border-top: 2px solid var(--orange); }
+    .macro-q.prot .mq-val { color: #c0611a; }
+    .macro-q.carb { border-top: 2px solid #4ba8c8; }
+    .macro-q.carb .mq-val { color: #2d6b8a; }
+    .macro-q.fat  { border-top: 2px solid #c9a42a; }
+    .macro-q.fat  .mq-val { color: #7a5c00; }
+
+    /* ── EXPAND BUTTON ── */
+    .expand-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--cream);
+      border: 1.5px solid rgba(0,0,0,0.07);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--green-dark);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .card-trigger:hover .expand-btn,
+    .meal-card.open .expand-btn {
+      background: rgba(73,182,87,0.08);
+      border-color: rgba(73,182,87,0.28);
+    }
+
+    /* Chevron */
+    .chevron {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .meal-card.open .chevron { transform: rotate(180deg); }
+
+    /* ── ACCORDION DETAILS ── */
+    .card-details-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .meal-card.open .card-details-wrap {
+      grid-template-rows: 1fr;
+    }
+    .card-details {
+      overflow: hidden;
+      min-height: 0;
+    }
+    .card-details-inner {
+      padding: 16px 16px 20px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* ─── NUTRITIONAL TABLE ──────────────────────── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--neutral);
+      margin-bottom: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(0,0,0,0.07);
+    }
+
+    .nutri-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .nutri-table thead th {
+      background: var(--green-forest);
+      color: var(--white);
+      padding: 8px 10px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nutri-table thead th:first-child { text-align: left; }
+    .nutri-table thead th:not(:first-child) { text-align: right; }
+
+    .nutri-table tbody tr:nth-child(even) { background: rgba(246,242,235,0.7); }
+    .nutri-table tbody tr:hover { background: rgba(73,182,87,0.05); }
+    .nutri-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      color: var(--ink);
+    }
+    .nutri-table td:not(:first-child) { text-align: right; font-weight: 600; }
+    .nutri-table td.row-label { font-weight: 500; }
+    .nutri-table td.sub {
+      padding-left: 22px;
+      color: var(--neutral);
+      font-size: 11.5px;
+    }
+    .nutri-table td.sub.sub-val { color: var(--neutral); font-weight: 500; font-size: 11.5px; }
+    .nutri-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ─── INGREDIENTS ────────────────────────────── */
+    .ingredients-wrap { margin-bottom: 14px; }
+    .ingredients-text {
+      font-size: 12px;
+      line-height: 1.8;
+      color: #444;
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 12px 14px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* ─── ALLERGENS ──────────────────────────────── */
+    .allergens-wrap {}
+    .allergens-box {
+      background: #fffbee;
+      border: 1px solid #f0d878;
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .allergen-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .allergens-text { font-size: 11.5px; line-height: 1.7; color: #6b4f00; font-weight: 500; }
+
+    /* ─── CTA SECTION ────────────────────────────── */
+    .cta-section { margin: 24px 16px 0; }
+    .cta-box {
+      background: linear-gradient(135deg, var(--green-forest) 0%, #2d6b1c 100%);
+      border-radius: 22px;
+      padding: 28px 22px;
+      text-align: center;
+      color: var(--white);
+      box-shadow: 0 8px 32px rgba(31,74,18,0.35);
+    }
+    .cta-box h2 {
+      font-size: clamp(1.3rem, 5.5vw, 1.7rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .cta-box h2 em {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: normal;
+      color: rgba(255,255,255,0.8);
+    }
+    .cta-box p {
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: var(--radius-pill);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary {
+      background: var(--white);
+      color: var(--green-forest);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { background: rgba(255,255,255,0.92); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(4px);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* ─── PAGE FOOTER ────────────────────────────── */
+    .page-footer {
+      text-align: center;
+      padding: 32px 20px 24px;
+      font-size: 10.5px;
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (min-width: 480px) {
+      .page-wrap { max-width: 720px; }
+      .card-photo { height: 220px; }
+      .macros-quick { gap: 8px; }
+      .card-details-inner { padding: 20px 20px 24px; }
+      .cta-buttons { flex-direction: row; }
+      .btn { flex: 1; }
+    }
+
+    @media (max-width: 340px) {
+      .macro-q .mq-val { font-size: 13px; }
+      .macro-q .mq-icon { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back button -->
+  <a href="/" class="back-btn" aria-label="Voltar ao site Vivere">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    Voltar ao site
+  </a>
+
+  <div class="page-wrap">
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+      <div class="logo-wrap">
+        <img src="/LOGO_V.jpeg" alt="Vivere"
+             onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='inline-flex'" />
+        <span class="logo-fallback" id="logo-fallback">V</span>
+      </div>
+      <h1>Informações<br /><em>Nutricionais</em></h1>
+      <p>Consulte ingredientes, calorias, proteínas, carboidratos, gorduras, sódio e alérgenos de todas as refeições Vivere.</p>
+      <div class="badge-strip" role="list">
+        <span role="listitem">🥗 Alimentação equilibrada</span>
+        <span role="listitem">💪 Alta proteína</span>
+        <span role="listitem">📋 Informações completas</span>
+        <span role="listitem">🩺 Ideal para nutricionistas</span>
+        <span role="listitem">🔥 Contagem de calorias</span>
+      </div>
+    </header>
+
+    <!-- ── INTRO ── -->
+    <div class="intro-block" role="note">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Transparência Vivere</span>
+      </div>
+      <p>
+        Na Vivere, acreditamos que saber o que você come é tão importante quanto comer bem.
+        Por isso disponibilizamos a tabela nutricional completa de cada refeição — exatamente como aparece na embalagem —
+        para que você e seu nutricionista possam planejar uma alimentação consciente, sem surpresas.
+      </p>
+    </div>
+
+    <!-- ── SEARCH ── -->
+    <div class="search-wrap">
+      <div class="search-inner">
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Pesquisar refeição..."
+          aria-label="Pesquisar refeição"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+    </div>
+
+    <!-- ── FILTERS ── -->
+    <div class="filters-wrap" role="group" aria-label="Filtrar refeições por categoria">
+      <div class="filters-row" id="filters-row">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="frango">🍗 Frango</button>
+        <button class="filter-btn" data-filter="carnes">🥩 Carnes</button>
+        <button class="filter-btn" data-filter="massas">🍝 Massas</button>
+        <button class="filter-btn" data-filter="proteicos">💪 Proteicos</button>
+        <button class="filter-btn" data-filter="low-calorie">🥬 Low Calorie</button>
+        <button class="filter-btn" data-filter="mais-vendidos">⭐ Mais Vendidos</button>
+      </div>
+    </div>
+
+    <!-- ── MEALS ── -->
+    <main class="meals-list" id="meals-list" aria-label="Refeições Vivere">
+
+      <!-- PRATO 1: Lasanha Bolonhesa com Queijo Mussarela -->
+      <article class="meal-card" id="prato-1" data-name="lasanha bolonhesa queijo mussarela massa" data-categories="massas proteicos mais-vendidos">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-1">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_1.png" alt="Lasanha Bolonhesa com Queijo Mussarela" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🍝 Massas</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Lasanha Bolonhesa com Queijo Mussarela</h2>
+              <span class="meal-weight">350g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (350g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">836</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">49</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">130</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">14</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-1">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional da Lasanha Bolonhesa">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (350g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>239 kcal</td><td>836 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>37 g</td><td>129,5 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">1,2 g</td><td class="sub-val">4,2 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0,9 g</td><td class="sub-val">3,1 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>14 g</td><td>49 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>4,1 g</td><td>14,3 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">2,9 g</td><td class="sub-val">10,2 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>1,4 g</td><td>4,9 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>575 mg</td><td>2012 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Massa de lasanha (farinha de trigo enriquecida com ferro e ácido fólico, água, ovo integral pasteurizado, gordura vegetal, sal refinado, corante natural urucum, conservante sorbato de potássio), patinho moído (carne bovina, cebola, tomate, alho, sal, óleo de girassol, páprica, pimenta e orégano) e queijo mussarela.</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Contém leite e derivados, trigo e soja. Pode conter centeio, cevada e aveia. <strong>Contém glúten.</strong> <strong>Contém lactose.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 2: Carne Desfiada com Feijão, Arroz Integral e Seleta de Legumes -->
+      <article class="meal-card" id="prato-2" data-name="carne desfiada feijão arroz integral seleta legumes" data-categories="carnes mais-vendidos">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-2">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_2.png" alt="Carne Desfiada com Feijão, Arroz Integral e Seleta de Legumes" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🥩 Carnes</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Carne Desfiada com Feijão, Arroz Integral e Seleta de Legumes</h2>
+              <span class="meal-weight">370g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (370g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">459</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">30</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">44</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">17</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-2">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional da Carne Desfiada com Feijão">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (370g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>124 kcal</td><td>459 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>12 g</td><td>44,4 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">1,2 g</td><td class="sub-val">4,4 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>8,2 g</td><td>30,3 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>4,6 g</td><td>17 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">0,9 g</td><td class="sub-val">3,3 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>2,8 g</td><td>10,4 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>458 mg</td><td>1695 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Patinho desfiado (carne bovina, tomate, cebola, sal, alho, óleo de girassol e páprica), feijão, arroz integral e seleta de legumes.</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 3: Carne Desfiada com Massa -->
+      <article class="meal-card" id="prato-3" data-name="carne desfiada massa macarrão" data-categories="carnes massas">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-3">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_3.png" alt="Carne Desfiada com Massa" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🍝 Massas · 🥩 Carnes</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Carne Desfiada com Massa</h2>
+              <span class="meal-weight">400g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (400g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">564</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">44</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">60</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">16</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-3">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional da Carne Desfiada com Massa">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (400g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>141 kcal</td><td>564 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>15 g</td><td>60 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">0,9 g</td><td class="sub-val">3,6 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>11 g</td><td>44 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>4 g</td><td>16 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">1,2 g</td><td class="sub-val">4,8 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>1,7 g</td><td>6,8 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>412 mg</td><td>1648 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Massa cozida (sêmola de trigo enriquecida com ferro e ácido fólico, ovos, corantes naturais urucum e cúrcuma) e patinho desfiado (carne bovina, tomate, cebola, óleo de girassol, alho, páprica e sal).</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Contém ovos e derivados de trigo e soja. Pode conter centeio, cevada, aveia e triticale. <strong>Contém glúten.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 4: Carne Desfiada com Feijão, Arroz, Legumes e Purê de Moranga -->
+      <article class="meal-card" id="prato-4" data-name="carne desfiada feijão arroz legumes purê moranga abóbora" data-categories="carnes low-calorie">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-4">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_4.png" alt="Carne Desfiada com Feijão, Arroz, Legumes e Purê de Moranga" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🥩 Carnes · 🥬 Low Calorie</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Carne Desfiada com Feijão, Arroz, Legumes e Purê de Moranga</h2>
+              <span class="meal-weight">370g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (370g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">385</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">33</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">41</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">10</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-4">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional da Carne Desfiada com Feijão e Purê de Moranga">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (370g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>104 kcal</td><td>385 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>11 g</td><td>40,7 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">1,6 g</td><td class="sub-val">5,9 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>9 g</td><td>33,3 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>2,8 g</td><td>10,4 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">1 g</td><td class="sub-val">3,7 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>2,5 g</td><td>9,2 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>278 mg</td><td>1029 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Patinho desfiado (carne bovina, tomate, cebola, óleo de girassol, alho, páprica e sal), legumes, feijão, arroz e purê de moranga.</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 5: Carne Moída, Arroz com Cenoura e Legumes -->
+      <article class="meal-card" id="prato-5" data-name="carne moída arroz cenoura legumes brócolis couve-flor" data-categories="carnes low-calorie">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-5">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_5.png" alt="Carne Moída, Arroz com Cenoura e Legumes" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🥩 Carnes · 🥬 Low Calorie</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Carne Moída, Arroz com Cenoura e Legumes</h2>
+              <span class="meal-weight">300g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (300g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">315</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">14</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">33</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">14</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-5">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional da Carne Moída com Arroz e Legumes">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (300g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>105 kcal</td><td>315 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>11 g</td><td>33 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">2,2 g</td><td class="sub-val">6,6 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>4,5 g</td><td>13,5 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>4,6 g</td><td>13,8 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">3,2 g</td><td class="sub-val">9,6 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>1,8 g</td><td>5,4 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>572 mg</td><td>1716 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Arroz com cenoura (arroz, cenoura, óleo de girassol, vinagre e sal), patinho moído (tomate, carne bovina, cebola, óleo de girassol, sal, páprica e alho) e legumes (brócolis e couve-flor).</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 6: Escondidinho de Batata com Carne e Queijo -->
+      <article class="meal-card" id="prato-6" data-name="escondidinho batata carne queijo mussarela purê" data-categories="carnes proteicos mais-vendidos">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-6">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_6.png" alt="Escondidinho de Batata com Carne e Queijo" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🥩 Carnes · 💪 Proteico</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Escondidinho de Batata com Carne e Queijo</h2>
+              <span class="meal-weight">370g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (370g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">444</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">41</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">32</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">16</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-6">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional do Escondidinho">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (370g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>120 kcal</td><td>444 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>8,6 g</td><td>31,8 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">0,9 g</td><td class="sub-val">3,3 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>11 g</td><td>40,7 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>4,4 g</td><td>16,3 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">2,8 g</td><td class="sub-val">10,4 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>0,9 g</td><td>3,3 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>152 mg</td><td>562 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Purê de batata (batata, leite desnatado, sal e noz moscada), patinho desfiado (carne bovina, tomate, cebola, óleo de girassol, alho, páprica e sal) e queijo mussarela.</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Contém leite. Pode conter soja, nozes, castanhas e avelã. <strong>Não contém glúten.</strong> <strong>Contém lactose.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 7: Frango em Cubos com Arroz Integral e Creme de Milho -->
+      <article class="meal-card" id="prato-7" data-name="frango cubos arroz integral creme milho" data-categories="frango">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-7">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_7.png" alt="Frango em Cubos com Arroz Integral e Creme de Milho" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🍗 Frango</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Frango em Cubos com Arroz Integral e Creme de Milho</h2>
+              <span class="meal-weight">300g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (300g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">348</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">28</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">30</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">12</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-7">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional do Frango em Cubos com Creme de Milho">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (300g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>116 kcal</td><td>348 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>10 g</td><td>30 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">1 g</td><td class="sub-val">3 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>9,3 g</td><td>27,9 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>4,1 g</td><td>12,3 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">0,6 g</td><td class="sub-val">1,8 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>1,3 g</td><td>3,9 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>545 mg</td><td>1635 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Frango em cubos (peito de frango e óleo de girassol), arroz integral (arroz, óleo de girassol, vinagre e sal) e creme de milho (leite desnatado, milho, cebola, amido de milho, alho, manteiga, sal e pimenta).</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Contém leite e derivados de soja. <strong>Não contém glúten.</strong> <strong>Contém lactose.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 8: Filé de Peito de Frango com Seleta de Legumes -->
+      <article class="meal-card" id="prato-8" data-name="filé peito frango seleta legumes cenoura ervilha milho batata" data-categories="frango proteicos low-calorie">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-8">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_8.png" alt="Filé de Peito de Frango com Seleta de Legumes" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🍗 Frango · 💪 Proteico · 🥬 Low Cal</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Filé de Peito de Frango com Seleta de Legumes</h2>
+              <span class="meal-weight">300g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (300g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">306</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">45</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">13</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">8</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-8">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional do Filé de Peito de Frango com Seleta">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (300g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>102 kcal</td><td>306 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>4,3 g</td><td>12,9 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">1,1 g</td><td class="sub-val">3,3 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>15 g</td><td>45 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>2,7 g</td><td>8,1 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">0,1 g</td><td class="sub-val">0,3 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>2,8 g</td><td>8,4 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>459 mg</td><td>1377 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Frango em cubos (peito de frango e óleo de girassol) e seleta de legumes (cenoura, ervilha, milho e batata).</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 9: Risoto de Carne Desfiada -->
+      <article class="meal-card" id="prato-9" data-name="risoto carne desfiada arroz milho ervilha" data-categories="carnes proteicos">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-9">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_9.png" alt="Risoto de Carne Desfiada" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🥩 Carnes · 💪 Proteico</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Risoto de Carne Desfiada</h2>
+              <span class="meal-weight">370g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (370g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">722</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">52</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">56</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">33</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-9">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional do Risoto de Carne Desfiada">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (370g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>195 kcal</td><td>722 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>15 g</td><td>55,5 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">6,9 g</td><td class="sub-val">25,5 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>14 g</td><td>51,8 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>8,8 g</td><td>32,6 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">1,9 g</td><td class="sub-val">7 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>1,4 g</td><td>5,2 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>492 mg</td><td>1820 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Arroz (arroz, óleo de girassol, vinagre e sal), patinho desfiado (carne bovina, tomate, cebola, óleo de girassol, alho, orégano e sal), milho e ervilha.</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRATO 10: Frango Cremoso, Arroz Integral e Legumes -->
+      <article class="meal-card" id="prato-10" data-name="frango cremoso arroz integral legumes brócolis cenoura requeijão" data-categories="frango low-calorie mais-vendidos">
+        <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
+             aria-expanded="false" aria-controls="details-prato-10">
+          <div class="card-photo">
+            <img src="/images/dishes/embalagem_vivere_10.png" alt="Frango Cremoso, Arroz Integral e Legumes" loading="lazy" />
+            <div class="card-photo-overlay">
+              <span class="meal-category-tag">🍗 Frango · 🥬 Low Calorie</span>
+            </div>
+          </div>
+          <div class="card-summary">
+            <div class="meal-name-row">
+              <h2 class="meal-name">Frango Cremoso, Arroz Integral e Legumes</h2>
+              <span class="meal-weight">370g</span>
+            </div>
+            <div class="macros-quick" aria-label="Macronutrientes por porção (370g)">
+              <div class="macro-q kcal"><span class="mq-icon" aria-hidden="true">🔥</span><span class="mq-val">363</span><span class="mq-unit">kcal</span><span class="mq-label">calorias</span></div>
+              <div class="macro-q prot"><span class="mq-icon" aria-hidden="true">🥩</span><span class="mq-val">30</span><span class="mq-unit">g</span><span class="mq-label">proteínas</span></div>
+              <div class="macro-q carb"><span class="mq-icon" aria-hidden="true">🍚</span><span class="mq-val">36</span><span class="mq-unit">g</span><span class="mq-label">carboidr.</span></div>
+              <div class="macro-q fat"><span class="mq-icon" aria-hidden="true">🥑</span><span class="mq-val">12</span><span class="mq-unit">g</span><span class="mq-label">gorduras</span></div>
+            </div>
+            <div class="expand-btn" aria-hidden="true">
+              Ver informações nutricionais
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-details-wrap" id="details-prato-10">
+          <div class="card-details">
+            <div class="card-details-inner">
+              <div class="section-title">📊 Tabela Nutricional</div>
+              <table class="nutri-table" aria-label="Tabela nutricional do Frango Cremoso com Arroz Integral">
+                <thead><tr><th>Nutriente</th><th>100g</th><th>Porção (370g)</th></tr></thead>
+                <tbody>
+                  <tr><td class="row-label">Valor energético</td><td>98 kcal</td><td>363 kcal</td></tr>
+                  <tr><td class="row-label">Carboidratos</td><td>9,7 g</td><td>35,9 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares totais</td><td class="sub-val">1,3 g</td><td class="sub-val">4,8 g</td></tr>
+                  <tr><td class="sub row-label">Açúcares adicionados</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Proteínas</td><td>8 g</td><td>29,6 g</td></tr>
+                  <tr><td class="row-label">Gorduras totais</td><td>3,1 g</td><td>11,5 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras saturadas</td><td class="sub-val">0,4 g</td><td class="sub-val">1,5 g</td></tr>
+                  <tr><td class="sub row-label">Gorduras trans</td><td class="sub-val">0 g</td><td class="sub-val">0 g</td></tr>
+                  <tr><td class="row-label">Fibras alimentares</td><td>1,8 g</td><td>6,7 g</td></tr>
+                  <tr><td class="row-label">Sódio</td><td>471 mg</td><td>1743 mg</td></tr>
+                </tbody>
+              </table>
+              <div class="ingredients-wrap">
+                <div class="section-title">🧾 Ingredientes</div>
+                <p class="ingredients-text">Legumes (brócolis e cenoura), frango cremoso (frango, leite desnatado, óleo de girassol, alho, requeijão, amido de milho, sal, noz moscada e creme de leite) e arroz integral (arroz integral, óleo de girassol, vinagre e sal).</p>
+              </div>
+              <div class="allergens-wrap">
+                <div class="section-title">⚠️ Alérgenos</div>
+                <div class="allergens-box">
+                  <span class="allergen-icon" aria-hidden="true">⚠️</span>
+                  <p class="allergens-text">Contém leite e derivados de soja. Pode conter nozes, castanhas ou avelãs. <strong>Não contém glúten.</strong> <strong>Contém lactose.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Empty state -->
+      <div id="no-results" role="status" aria-live="polite">
+        <p style="font-size:2rem">🔍</p>
+        <p>Nenhuma refeição encontrada.<br />Tente outro termo ou remova o filtro.</p>
+      </div>
+
+    </main>
+
+    <!-- ── CTA FINAL ── -->
+    <section class="cta-section" aria-label="Ainda com dúvidas">
+      <div class="cta-box">
+        <h2>Ainda com <em>dúvidas?</em></h2>
+        <p>Nossa equipe pode ajudar você a escolher a refeição ideal para seus objetivos.</p>
+        <div class="cta-buttons">
+          <a href="https://app.cardapioweb.com/vivere_comercio_de_alimentos?s=cb" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Montar meu pedido
+          </a>
+          <a href="https://wa.me/5551980889884" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PAGE FOOTER ── -->
+    <footer class="page-footer">
+      <p>Vivere Comércio de Alimentos · CNPJ 66.705.927/0001-35</p>
+      <p>R. Sezefredo da Costa Tôrres, 373, Centro, Santo Antônio da Patrulha/RS</p>
+      <p style="margin-top:6px;font-size:10px;color:#ccc;">Informações nutricionais conforme impressas nas embalagens.</p>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <!-- ── PHOTO MODAL ── -->
+  <div id="photo-modal" class="photo-modal-overlay" role="dialog" aria-modal="true" aria-label="Visualização da embalagem">
+    <button id="photo-modal-close" class="photo-modal-close" aria-label="Fechar">✕</button>
+    <img id="photo-modal-img" src="" alt="" />
+  </div>
+
+  <script>
+    (function () {
+      /* ── SEARCH + FILTER ─────────────────────────── */
+      var searchInput  = document.getElementById('search-input');
+      var filterBtns   = document.querySelectorAll('.filter-btn');
+      var cards        = document.querySelectorAll('.meal-card');
+      var noResults    = document.getElementById('no-results');
+      var activeFilter = 'todos';
+
+      function normalize(str) {
+        return str.toLowerCase()
+          .normalize('NFD').replace(/[̀-ͯ]/g, '')
+          .replace(/\s+/g, ' ').trim();
+      }
+
+      function applyFilters() {
+        var query = normalize(searchInput.value);
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          var name       = normalize(card.dataset.name || '');
+          var categories = card.dataset.categories || '';
+
+          var matchSearch = !query || name.indexOf(query) !== -1;
+          var matchFilter = activeFilter === 'todos' || categories.indexOf(activeFilter) !== -1;
+
+          if (matchSearch && matchFilter) {
+            card.classList.remove('hidden');
+            visible++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+      }
+
+      searchInput.addEventListener('input', applyFilters);
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      /* ── ACCORDION ───────────────────────────────── */
+      window.toggleCard = function (trigger) {
+        var card   = trigger.closest('.meal-card');
+        var isOpen = card.classList.contains('open');
+
+        card.classList.toggle('open', !isOpen);
+        trigger.setAttribute('aria-expanded', !isOpen);
+      };
+
+      /* ── PHOTO MODAL ─────────────────────────────── */
+      var photoModal    = document.getElementById('photo-modal');
+      var photoModalImg = document.getElementById('photo-modal-img');
+      var photoModalClose = document.getElementById('photo-modal-close');
+
+      function openPhotoModal(src, alt) {
+        photoModalImg.src = src;
+        photoModalImg.alt = alt || '';
+        photoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePhotoModal() {
+        photoModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.card-photo img').forEach(function (img) {
+        img.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openPhotoModal(this.src, this.alt);
+        });
+      });
+
+      photoModalClose.addEventListener('click', closePhotoModal);
+
+      photoModal.addEventListener('click', function (e) {
+        if (e.target === this) closePhotoModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePhotoModal();
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -8,6 +8,7 @@ import { PersonalizedDiet } from '@/components/HowItWorks/PersonalizedDiet'
 import { Stats } from '@/components/Stats/Stats'
 import { Testimonials } from '@/components/Testimonials/Testimonials'
 import { InstagramCTA } from '@/components/Instagram/InstagramCTA'
+import { NutricionalCTA } from '@/components/NutricionalCTA/NutricionalCTA'
 import { Footer } from '@/components/Footer/Footer'
 import { FloatingCTA } from '@/components/FloatingCTA/FloatingCTA'
 
@@ -24,6 +25,7 @@ export function Home() {
       <Stats />
       <Testimonials />
       <InstagramCTA />
+      <NutricionalCTA />
       <Footer />
       <FloatingCTA />
     </main>
