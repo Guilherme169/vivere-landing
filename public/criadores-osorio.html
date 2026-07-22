@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <!-- ═══════════════════════════════════════
+       META
+  ═══════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Programa de Criadores de Conteúdo Vivere — Osório/RS</title>
+  <meta name="description" content="A Vivere está chegando em Osório e vai investir em criadores locais. Kit gratuito com ≈10 marmitas. Sem custo. Sem metas. Sem mínimo de seguidores." />
+  <link rel="canonical" href="https://vivere.com.br/criadores-osorio" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Seja um criador oficial da Vivere em Osório" />
+  <meta property="og:description" content="Kit grátis com ≈10 marmitas. Sem custo, sem metas, sem mínimo de seguidores. Leva menos de 2 minutos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vivere.com.br/criadores-osorio" />
+  <meta property="og:image" content="https://vivere.com.br/images/dishes/bolonhesa-da-casa.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Vivere" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Seja um criador oficial da Vivere em Osório" />
+  <meta name="twitter:description" content="Kit grátis, liberdade criativa, sem mínimo de seguidores. Leva 2 minutos." />
+  <meta name="twitter:image" content="https://vivere.com.br/images/dishes/bolonhesa-da-casa.jpg" />
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Vivere","url":"https://vivere.com.br","logo":"https://vivere.com.br/LOGO_V.jpeg","description":"Marmitas congeladas premium. Comida de verdade, prática e saudável.","address":{"@type":"PostalAddress","streetAddress":"R. Sezefredo da Costa Tôrres, 373","addressLocality":"Santo Antônio da Patrulha","addressRegion":"RS","postalCode":"95500-000","addressCountry":"BR"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Vivere — Criadores de Conteúdo Osório","description":"Programa de criadores de conteúdo para a expansão da Vivere em Osório/RS.","url":"https://vivere.com.br/criadores-osorio","areaServed":"Osório, RS, Brasil"}</script>
+
+  <!-- ─── FONTES ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════
+       TOKENS & RESET
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:        #49b657;
+      --green-dark:   #3a9446;
+      --green-forest: #1f4a12;
+      --cream:        #f6f2eb;
+      --ink:          #111111;
+      --muted:        #5f5f5f;
+      --white:        #ffffff;
+      --r-card:       18px;
+      --r-pill:       999px;
+      --shadow-sm:    0 1px 6px rgba(0,0,0,0.06);
+      --shadow-md:    0 4px 20px rgba(0,0,0,0.09);
+      --shadow-lg:    0 8px 36px rgba(0,0,0,0.13);
+      --shadow-green: 0 4px 22px rgba(73,182,87,0.38);
+      --t-base:       0.22s ease;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 52px; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: normal; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ─── LAYOUT ─── */
+    .wrap { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 52px 0; }
+
+    /* ─── EYEBROW ─── */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(73,182,87,0.09); border: 1px solid rgba(73,182,87,0.22);
+      border-radius: var(--r-pill); padding: 5px 13px;
+      font-size: 10.5px; font-weight: 800; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--green-dark);
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    /* ─── HEADINGS ─── */
+    .h1 { font-size: clamp(1.75rem,7.5vw,2.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; }
+    .h2 { font-size: clamp(1.45rem,5.2vw,2.0rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.14; }
+    .sub { font-size: 14px; line-height: 1.68; color: var(--muted); margin-top: 8px; max-width: 520px; }
+
+    /* ─── BOTÃO ─── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: var(--r-pill); font-family: 'Inter', sans-serif; font-weight: 700;
+      text-decoration: none; transition: all var(--t-base); cursor: pointer;
+      border: none; letter-spacing: -0.01em; line-height: 1; white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-md   { font-size: 14px;   padding: 14px 24px; }
+    .btn-lg   { font-size: 16px;   padding: 18px 32px; }
+    .btn-full { width: 100%; justify-content: center; }
+    .btn-green {
+      background: var(--green); color: var(--white); box-shadow: var(--shadow-green);
+    }
+    @media (hover: hover) {
+      .btn-green:hover { background: var(--green-dark); box-shadow: 0 6px 28px rgba(73,182,87,0.50); transform: translateY(-1px); }
+      .btn-white:hover { background: rgba(255,255,255,0.93); transform: translateY(-1px); }
+    }
+    .btn-white { background: var(--white); color: var(--green-forest); box-shadow: 0 4px 22px rgba(0,0,0,0.18); }
+
+    /* ─── CHECK ICON ─── */
+    .ci {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(73,182,87,0.10); border: 1.5px solid rgba(73,182,87,0.24);
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .ci svg { width: 11px; height: 11px; stroke: var(--green-dark); stroke-width: 3; fill: none; }
+
+    /* ─── FADE-IN ─── */
+    .fi { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fi.on { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: 0.07s; }
+    .fi-d2 { transition-delay: 0.14s; }
+    .fi-d3 { transition-delay: 0.21s; }
+
+    /* ═══════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      background: rgba(31,74,18,0.97); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      height: 52px;
+    }
+    .nav-logo img { height: 34px; width: auto; display: block; }
+    .nav-cta { font-size: 13px; padding: 9px 18px; }
+
+    /* ═══════════════════════════════════════
+       HERO
+       Mobile: imagem editorial compacta (topo) + copy abaixo
+       Desktop 1024+: split — foto esquerda / copy direita
+    ═══════════════════════════════════════ */
+    .hero {
+      background: var(--cream);
+      padding-top: 52px; /* clearance navbar fixa */
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── COLUNA DA FOTO ─── */
+    .hero-photo-col {
+      padding: 14px 20px 0;
+    }
+
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      object-fit: cover;
+      object-position: center 28%;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 18px 52px rgba(0,0,0,0.16), 0 3px 10px rgba(0,0,0,0.06);
+    }
+
+    /* ─── COLUNA DE COPY ─── */
+    .hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 18px 20px 28px;
+      width: 100%;
+    }
+
+    /* ─── COPY ─── */
+    .hero-eyebrow { margin-bottom: 12px; }
+
+    .hero-h1 { margin: 0 0 8px; }
+
+    /* linha principal — quebra naturalmente, fonte grande para impacto */
+    .hero-h1-main {
+      display: block;
+      font-size: clamp(1.5rem, 7vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    /* "Vivere" — identidade da marca, ligeiramente maior */
+    .brand-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: normal;
+      color: var(--green-forest);
+      letter-spacing: 0.01em;
+      font-size: 1.2em;
+    }
+    /* benefício em destaque */
+    .hero-check--hl { color: var(--green-dark); font-weight: 700; font-size: 13px; }
+    /* "em Osório." — tagline grande, abaixo */
+    .hero-h1-sub {
+      display: block;
+      font-size: clamp(1.75rem, 7.5vw, 2.8rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    /* ─── CHECKS 2×2 ─── */
+    .hero-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      margin-bottom: 20px;
+    }
+    .hero-check {
+      display: flex; align-items: flex-start; gap: 7px;
+      font-size: 12.5px; font-weight: 600; color: var(--ink); line-height: 1.35;
+    }
+    .hc-ico {
+      flex-shrink: 0; width: 17px; height: 17px; border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .hc-ico svg { width: 8px; height: 8px; stroke: #fff; stroke-width: 3; fill: none; }
+
+    /* ─── CTA ─── */
+    .hero-cta-row { display: flex; flex-direction: column; gap: 10px; }
+
+    .btn-ig {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      border: 1.5px solid rgba(73,182,87,0.45); background: transparent;
+      color: var(--green-dark); border-radius: var(--r-pill);
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+      padding: 11px 22px; text-decoration: none;
+      transition: all var(--t-base); -webkit-tap-highlight-color: transparent;
+    }
+    .btn-ig svg { width: 16px; height: 16px; stroke: var(--green-dark); stroke-width: 1.7; fill: none; flex-shrink: 0; }
+    @media (hover: hover) {
+      .btn-ig:hover { background: rgba(73,182,87,0.07); border-color: var(--green-dark); }
+    }
+
+    .hero-cta-note {
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      font-size: 12px; color: var(--muted); font-weight: 500; margin-top: 10px;
+    }
+    .hero-cta-note svg { width: 12px; height: 12px; stroke: var(--green-dark); stroke-width: 2.5; fill: none; }
+
+    /* ═══════════════════════════════════════
+       FORMULÁRIO
+    ═══════════════════════════════════════ */
+    .form-section {
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .form-card {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 32px 22px 36px;
+    }
+    .form-header { margin-bottom: 24px; }
+    .form-header h2 { margin-top: 10px; }
+    .form-header h2 .serif { color: var(--green-dark); }
+    .form-header p { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.55; }
+
+    /* ─── BARRA DE PROGRESSO ─── */
+    .prog-wrap { margin-bottom: 24px; }
+    .prog-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .prog-label { font-size: 11px; font-weight: 700; color: var(--ink); letter-spacing: 0.05em; text-transform: uppercase; }
+    .prog-time  { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+    .prog-time svg { width: 11px; height: 11px; stroke: var(--green); stroke-width: 2.5; fill: none; }
+    .prog-track { height: 5px; background: rgba(0,0,0,0.07); border-radius: 99px; overflow: hidden; }
+    .prog-bar   { height: 100%; background: var(--green); border-radius: 99px; width: 0%; transition: width 0.4s cubic-bezier(.4,0,.2,1); }
+    .prog-status { font-size: 11px; color: var(--muted); margin-top: 5px; font-weight: 500; min-height: 15px; }
+
+    /* ─── CAMPOS ─── */
+    .form-grid { display: flex; flex-direction: column; gap: 14px; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 380px) { .row-2 { grid-template-columns: 1fr; } }
+    .fg { display: flex; flex-direction: column; gap: 5px; }
+    .flabel { font-size: 12px; font-weight: 700; color: var(--ink); }
+    .flabel .opt { color: var(--muted); font-weight: 400; }
+    .finput, .fselect {
+      width: 100%; padding: 14px 15px; border: 1.5px solid rgba(0,0,0,0.10);
+      border-radius: 12px; background: var(--cream); font-family: 'Inter', sans-serif;
+      font-size: 15px; color: var(--ink); outline: none;
+      transition: border-color var(--t-base), box-shadow var(--t-base), background var(--t-base);
+      appearance: none; -webkit-appearance: none;
+    }
+    .finput::placeholder { color: #bbb; }
+    .finput:focus, .fselect:focus {
+      border-color: var(--green); box-shadow: 0 0 0 3px rgba(73,182,87,0.12);
+      background: var(--white);
+    }
+    .fselect-w { position: relative; }
+    .fselect-w::after {
+      content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      border: 5px solid transparent; border-top-color: var(--muted);
+      border-bottom: 0; pointer-events: none;
+    }
+    .fselect { padding-right: 36px; cursor: pointer; }
+
+    .lgpd { display: flex; align-items: flex-start; gap: 10px; }
+    .lgpd input { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--green); cursor: pointer; }
+    .lgpd label { font-size: 12.5px; line-height: 1.62; color: var(--muted); cursor: pointer; }
+
+    /* ─── ERROS DE VALIDAÇÃO ─── */
+    .finput.error, .fselect.error {
+      border-color: #e53e3e;
+      box-shadow: 0 0 0 3px rgba(229,62,62,0.12);
+      background: #fff5f5;
+    }
+    .field-error {
+      display: none; font-size: 11.5px; color: #c53030;
+      font-weight: 500; line-height: 1.4;
+    }
+    .field-error.on { display: block; }
+    #lgpd-wrap.error label { color: #c53030; }
+
+    input[type="hidden"] { display: none; }
+
+    /* ─── SUBMIT ─── */
+    .submit-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .form-trust {
+      text-align: center; font-size: 11.5px; color: var(--muted); line-height: 1.72; margin-top: 8px;
+    }
+    .form-trust small { display: block; font-size: 10.5px; color: #bbb; margin-top: 1px; }
+    .wa-fallback {
+      display: none; background: rgba(37,211,102,0.07);
+      border: 1px solid rgba(37,211,102,0.24); border-radius: 11px;
+      padding: 14px 16px; font-size: 13px; color: #1a7a3a;
+      text-align: center; line-height: 1.55;
+    }
+    .wa-fallback.on { display: block; }
+    .wa-fallback a { font-weight: 700; color: #1a7a3a; text-decoration: underline; }
+
+    /* ─── AVISO PRÉ-ENVIO ─── */
+    .wa-hint {
+      display: flex; align-items: flex-start; gap: 9px;
+      background: rgba(73,182,87,0.06); border: 1px solid rgba(73,182,87,0.20);
+      border-radius: 11px; padding: 12px 14px;
+      font-size: 12.5px; color: var(--green-forest); line-height: 1.65;
+    }
+    .wa-hint svg { flex-shrink: 0; width: 15px; height: 15px; stroke: var(--green-dark); stroke-width: 2; fill: none; display: block; margin-top: 1px; }
+
+    .form-note { text-align: center; font-size: 12px; color: #bbb; line-height: 1.6; margin-top: 14px; }
+    .form-note a { color: var(--green-dark); text-decoration: none; }
+    .form-note a:hover { text-decoration: underline; }
+
+    /* ─── SUCESSO ─── */
+    .form-success { display: none; text-align: center; padding: 36px 16px; }
+    .form-success.on { display: block; }
+    .success-ico {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(73,182,87,0.10); border: 2px solid rgba(73,182,87,0.22);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
+    }
+    .success-ico svg { width: 28px; height: 28px; stroke: var(--green-dark); stroke-width: 2.5; fill: none; }
+    .form-success h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .form-success p  { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+
+    /* ═══════════════════════════════════════
+       COMO FUNCIONA — 3 passos horizontais
+    ═══════════════════════════════════════ */
+    .steps-section { background: var(--white); border-top: 1px solid rgba(0,0,0,0.06); }
+    .steps-inner { max-width: 700px; margin: 0 auto; padding: 48px 20px; }
+    .steps-row {
+      display: flex; align-items: flex-start;
+      gap: 4px; margin-top: 28px;
+    }
+    .step {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      gap: 9px; text-align: center;
+    }
+    .step-num {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--green); color: var(--white);
+      font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 14px rgba(73,182,87,0.38); flex-shrink: 0;
+    }
+    .step-txt {
+      font-size: 11.5px; font-weight: 600; color: var(--ink);
+      line-height: 1.45;
+    }
+    .step-sub {
+      font-size: 10.5px; color: var(--muted); line-height: 1.45; margin-top: -4px;
+    }
+    .step-arr {
+      flex-shrink: 0; color: rgba(73,182,87,0.5); font-size: 16px;
+      margin-top: 11px; line-height: 1;
+    }
+    .steps-note {
+      margin-top: 20px; text-align: center;
+      font-size: 12.5px; color: var(--muted); line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       O QUE VOCÊ RECEBE — Kit
+    ═══════════════════════════════════════ */
+    .kit-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-top: 22px;
+    }
+    .kit-item {
+      background: var(--white); border-radius: 14px;
+      padding: 16px 14px; display: flex;
+      flex-direction: column; gap: 8px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--t-base), transform var(--t-base);
+    }
+    @media (hover: hover) {
+      .kit-item:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    }
+    .kit-ico {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(73,182,87,0.09); border: 1px solid rgba(73,182,87,0.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .kit-ico svg { width: 16px; height: 16px; stroke: var(--green-dark); stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .kit-item strong { display: block; font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .kit-item span   { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+    /* ─── FOTO EDITORIAL DO KIT ─── */
+    .kit-photo-wrap { padding: 28px 20px 0; max-width: 700px; margin: 0 auto; }
+    .kit-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 14px;
+      display: block;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ═══════════════════════════════════════
+       QUEM COMBINA
+    ═══════════════════════════════════════ */
+    .fits-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+    .fits-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; font-weight: 500; line-height: 1.5; }
+    .fits-note {
+      margin-top: 12px; background: rgba(73,182,87,0.06);
+      border: 1px solid rgba(73,182,87,0.17); border-radius: 12px;
+      padding: 14px 16px; font-size: 13px; color: var(--green-dark);
+      font-weight: 500; line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════ */
+    .faq-list { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+    .faq-item {
+      background: var(--white); border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.06); overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.22s, border-color 0.22s;
+    }
+    .faq-item.open { box-shadow: 0 4px 22px rgba(73,182,87,0.11); border-color: rgba(73,182,87,0.24); }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; padding: 16px 18px; background: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--ink); text-align: left; line-height: 1.35;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 14px; }
+    @media (hover: hover) { .faq-btn:hover { color: var(--green-dark); } }
+    .faq-chev {
+      flex-shrink: 0; width: 20px; height: 20px; color: #bbb;
+      transition: transform 0.32s cubic-bezier(.4,0,.2,1), color 0.22s;
+    }
+    .faq-item.open .faq-chev { transform: rotate(180deg); color: var(--green-dark); }
+    .faq-wrap { max-height: 0; overflow: hidden; transition: max-height 0.36s cubic-bezier(.4,0,.2,1); }
+    .faq-body { padding: 0 18px 18px; font-size: 13.5px; line-height: 1.74; color: var(--muted); }
+    .faq-body strong { color: var(--ink); }
+
+    /* ═══════════════════════════════════════
+       FINAL CTA BAND
+    ═══════════════════════════════════════ */
+    .final {
+      background: linear-gradient(135deg, var(--green-forest) 0%, #2d6b1c 100%);
+      padding: 56px 20px; text-align: center; color: var(--white);
+    }
+    .final h2 { margin-bottom: 10px; }
+    .final h2 .serif { color: #a8e6ae; }
+    .final p {
+      font-size: 14px; color: rgba(255,255,255,0.76); line-height: 1.65;
+      margin-bottom: 26px; max-width: 400px; margin-left: auto; margin-right: auto;
+    }
+    .final-note { font-size: 12px; color: rgba(255,255,255,0.42); margin-top: 12px; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      background: var(--green-forest); color: rgba(255,255,255,0.48);
+      padding: 28px 20px 36px; text-align: center; font-size: 11.5px; line-height: 1.85;
+    }
+    .footer a { color: rgba(255,255,255,0.60); text-decoration: none; }
+    .footer a:hover { color: var(--white); }
+    .footer-logo { height: 28px; width: auto; display: block; margin: 0 auto 12px; opacity: 0.50; }
+
+    /* ═══════════════════════════════════════
+       STICKY CTA — mobile
+    ═══════════════════════════════════════ */
+    .sticky {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: var(--white); border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 10px 20px; padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.10);
+    }
+    .sticky.on { display: block; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+
+    /* ─── Mobile body padding for sticky bar ─── */
+    @media (max-width: 639px) {
+      body { padding-bottom: 72px; }
+    }
+
+    /* ─── Tablet ─── */
+    @media (min-width: 640px) {
+      .wrap { padding: 0 28px; }
+      .hero-photo-col { padding: 14px 28px 0; }
+      .hero-inner { padding: 20px 28px 36px; }
+      .form-card { padding: 40px 40px 48px; }
+      .kit-photo-wrap { padding: 32px 28px 0; }
+      .steps-inner { padding: 56px 28px; }
+      .sticky { display: none !important; }
+    }
+
+    /* ─── Desktop: split hero — foto esquerda / copy direita ─── */
+    @media (min-width: 1024px) {
+      .section { padding: 72px 0; }
+
+      .hero {
+        flex-direction: row;
+        min-height: 100svh;
+        min-height: 100vh;
+        padding-top: 0;
+        overflow: hidden;
+        align-items: stretch;
+      }
+      .hero-photo-col {
+        flex: 0 0 48%;
+        overflow: hidden;
+        padding: 0; /* remove mobile padding */
+        height: 100%;
+      }
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: unset;
+        border-radius: 0;
+        box-shadow: none;
+        object-position: center 22%;
+      }
+      .hero-inner {
+        flex: 0 0 52%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 132px 64px 60px; /* 52px navbar + 80px respiro */
+        max-width: none;
+        margin: 0;
+      }
+
+      .kit-photo-wrap { padding: 32px 28px 0; }
+    }
+
+    @media (min-width: 1280px) {
+      .hero-inner { padding: 132px 80px 60px 72px; }
+    }
+
+    /* ─── Seções — backgrounds e overrides ─── */
+    #quem-combina { padding-top: 0; }
+    #faq { background: var(--white); }
+
+    /* ─── Focus & reduced motion ─── */
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      .fi { transition: none !important; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Navegação principal">
+    <a href="/" class="nav-logo" aria-label="Vivere — Página inicial">
+      <img src="/LOGO_V.jpeg" alt="Vivere" />
+    </a>
+    <a href="#formulario" class="btn btn-green btn-md nav-cta" data-ev="click_cta_nav">
+      Quero participar
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+       Mobile: imagem em cima, copy abaixo
+       Desktop: split (foto esquerda, copy direita)
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="inicio" aria-label="Programa de Criadores Vivere — Osório">
+
+    <!-- Foto: tira compacta no mobile, coluna full-height no desktop -->
+    <div class="hero-photo-col">
+      <img
+        class="hero-img"
+        src="/images/creators/embalagem_lasanha.jpeg"
+        alt="Embalagem Vivere — Lasanha Bolonhesa com Queijo Mussarela"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <div class="hero-inner">
+
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow">
+        <span class="eyebrow">
+          <span class="eyebrow-dot"></span>Programa Oficial · Vagas Limitadas
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-h1">
+        <span class="hero-h1-main">Seja um criador de conteúdo oficial da <span class="brand-name">Vivere</span></span>
+        <span class="hero-h1-sub serif">em Osório.</span>
+      </h1>
+
+      <!-- Sub -->
+      <p class="hero-sub">
+        Kit para Influenciador&nbsp;·&nbsp;Sem mínimo de seguidores&nbsp;·&nbsp;Leva 2 minutos
+      </p>
+
+      <!-- Checks 2×2 -->
+      <div class="hero-checks" aria-label="Detalhes do programa">
+        <div class="hero-check hero-check--hl">
+          <span class="hc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          + R$ 200 em produtos Vivere
+        </div>
+        <div class="hero-check">
+          <span class="hc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Sem custo nenhum
+        </div>
+        <div class="hero-check">
+          <span class="hc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Liberdade criativa total
+        </div>
+        <div class="hero-check">
+          <span class="hc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          1 mês · 5 stories
+        </div>
+      </div>
+
+      <!-- CTA principal + Instagram -->
+      <div class="hero-cta-row">
+        <a
+          href="#formulario"
+          class="btn btn-green btn-full btn-lg"
+          id="cta-hero"
+          data-ev="click_cta_hero"
+          aria-label="Quero me candidatar ao Programa Vivere"
+        >
+          Quero me candidatar
+        </a>
+        <a
+          href="https://instagram.com/viverealimentos"
+          class="btn-ig"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram oficial da Vivere — @viverealimentos"
+          data-ev="click_ig_hero"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-linecap="round" stroke-width="2.5"/>
+          </svg>
+          Siga a Vivere · @viverealimentos
+        </a>
+      </div>
+      <p class="hero-cta-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+        Leva menos de 2 minutos · Sem compromisso
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FORMULÁRIO
+  ═══════════════════════════════════════ -->
+  <section class="form-section" id="formulario" aria-labelledby="form-heading">
+    <div class="form-card">
+
+      <div class="form-header fi">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Candidatura</span>
+        <h2 id="form-heading" class="h2">
+          Você está a menos de<br />
+          <span class="serif">2 minutos de participar.</span>
+        </h2>
+        <p>A equipe entra em contato pelo WhatsApp em até 7 dias úteis.</p>
+      </div>
+
+      <!-- BARRA DE PROGRESSO -->
+      <div class="prog-wrap fi" aria-label="Progresso do formulário" role="progressbar"
+           aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="prog-region">
+        <div class="prog-meta">
+          <span class="prog-label">Seu cadastro</span>
+          <span class="prog-time">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            Menos de 2 minutos
+          </span>
+        </div>
+        <div class="prog-track"><div class="prog-bar" id="prog-bar"></div></div>
+        <div class="prog-status" id="prog-status" aria-live="polite">Preencha os campos abaixo</div>
+      </div>
+
+      <!-- FORMULÁRIO -->
+      <form id="creator-form" class="form-grid" novalidate aria-label="Formulário de candidatura">
+
+        <!-- Nome -->
+        <div class="fg">
+          <label class="flabel" for="f-nome">Nome completo</label>
+          <input type="text" id="f-nome" name="nome" class="finput"
+            placeholder="Seu nome" autocomplete="name" required aria-required="true"
+            aria-describedby="err-nome" />
+          <span class="field-error" id="err-nome" role="alert"></span>
+        </div>
+
+        <!-- Instagram -->
+        <div class="fg">
+          <label class="flabel" for="f-ig">Instagram</label>
+          <input type="text" id="f-ig" name="instagram" class="finput"
+            placeholder="@seu.perfil" autocomplete="off"
+            required aria-required="true"
+            aria-describedby="err-ig" />
+          <span class="field-error" id="err-ig" role="alert"></span>
+        </div>
+
+        <!-- WhatsApp + Seguidores -->
+        <div class="row-2">
+          <div class="fg">
+            <label class="flabel" for="f-wa">WhatsApp</label>
+            <input type="tel" id="f-wa" name="whatsapp" class="finput"
+              placeholder="(51) 99999-9999" autocomplete="tel" inputmode="tel"
+              required aria-required="true"
+              aria-describedby="err-wa" />
+            <span class="field-error" id="err-wa" role="alert"></span>
+          </div>
+          <div class="fg">
+            <label class="flabel" for="f-seg">Seguidores</label>
+            <div class="fselect-w">
+              <select id="f-seg" name="seguidores" class="fselect finput"
+                required aria-required="true"
+                aria-describedby="err-seg">
+                <option value="" disabled selected>Faixa</option>
+                <option value="menos-500">Menos de 500</option>
+                <option value="500-2k">500 a 2.000</option>
+                <option value="2k-5k">2.000 a 5.000</option>
+                <option value="5k-10k">5.000 a 10.000</option>
+                <option value="10k-50k">10.000 a 50.000</option>
+                <option value="mais-50k">Mais de 50.000</option>
+              </select>
+            </div>
+            <span class="field-error" id="err-seg" role="alert"></span>
+          </div>
+        </div>
+
+        <!-- Categoria -->
+        <div class="fg">
+          <label class="flabel" for="f-cat">Categoria do conteúdo</label>
+          <div class="fselect-w">
+            <select id="f-cat" name="categoria" class="fselect finput"
+              required aria-required="true"
+              aria-describedby="err-cat">
+              <option value="" disabled selected>Selecione a principal categoria</option>
+              <option value="rotina">Rotina do dia a dia</option>
+              <option value="alimentacao">Alimentação e saúde</option>
+              <option value="familia">Família e maternidade</option>
+              <option value="academia">Academia e fitness</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="beleza">Beleza e moda</option>
+              <option value="organizacao">Organização e produtividade</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <span class="field-error" id="err-cat" role="alert"></span>
+        </div>
+
+        <!-- LGPD -->
+        <div class="lgpd" id="lgpd-wrap">
+          <input type="checkbox" id="f-lgpd" name="lgpd" required aria-required="true"
+            aria-describedby="err-lgpd" />
+          <div>
+            <label for="f-lgpd">
+              Concordo que a Vivere use meus dados para análise do perfil e comunicação sobre o programa. Seus dados são tratados com segurança e nunca compartilhados com terceiros.
+            </label>
+            <span class="field-error" id="err-lgpd" role="alert"></span>
+          </div>
+        </div>
+
+        <!-- ─── CAMPOS OCULTOS (UTM + contexto) ─── -->
+        <input type="hidden" id="h-src"   name="utm_source"   />
+        <input type="hidden" id="h-med"   name="utm_medium"   />
+        <input type="hidden" id="h-cmp"   name="utm_campaign" />
+        <input type="hidden" id="h-cnt"   name="utm_content"  />
+        <input type="hidden" id="h-trm"   name="utm_term"     />
+        <input type="hidden" id="h-ref"   name="referer"      />
+        <input type="hidden" id="h-ua"    name="user_agent"   />
+        <input type="hidden" id="h-dt"    name="data_hora"    />
+        <input type="hidden" id="h-dev"   name="device"       />
+        <input type="hidden" id="h-scr"   name="screen"       />
+        <input type="hidden" id="h-url"   name="page_url"     />
+
+        <!-- SUBMIT -->
+        <div class="submit-wrap">
+          <div class="wa-hint" role="note">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>Ao clicar no botão abaixo, o WhatsApp será aberto com sua candidatura preenchida automaticamente. Para concluir sua inscrição, toque em <strong>Enviar</strong> na conversa.</span>
+          </div>
+          <button type="submit" class="btn btn-green btn-lg btn-full" id="submit-btn"
+                  aria-label="Continuar no WhatsApp para enviar sua candidatura">
+            <span id="btn-txt">Continuar no WhatsApp</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+          <div class="wa-fallback" id="wa-fallback" aria-live="polite">
+            Problema ao abrir?
+            <a href="#" id="wa-fallback-link" target="_blank" rel="noopener noreferrer" data-ev="click_wa">Abrir WhatsApp manualmente</a>.
+          </div>
+        </div>
+
+      </form>
+
+      <!-- ESTADO PÓS-CLIQUE -->
+      <div class="form-success" id="form-success" aria-live="polite" aria-atomic="true">
+        <div class="success-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3>Falta só um passo!</h3>
+        <p>
+          O WhatsApp foi aberto com sua candidatura preenchida automaticamente.<br />
+          Toque em <strong>Enviar</strong> na conversa para concluir sua inscrição.
+        </p>
+        <a href="#" id="wa-reopen" class="btn btn-green btn-md" target="_blank"
+           rel="noopener noreferrer" style="margin-top:20px;">
+          Abrir WhatsApp novamente
+        </a>
+      </div>
+
+      <p class="form-note">
+        Dúvidas? <a href="#" id="wa-duvidas" target="_blank" rel="noopener noreferrer" data-ev="click_wa">Fale pelo WhatsApp</a>
+      </p>
+
+      <p class="form-trust">
+        Sem custo · Sem compromisso · Dados protegidos
+        <small>Empresa registrada · CNPJ 66.705.927/0001-35</small>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       COMO FUNCIONA — 3 passos
+  ═══════════════════════════════════════ -->
+  <section class="steps-section" id="como-funciona" aria-labelledby="steps-heading">
+    <div class="steps-inner">
+
+      <div class="fi">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Como funciona</span>
+        <h2 id="steps-heading" class="h2" style="margin-top:10px;">
+          Do cadastro ao kit<br />
+          <span class="serif">na sua porta.</span>
+        </h2>
+      </div>
+
+      <div class="steps-row fi" aria-label="Etapas do programa">
+        <div class="step">
+          <div class="step-num" aria-label="Passo 1">1</div>
+          <p class="step-txt">Você se candidata</p>
+          <p class="step-sub">Menos de 2 minutos</p>
+        </div>
+        <span class="step-arr" aria-hidden="true">→</span>
+        <div class="step">
+          <div class="step-num" aria-label="Passo 2">2</div>
+          <p class="step-txt">Analisamos seu perfil</p>
+          <p class="step-sub">Em até 7 dias úteis</p>
+        </div>
+        <span class="step-arr" aria-hidden="true">→</span>
+        <div class="step">
+          <div class="step-num" aria-label="Passo 3">3</div>
+          <p class="step-txt">Kit chega até você</p>
+          <p class="step-sub">Você compartilha</p>
+        </div>
+      </div>
+
+      <p class="steps-note fi">
+        Sem script · Sem meta de alcance · Sem exclusividade · Do seu jeito
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       O QUE VOCÊ RECEBE
+  ═══════════════════════════════════════ -->
+  <section class="section" id="kit" aria-labelledby="kit-heading">
+    <div class="wrap">
+
+      <div class="fi">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>O que você recebe</span>
+        <h2 id="kit-heading" class="h2" style="margin-top:10px;">
+          Seu kit chega<br />
+          <span class="serif">sem custo nenhum.</span>
+        </h2>
+        <p class="sub">Preparado com cuidado, com o seu nome. Para você viver a experiência antes de todo Osório.</p>
+      </div>
+
+      <div class="kit-grid">
+        <div class="kit-item fi fi-d1">
+          <span class="kit-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </span>
+          <strong>+ R$ 200 em produtos da Vivere</strong>
+          <span>Pratos premium entregues direto na sua porta</span>
+        </div>
+        <div class="kit-item fi fi-d1">
+          <span class="kit-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </span>
+          <strong>Você faz história em Osório</strong>
+          <span>Seja um dos primeiros criadores oficiais da Vivere na cidade</span>
+        </div>
+        <div class="kit-item fi fi-d2">
+          <span class="kit-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <strong>Grupo exclusivo</strong>
+          <span>Com outros criadores e a equipe Vivere</span>
+        </div>
+        <div class="kit-item fi fi-d2">
+          <span class="kit-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </span>
+          <strong>Cupons, parcerias e muito mais</strong>
+          <span>Criadores ativos ganham cupons exclusivos, produtos e parcerias contínuas</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Foto editorial — criador usando o produto -->
+    <div class="kit-photo-wrap fi">
+      <img
+        class="kit-photo"
+        src="/images/creators/creator-eating.jpg"
+        alt="Criadora de conteúdo experimentando marmita Vivere no dia a dia"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       QUEM COMBINA
+  ═══════════════════════════════════════ -->
+  <section class="section" id="quem-combina" aria-labelledby="fits-heading">
+    <div class="wrap">
+
+      <div class="fi">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Quem combina</span>
+        <h2 id="fits-heading" class="h2" style="margin-top:10px;">
+          Você provavelmente<br />
+          <span class="serif">combina se…</span>
+        </h2>
+        <p class="sub">Não existe mínimo de seguidores. Autenticidade é o único critério real.</p>
+      </div>
+
+      <ul class="fits-list fi" style="margin-top:20px;">
+        <li>
+          <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Mora em Osório ou na região
+        </li>
+        <li>
+          <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Gosta de compartilhar sua rotina no Instagram
+        </li>
+        <li>
+          <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Se interessa por alimentação saudável e prática
+        </li>
+        <li>
+          <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Valoriza praticidade e bem-estar no dia a dia
+        </li>
+        <li>
+          <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Mostra a vida real — sem filtros excessivos
+        </li>
+      </ul>
+
+      <div class="fits-note fi">
+        Autenticidade pesa muito mais que alcance ou número de seguidores.
+        Perfis com 300 seguidores podem ser selecionados.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════ -->
+  <section class="section" id="faq" aria-labelledby="faq-heading">
+    <div class="wrap">
+
+      <div class="fi">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Dúvidas</span>
+        <h2 id="faq-heading" class="h2" style="margin-top:10px;">
+          Temos as respostas.
+        </h2>
+      </div>
+
+      <div class="faq-list fi" aria-label="Perguntas frequentes">
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false" aria-controls="fq1" id="fq-btn-1">
+            Preciso pagar alguma coisa?
+            <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-wrap" id="fq1" role="region" aria-labelledby="fq-btn-1">
+            <div class="faq-body">
+              <strong>Não. Absolutamente zero.</strong> O kit é o investimento da Vivere para chegar bem em Osório.
+              Você não paga nada — em nenhum momento do processo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false" aria-controls="fq2" id="fq-btn-2">
+            Tenho poucos seguidores. Posso participar?
+            <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-wrap" id="fq2" role="region" aria-labelledby="fq-btn-2">
+            <div class="faq-body">
+              <strong>Sim.</strong> Não existe mínimo de seguidores. Olhamos para a
+              <strong>autenticidade do conteúdo</strong> e a conexão com sua audiência —
+              mesmo que seja pequena. Perfis com 300 seguidores podem ser selecionados.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false" aria-controls="fq3" id="fq-btn-3">
+            Vou receber dinheiro em espécie?
+            <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-wrap" id="fq3" role="region" aria-labelledby="fq-btn-3">
+            <div class="faq-body">
+              Nesta etapa, o investimento vai diretamente para você em forma de produtos
+              — o kit com as marmitas. A possibilidade de outros formatos de parceria
+              existe para quem continuar no programa.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false" aria-controls="fq4" id="fq-btn-4">
+            Quanto tempo dura e o que é obrigatório?
+            <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-wrap" id="fq4" role="region" aria-labelledby="fq-btn-4">
+            <div class="faq-body">
+              <strong>1 mês.</strong> 5 stories e 1 reels em collab com a Vivere.
+              Sem prazo rígido, sem exclusividade, sem metas de alcance.
+              Só pedimos conteúdo genuíno — do jeito que você sempre faz.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FINAL CTA BAND
+  ═══════════════════════════════════════ -->
+  <div class="final">
+    <div class="wrap">
+      <h2 class="h2">
+        Estamos formando<br />
+        <span class="serif">a primeira turma.</span>
+      </h2>
+      <p>As vagas são limitadas. Se candidata em menos de 2 minutos e faça parte dos primeiros criadores Vivere em Osório.</p>
+      <a href="#formulario" class="btn btn-white btn-lg" data-ev="click_cta_final">
+        Quero participar agora
+      </a>
+      <div class="final-note">Sem custo · Sem mínimo de seguidores · Leva menos de 2 minutos</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="/" aria-label="Vivere — Página inicial">
+      <img src="/LOGO_V.jpeg" alt="Vivere" class="footer-logo" loading="lazy" />
+    </a>
+    <p>Vivere Comércio de Alimentos · CNPJ 66.705.927/0001-35</p>
+    <p>R. Sezefredo da Costa Tôrres, 373, Centro, Santo Antônio da Patrulha/RS</p>
+    <p style="margin-top:6px;">
+      <a href="/">Página inicial</a> · <a href="/nutricional.html">Informações Nutricionais</a>
+    </p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       STICKY CTA — mobile
+  ═══════════════════════════════════════ -->
+  <div class="sticky" id="sticky-cta" aria-hidden="true" role="complementary"
+       aria-label="Atalho para candidatura">
+    <a href="#formulario" class="btn btn-green btn-lg btn-full"
+       data-ev="click_cta_sticky" tabindex="-1">
+      Quero participar →
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ═══════════════════════════════════════
+       CONFIGURAÇÃO
+    ═══════════════════════════════════════ */
+    const FORM_ENDPOINT = '[APPS_SCRIPT_URL]'; /* ← Cole aqui a URL do Google Apps Script */
+    const WA_NUMBER     = '5551980889884';
+
+    /* ═══════════════════════════════════════
+       UTM & CONTEXTO
+    ═══════════════════════════════════════ */
+    function qp(k) { return new URLSearchParams(window.location.search).get(k) || ''; }
+
+    function device() {
+      var ua = navigator.userAgent;
+      if (/tablet|ipad|playbook|silk/i.test(ua))                                   return 'tablet';
+      if (/mobile|iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(ua)) return 'mobile';
+      return 'desktop';
+    }
+
+    (function fillHidden() {
+      document.getElementById('h-src').value = qp('utm_source');
+      document.getElementById('h-med').value = qp('utm_medium');
+      document.getElementById('h-cmp').value = qp('utm_campaign');
+      document.getElementById('h-cnt').value = qp('utm_content');
+      document.getElementById('h-trm').value = qp('utm_term');
+      document.getElementById('h-ref').value = document.referrer;
+      document.getElementById('h-ua').value  = navigator.userAgent;
+      document.getElementById('h-dt').value  = new Date().toISOString();
+      document.getElementById('h-dev').value = device();
+      document.getElementById('h-scr').value = screen.width + 'x' + screen.height;
+      document.getElementById('h-url').value = location.href;
+    })();
+
+    /* ═══════════════════════════════════════
+       FAQ — acordeão (uma por vez)
+    ═══════════════════════════════════════ */
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var btn  = item.querySelector('.faq-btn');
+      var wrap = item.querySelector('.faq-wrap');
+      var body = item.querySelector('.faq-body');
+
+      btn.addEventListener('click', function () {
+        var open = item.classList.contains('open');
+
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+          i.querySelector('.faq-wrap').style.maxHeight = '0';
+        });
+
+        if (!open) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          wrap.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ═══════════════════════════════════════
+       FADE-IN — IntersectionObserver
+    ═══════════════════════════════════════ */
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el    = e.target;
+          var delay = 0;
+          if (el.classList.contains('fi-d1')) delay = 70;
+          if (el.classList.contains('fi-d2')) delay = 140;
+          if (el.classList.contains('fi-d3')) delay = 210;
+          setTimeout(function () { el.classList.add('on'); }, delay);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('.fi').forEach(function (el) { io.observe(el); });
+    } else {
+      document.querySelectorAll('.fi').forEach(function (el) { el.classList.add('on'); });
+    }
+
+    /* ═══════════════════════════════════════
+       STICKY CTA — aparece quando hero sai de vista
+    ═══════════════════════════════════════ */
+    var sticky = document.getElementById('sticky-cta');
+    var hero   = document.getElementById('inicio');
+
+    if (sticky && hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        var vis = en[0].isIntersecting;
+        sticky.classList.toggle('on', !vis);
+        sticky.setAttribute('aria-hidden', vis ? 'true' : 'false');
+        sticky.querySelector('a').setAttribute('tabindex', vis ? '-1' : '0');
+      }, { threshold: 0.1 }).observe(hero);
+    }
+
+    /* ═══════════════════════════════════════
+       BARRA DE PROGRESSO DO FORMULÁRIO
+    ═══════════════════════════════════════ */
+    var form       = document.getElementById('creator-form');
+    var progBar    = document.getElementById('prog-bar');
+    var progStatus = document.getElementById('prog-status');
+    var progRegion = document.getElementById('prog-region');
+    var required   = form.querySelectorAll('[required]');
+
+    function updateProg() {
+      var filled = 0;
+      required.forEach(function (f) {
+        filled += f.type === 'checkbox' ? (f.checked ? 1 : 0) : (f.value.trim() ? 1 : 0);
+      });
+      var pct  = Math.round(filled / required.length * 100);
+      var left = required.length - filled;
+      progBar.style.width = pct + '%';
+      progRegion.setAttribute('aria-valuenow', pct);
+      if (pct >= 100) {
+        progStatus.textContent = 'Pronto para enviar!';
+        progStatus.style.color = 'var(--green-dark)';
+      } else if (!filled) {
+        progStatus.textContent = 'Preencha os campos abaixo';
+        progStatus.style.color = '';
+      } else {
+        progStatus.textContent = left + ' campo' + (left > 1 ? 's' : '') + ' restante' + (left > 1 ? 's' : '');
+        progStatus.style.color = '';
+      }
+    }
+
+    required.forEach(function (f) {
+      f.addEventListener('input',  updateProg);
+      f.addEventListener('change', updateProg);
+    });
+
+    /* ═══════════════════════════════════════
+       WHATSAPP — links de dúvidas
+    ═══════════════════════════════════════ */
+    document.getElementById('wa-duvidas').href =
+      'https://wa.me/' + WA_NUMBER + '?text=' +
+      encodeURIComponent('Olá! Tenho uma dúvida sobre o Programa de Criadores Vivere em Osório.');
+
+    /* ═══════════════════════════════════════
+       VALIDAÇÃO
+    ═══════════════════════════════════════ */
+    var errorMsgs = {
+      'f-nome': 'Informe seu nome completo.',
+      'f-ig':   'Informe seu @ do Instagram.',
+      'f-wa':   'Informe seu número de WhatsApp.',
+      'f-seg':  'Selecione a faixa de seguidores.',
+      'f-cat':  'Selecione a categoria do seu conteúdo.',
+      'f-lgpd': 'Você precisa aceitar os termos para continuar.'
+    };
+    var errorSpanIds = {
+      'f-nome': 'err-nome', 'f-ig': 'err-ig', 'f-wa': 'err-wa',
+      'f-seg': 'err-seg', 'f-cat': 'err-cat', 'f-lgpd': 'err-lgpd'
+    };
+
+    function showFieldError(id, msg) {
+      var el = document.getElementById(id);
+      var sp = document.getElementById(errorSpanIds[id]);
+      if (el) el.classList.add('error');
+      if (id === 'f-lgpd') {
+        var wrap = document.getElementById('lgpd-wrap');
+        if (wrap) wrap.classList.add('error');
+      }
+      if (sp) { sp.textContent = msg; sp.classList.add('on'); }
+    }
+
+    function clearFieldError(id) {
+      var el = document.getElementById(id);
+      var sp = document.getElementById(errorSpanIds[id]);
+      if (el) el.classList.remove('error');
+      if (id === 'f-lgpd') {
+        var wrap = document.getElementById('lgpd-wrap');
+        if (wrap) wrap.classList.remove('error');
+      }
+      if (sp) { sp.textContent = ''; sp.classList.remove('on'); }
+    }
+
+    function validateForm() {
+      var ok = true;
+      var first = null;
+
+      var nome = document.getElementById('f-nome').value.trim();
+      if (!nome || nome.length < 2) {
+        showFieldError('f-nome', errorMsgs['f-nome']);
+        if (!first) first = document.getElementById('f-nome');
+        ok = false;
+      } else { clearFieldError('f-nome'); }
+
+      var ig = document.getElementById('f-ig').value.trim();
+      if (!ig) {
+        showFieldError('f-ig', errorMsgs['f-ig']);
+        if (!first) first = document.getElementById('f-ig');
+        ok = false;
+      } else { clearFieldError('f-ig'); }
+
+      var waVal   = document.getElementById('f-wa').value.trim();
+      var waDigits = waVal.replace(/\D/g, '');
+      if (!waVal || waDigits.length < 10) {
+        showFieldError('f-wa', waDigits.length > 0 ? 'Número incompleto. Verifique o DDD.' : errorMsgs['f-wa']);
+        if (!first) first = document.getElementById('f-wa');
+        ok = false;
+      } else { clearFieldError('f-wa'); }
+
+      var seg = document.getElementById('f-seg').value;
+      if (!seg) {
+        showFieldError('f-seg', errorMsgs['f-seg']);
+        if (!first) first = document.getElementById('f-seg');
+        ok = false;
+      } else { clearFieldError('f-seg'); }
+
+      var cat = document.getElementById('f-cat').value;
+      if (!cat) {
+        showFieldError('f-cat', errorMsgs['f-cat']);
+        if (!first) first = document.getElementById('f-cat');
+        ok = false;
+      } else { clearFieldError('f-cat'); }
+
+      var lgpdEl = document.getElementById('f-lgpd');
+      if (!lgpdEl.checked) {
+        showFieldError('f-lgpd', errorMsgs['f-lgpd']);
+        if (!first) first = lgpdEl;
+        ok = false;
+      } else { clearFieldError('f-lgpd'); }
+
+      if (!ok && first) {
+        first.focus();
+        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return ok;
+    }
+
+    /* ─── Limpar erros ao digitar / selecionar ─── */
+    ['f-nome', 'f-ig', 'f-wa'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function () { clearFieldError(id); });
+    });
+    ['f-seg', 'f-cat'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('change', function () { clearFieldError(id); });
+    });
+    document.getElementById('f-lgpd').addEventListener('change', function () {
+      clearFieldError('f-lgpd');
+    });
+
+    /* ═══════════════════════════════════════
+       MENSAGEM WHATSAPP
+    ═══════════════════════════════════════ */
+    function buildWAMessage(fd) {
+      var nome = fd.get('nome') || '-';
+      var ig   = fd.get('instagram') || '';
+      if (ig && ig.charAt(0) !== '@') ig = '@' + ig;
+      if (!ig) ig = '-';
+
+      var segEl   = document.getElementById('f-seg');
+      var catEl   = document.getElementById('f-cat');
+      var segText = (segEl && segEl.selectedIndex >= 0) ? segEl.options[segEl.selectedIndex].text : (fd.get('seguidores') || '-');
+      var catText = (catEl && catEl.selectedIndex >= 0) ? catEl.options[catEl.selectedIndex].text : (fd.get('categoria') || '-');
+
+      var msg = [
+        '*NOVA CANDIDATURA*',
+        'Programa de Criadores Vivere - Osorio/RS',
+        '',
+        'Nome:',
+        nome,
+        '',
+        'Instagram:',
+        ig,
+        '',
+        'WhatsApp:',
+        fd.get('whatsapp') || '-',
+        '',
+        'Seguidores:',
+        segText,
+        '',
+        'Categoria:',
+        catText,
+        '',
+        'Enviado pela Landing Page Vivere.'
+      ].join('\n');
+
+      return encodeURIComponent(msg);
+    }
+
+    /* ─── Fallback legacy (mantido para o link de fallback) ─── */
+    function buildWA(fd) {
+      return encodeURIComponent([
+        '*Candidatura — Criadores Vivere Osório*', '',
+        '👤 *Nome:* '       + (fd.get('nome')       || '—'),
+        '📸 *Instagram:* '  + (fd.get('instagram')  || '—'),
+        '📱 *WhatsApp:* '   + (fd.get('whatsapp')   || '—'),
+        '👥 *Seguidores:* ' + (fd.get('seguidores') || '—'),
+        '🎯 *Categoria:* '  + (fd.get('categoria')  || '—'),
+        '', '📊 *UTMs:*',
+        'Source: '   + (fd.get('utm_source')   || '—'),
+        'Medium: '   + (fd.get('utm_medium')   || '—'),
+        'Campaign: ' + (fd.get('utm_campaign') || '—'),
+      ].join('\n'));
+    }
+
+    /* ═══════════════════════════════════════
+       FORMULÁRIO — submit
+    ═══════════════════════════════════════ */
+    var formSuccess  = document.getElementById('form-success');
+    var waFallback   = document.getElementById('wa-fallback');
+    var waFallbackLk = document.getElementById('wa-fallback-link');
+    var submitBtn    = document.getElementById('submit-btn');
+    var btnTxt       = document.getElementById('btn-txt');
+    var formNote     = document.querySelector('.form-note');
+    var formTrust    = document.querySelector('.form-trust');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) return;
+
+      document.getElementById('h-dt').value = new Date().toISOString();
+
+      var fd     = new FormData(form);
+      var waMsg  = buildWAMessage(fd);
+      var waUrl  = 'https://wa.me/' + WA_NUMBER + '?text=' + waMsg;
+
+      waFallbackLk.href = 'https://wa.me/' + WA_NUMBER + '?text=' + buildWA(fd);
+
+      var waReopen = document.getElementById('wa-reopen');
+      if (waReopen) waReopen.href = waUrl;
+
+      /* Abre WhatsApp — acionado por gesto do usuário, não será bloqueado */
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      showSuccess();
+
+      /* Envio silencioso ao endpoint se configurado */
+      if (FORM_ENDPOINT !== '[APPS_SCRIPT_URL]') {
+        fetch(FORM_ENDPOINT, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
+          .catch(function () { /* WA já foi aberto — falha silenciosa */ });
+      }
+    });
+
+    function showSuccess() {
+      form.style.display = 'none';
+      if (formNote)  formNote.style.display  = 'none';
+      if (formTrust) formTrust.style.display = 'none';
+      formSuccess.classList.add('on');
+      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showFallback() {
+      submitBtn.disabled = false;
+      btnTxt.textContent = 'Tentar novamente';
+      waFallback.classList.add('on');
+      waFallback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+  })();
+  </script>
+
+</body>
+</html>
