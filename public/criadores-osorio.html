@@ -28,6 +28,21 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Vivere","url":"https://vivere.com.br","logo":"https://vivere.com.br/LOGO_V.jpeg","description":"Marmitas congeladas premium. Comida de verdade, prática e saudável.","address":{"@type":"PostalAddress","streetAddress":"R. Sezefredo da Costa Tôrres, 373","addressLocality":"Santo Antônio da Patrulha","addressRegion":"RS","postalCode":"95500-000","addressCountry":"BR"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Vivere — Criadores de Conteúdo Osório","description":"Programa de criadores de conteúdo para a expansão da Vivere em Osório/RS.","url":"https://vivere.com.br/criadores-osorio","areaServed":"Osório, RS, Brasil"}</script>
 
+  <!-- ─── META PIXEL ─── -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1503053695196978');
+    fbq('track','PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1503053695196978&ev=PageView&noscript=1" />
+  </noscript>
+
   <!-- ─── FONTES ─── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1301,6 +1316,14 @@
       'https://wa.me/' + WA_NUMBER + '?text=' +
       encodeURIComponent('Olá! Tenho uma dúvida sobre o Programa de Criadores Vivere em Osório.');
 
+    /* ─── Meta Pixel — HeroCTA ─── */
+    var ctaHero = document.getElementById('cta-hero');
+    if (ctaHero) {
+      ctaHero.addEventListener('click', function () {
+        if (typeof fbq === 'function') fbq('trackCustom', 'HeroCTA');
+      });
+    }
+
     /* ═══════════════════════════════════════
        VALIDAÇÃO
     ═══════════════════════════════════════ */
@@ -1487,6 +1510,9 @@
 
       var waReopen = document.getElementById('wa-reopen');
       if (waReopen) waReopen.href = waUrl;
+
+      /* Meta Pixel — Lead (antes de abrir o WhatsApp) */
+      if (typeof fbq === 'function') fbq('track', 'Lead');
 
       /* Abre WhatsApp — acionado por gesto do usuário, não será bloqueado */
       window.open(waUrl, '_blank', 'noopener,noreferrer');
