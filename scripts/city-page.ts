@@ -20,6 +20,18 @@ const brl = (v: number) => v.toFixed(2).replace('.', ',')
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+/**
+ * WhatsApp já com a cidade escrita na mensagem. Quem chega por uma página de
+ * cidade quase sempre quer perguntar sobre a entrega naquela cidade — não
+ * faz sentido abrir uma conversa em branco e o atendimento ter que perguntar.
+ */
+function whatsappCidade(link: string, city: City): string {
+  const texto = city.onRequest
+    ? `Olá! Gostaria de combinar a data de entrega ${city.inName}.`
+    : `Olá! Gostaria de saber mais sobre a entrega ${city.inName}.`
+  return `${link}?text=${encodeURIComponent(texto)}`
+}
+
 function cardapioUrl(link: string, slug: string, productId?: string) {
   const url = new URL(link)
   url.searchParams.set('utm_source', 'landing')
@@ -151,9 +163,7 @@ export function renderCityPage(city: City, d: Data): string {
     )
     .join('')
 
-  const linksCidades = outras
-    .map((c) => `<a href="/${c.slug}">${esc(c.name)}</a>`)
-    .join('')
+  const linksCidades = outras.map((c) => `<a href="/${c.slug}">${esc(c.name)}</a>`).join('')
 
   const entregaLinha = city.onRequest
     ? `<strong>Data combinada no WhatsApp</strong><span>depois do pedido</span>`
@@ -222,7 +232,7 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
 
       <div class="hero-cta">
         <a class="btn btn-lg" href="${esc(cardapioUrl(d.cardapioLink, city.slug))}" target="_blank" rel="noopener">Ver cardápio e pedir</a>
-        <a class="btn btn-ghost btn-lg" href="${esc(d.whatsappLink)}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost btn-lg" href="${esc(whatsappCidade(d.whatsappLink, city))}" target="_blank" rel="noopener">${city.onRequest ? 'Combinar entrega no WhatsApp' : 'Falar no WhatsApp'}</a>
       </div>
     </div>
   </section>
@@ -260,6 +270,11 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
       <p>O pedido é fechado no nosso cardápio online: é lá que você escolhe cada sabor, marca a data da entrega ${esc(city.inName)} e paga. Aqui você conhece os pratos, as promoções e a marca — lá você finaliza.</p>
       <a class="btn btn-white btn-lg" href="${esc(cardapioUrl(d.cardapioLink, city.slug))}" target="_blank" rel="noopener">Ir para o cardápio e montar meu pedido</a>
       <p class="cta-note">Pedidos 24h por dia · combos a partir de R$ ${brl(cheapest)}<sup>*</sup> por marmita</p>
+      ${
+        city.onRequest
+          ? `<p class="cta-note"><a class="link-zap" href="${esc(whatsappCidade(d.whatsappLink, city))}" target="_blank" rel="noopener">Prefere combinar a entrega antes? Fale com a gente no WhatsApp</a></p>`
+          : ''
+      }
     </div>
   </section>
 </main>
@@ -273,6 +288,11 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
     <a class="link-quiet" href="/">Ver o site completo da Vivere</a>
   </div>
 </footer>
+
+<a class="zap-fixo" href="${esc(whatsappCidade(d.whatsappLink, city))}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp da Vivere">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.2.3 0 .5.2.3.7 1.2 1.6 2 1.1.9 1.9 1.2 2.2 1.3.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3Z"/></svg>
+  <span>Dúvidas?</span>
+</a>
 </body>
 </html>
 `
@@ -388,4 +408,10 @@ sup{font-size:.55em;font-family:Inter,sans-serif;font-weight:600;vertical-align:
 
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+.link-zap{color:rgba(255,255,255,.8);text-decoration:underline;text-underline-offset:3px}
+.link-zap:hover{color:#fff}
+.zap-fixo{position:fixed;right:16px;bottom:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:var(--deep);color:#fff;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12)}
+.zap-fixo:hover{background:var(--forest)}
+.zap-fixo svg{color:var(--moss);flex:none}
 `

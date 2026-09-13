@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { MessageCircle } from 'lucide-react'
 import { OrderLink, WhatsAppLink } from '@/components/ui/OrderLink'
 import { WORDMARK_ALT, WORDMARK_FOREST } from '@/lib/brand'
-import { WHATSAPP_LINK } from '@/lib/constants'
+import { WHATSAPP_HELLO_LINK } from '@/lib/constants'
 import { cn } from '@/lib/cn'
 
 const LINKS = [
@@ -72,7 +72,7 @@ export function StickyHeader() {
         <div className="flex items-center gap-2">
           <WhatsAppLink
             source="header-fixo"
-            href={WHATSAPP_LINK}
+            href={WHATSAPP_HELLO_LINK}
             aria-label="Falar no WhatsApp"
             tabIndex={visible ? undefined : -1}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 text-green-forest transition-colors hover:bg-green-forest/5"

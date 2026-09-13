@@ -3,7 +3,7 @@ import { Eyebrow } from '@/components/ui/Badge'
 import { HeroGallery } from '@/components/Hero/HeroGallery'
 import { OrderLink, WhatsAppLink } from '@/components/ui/OrderLink'
 import { BEST_UNIT_PRICE, UNIT_PRICE_NOTE_SHORT } from '@/lib/combos'
-import { INSTAGRAM_LINK, WHATSAPP_LINK } from '@/lib/constants'
+import { INSTAGRAM_LINK, WHATSAPP_HELLO_LINK } from '@/lib/constants'
 import { WORDMARK_ALT, WORDMARK_WHITE } from '@/lib/brand'
 import { FREIGHT } from '@/lib/delivery'
 import { formatBRL } from '@/lib/meals'
@@ -40,7 +40,7 @@ export function Hero() {
             </a>
             <WhatsAppLink
               source="header"
-              href={WHATSAPP_LINK}
+              href={WHATSAPP_HELLO_LINK}
               aria-label="Falar no WhatsApp"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/85 transition-colors hover:bg-white/10"
             >

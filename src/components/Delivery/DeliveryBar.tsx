@@ -95,16 +95,20 @@ export function DeliveryBar() {
             </WhatsAppLink>
           </div>
 
+          {/* Estas três cidades não têm dia fixo, então o passo útil aqui é
+              falar com o atendimento — não abrir mais uma página. Cada botão
+              já abre o WhatsApp com a cidade escrita na mensagem. */}
           <div className="flex flex-wrap gap-2 border-t border-dashed border-green/20 pt-3.5">
             {ON_REQUEST.map((city) => (
-              <a
+              <WhatsAppLink
                 key={city.slug}
-                href={`/${city.slug}`}
-                className="inline-flex items-center gap-1 rounded-full border border-ink/[.09] bg-white px-3.5 py-1.5 text-[12px] font-medium text-neutral transition-colors hover:border-green/40 hover:text-green-forest"
+                source={`entregas-${city.slug}`}
+                href={whatsappLink(`Olá! Gostaria de saber mais sobre a entrega ${city.inName}.`)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-ink/[.09] bg-white px-3.5 py-1.5 text-[12px] font-medium text-neutral transition-colors hover:border-green/40 hover:text-green-forest"
               >
+                <MessageCircle size={12} className="text-green-dark" aria-hidden="true" />
                 Entrega em {city.name}
-                <ArrowUpRight size={12} aria-hidden="true" />
-              </a>
+              </WhatsAppLink>
             ))}
           </div>
         </div>

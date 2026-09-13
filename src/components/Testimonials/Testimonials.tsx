@@ -138,11 +138,12 @@ export function Testimonials() {
                   setIndex(i)
                   setManual(true)
                 }}
+                /* O botão tem 44 px mesmo quando o avatar é menor: é o alvo de
+                   toque mínimo confortável no celular. O anel de seleção fica
+                   na foto, não no botão. */
                 className={cn(
-                  'flex-none rounded-full transition-all duration-300',
-                  i === index
-                    ? 'ring-2 ring-green ring-offset-2 ring-offset-sand'
-                    : 'opacity-55 hover:opacity-100',
+                  'flex h-11 w-11 flex-none items-center justify-center rounded-full transition-all duration-300',
+                  i === index ? undefined : 'opacity-55 hover:opacity-100',
                 )}
               >
                 <img
@@ -154,7 +155,9 @@ export function Testimonials() {
                   decoding="async"
                   className={cn(
                     'rounded-full object-cover transition-all duration-300',
-                    i === index ? 'h-11 w-11' : 'h-9 w-9 grayscale',
+                    i === index
+                      ? 'h-11 w-11 ring-2 ring-green ring-offset-2 ring-offset-sand'
+                      : 'h-9 w-9 grayscale',
                   )}
                 />
               </button>

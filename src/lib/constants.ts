@@ -18,6 +18,19 @@ export const WHATSAPP_DIET_LINK = whatsappLink(
   'Olá! Tenho uma dieta específica e quero montar minhas marmitas personalizadas.',
 )
 
+/**
+ * Nenhum botão abre uma conversa em branco: a mensagem já diz de onde a
+ * pessoa veio, o atendimento responde direto ao ponto e a gente enxerga
+ * qual parte do site gera conversa.
+ */
+export const WHATSAPP_HELLO_LINK = whatsappLink(
+  'Oi! Estou no site da Vivere e queria falar com o atendimento.',
+)
+
+export const WHATSAPP_FAQ_LINK = whatsappLink(
+  'Oi! Li as perguntas frequentes no site da Vivere e fiquei com uma dúvida:',
+)
+
 export const CARDAPIO_LINK = 'https://app.cardapioweb.com/vivere_comercio_de_alimentos?s=cb'
 
 export const INSTAGRAM_HANDLE = '@viverealimentos'

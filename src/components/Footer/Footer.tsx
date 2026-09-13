@@ -7,7 +7,7 @@ import {
   BUSINESS_NAME,
   HOURS,
   INSTAGRAM_LINK,
-  WHATSAPP_LINK,
+  WHATSAPP_HELLO_LINK,
   WHATSAPP_PHONE_HUMAN,
 } from '@/lib/constants'
 import { DELIVERY_CITIES, DELIVERY_ON_REQUEST } from '@/lib/delivery'
@@ -85,7 +85,7 @@ export function Footer() {
             </a>
             <WhatsAppLink
               source="rodape"
-              href={WHATSAPP_LINK}
+              href={WHATSAPP_HELLO_LINK}
               aria-label="WhatsApp da Vivere"
               className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
             >

@@ -2,7 +2,7 @@ import { Plus } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/Badge'
 import { WhatsAppLink } from '@/components/ui/OrderLink'
 import { FAQ_ITEMS } from '@/lib/faq'
-import { WHATSAPP_LINK } from '@/lib/constants'
+import { WHATSAPP_FAQ_LINK } from '@/lib/constants'
 
 /**
  * `<details>` nativo: abre por teclado, é lido por leitor de tela e continua
@@ -23,7 +23,7 @@ export function FAQ() {
           />
           <WhatsAppLink
             source="faq"
-            href={WHATSAPP_LINK}
+            href={WHATSAPP_FAQ_LINK}
             className="inline-flex w-fit items-center justify-center rounded-full border border-green-forest/25 px-5 py-3 text-[13.5px] font-semibold text-green-forest transition-colors hover:bg-green-forest/5"
           >
             Ficou outra dúvida? Chame no WhatsApp
