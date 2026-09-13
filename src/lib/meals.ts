@@ -169,6 +169,7 @@ export const MEALS: Meal[] = [
     weight: '370g',
     price: 24.97,
     category: 'carnes',
+    image: 'carne-desfiada-integral',
     description: 'Carne desfiada suculenta, feijão preto, arroz integral e legumes.',
     tag: 'oferta',
     hasNutrition: true,

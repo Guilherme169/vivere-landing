@@ -1,14 +1,12 @@
 import { Clock, Instagram, MessageCircle, Snowflake, Truck } from 'lucide-react'
 import { Eyebrow } from '@/components/ui/Badge'
-import { MealImage } from '@/components/ui/MealImage'
+import { HeroGallery } from '@/components/Hero/HeroGallery'
 import { OrderLink, WhatsAppLink } from '@/components/ui/OrderLink'
 import { BEST_UNIT_PRICE, UNIT_PRICE_NOTE_SHORT } from '@/lib/combos'
 import { INSTAGRAM_LINK, WHATSAPP_LINK } from '@/lib/constants'
 import { WORDMARK_ALT, WORDMARK_WHITE } from '@/lib/brand'
 import { FREIGHT } from '@/lib/delivery'
-import { MEALS, formatBRL } from '@/lib/meals'
-
-const HERO_MEAL = MEALS.find((m) => m.id === 'frango-caseiro') ?? MEALS[0]
+import { formatBRL } from '@/lib/meals'
 
 const TRUST = [
   { icon: Clock, label: 'Pronto em 5 minutos' },
@@ -60,6 +58,18 @@ export function Hero() {
 
       <div className="shell grid gap-7 pb-14 pt-7 sm:gap-9 sm:pt-10 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-16 lg:pb-24">
         <div className="order-2 flex flex-col items-start gap-5 lg:order-1">
+          {/* No celular o preço vira uma linha aqui, para não cobrir a foto. */}
+          <p className="tnum -mt-1 text-[13px] text-white/70 sm:hidden">
+            Nos combos, a partir de{' '}
+            <strong className="font-serif text-[19px] font-normal text-white">
+              R$ {formatBRL(BEST_UNIT_PRICE)}
+            </strong>
+            <sup className="ml-0.5 text-[10px] font-semibold text-green-moss">*</sup> por marmita
+            <span className="mt-0.5 block text-[10.5px] text-white/45">
+              * {UNIT_PRICE_NOTE_SHORT}
+            </span>
+          </p>
+
           <Eyebrow tone="light">Marmitas congeladas gourmet</Eyebrow>
 
           <h1 className="balance font-serif text-[clamp(2.5rem,10vw,4.4rem)] font-normal leading-[.96] tracking-[-.02em]">
@@ -102,16 +112,9 @@ export function Hero() {
         </div>
 
         <div className="relative order-1 lg:order-2">
-          <div className="overflow-hidden rounded-[28px] bg-green-deep shadow-2xl shadow-black/30 ring-1 ring-gold/20">
-            <MealImage
-              meal={HERO_MEAL}
-              eager
-              sizes="(min-width: 1024px) 520px, 100vw"
-              className="aspect-[5/4] w-full object-cover sm:aspect-square"
-            />
-          </div>
+          <HeroGallery />
 
-          <div className="absolute -bottom-6 left-3 right-3 rounded-2xl border border-gold/25 bg-green-deep/90 px-5 py-3.5 backdrop-blur-md sm:left-auto sm:right-6 sm:w-[280px] lg:-bottom-8">
+          <div className="absolute -bottom-8 right-6 hidden w-[280px] rounded-2xl border border-gold/25 bg-green-deep/90 px-5 py-3.5 backdrop-blur-md sm:block">
             <p className="text-[10px] font-bold uppercase tracking-[.14em] text-gold">
               Nos combos, a partir de
             </p>

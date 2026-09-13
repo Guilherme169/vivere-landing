@@ -114,8 +114,10 @@
       margin-bottom: 28px;
     }
     .logo-wrap img {
-      height: 60px;
+      height: 54px;
       width: auto;
+      max-width: 78%;
+      object-fit: contain;
       object-fit: contain;
       display: block;
       margin: 0 auto;
@@ -696,6 +698,15 @@
       .macro-q .mq-val { font-size: 13px; }
       .macro-q .mq-icon { font-size: 12px; }
     }
+
+    .card-photo.is-label { background: var(--cream); }
+    .card-photo.is-label img { object-fit: contain; padding: 8px; }
+    .label-wrap { margin-top: 22px; }
+    .label-img {
+      display: block; width: 100%; height: auto; margin-top: 10px;
+      border-radius: 12px; border: 1px solid rgba(0,0,0,0.07); background: var(--cream);
+    }
+    .label-note { margin-top: 8px; font-size: 11.5px; line-height: 1.5; color: #63675a; }
   </style>
 </head>
 <body>
@@ -713,7 +724,7 @@
     <!-- ── HEADER ── -->
     <header class="site-header">
       <div class="logo-wrap">
-        <img src="/LOGO_V.jpeg" alt="Vivere"
+        <img src="/images/brand/vivere-wordmark-white.png" alt="Vivere — alimentação que acompanha o seu ritmo" width="720" height="257"
              onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='inline-flex'" />
         <span class="logo-fallback" id="logo-fallback">V</span>
       </div>
@@ -782,7 +793,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-1">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_1.png" alt="Lasanha Bolonhesa com Queijo Mussarela" loading="lazy" />
+            <img src="/images/menu/lasanha-bolonhesa.webp" alt="Lasanha Bolonhesa com Queijo Mussarela" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🍝 Massas</span>
             </div>
@@ -834,6 +845,13 @@
                   <p class="allergens-text">Contém leite e derivados, trigo e soja. Pode conter centeio, cevada e aveia. <strong>Contém glúten.</strong> <strong>Contém lactose.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/lasanha-bolonhesa.webp"
+                     alt="Rótulo da embalagem de Lasanha Bolonhesa com Queijo Mussarela, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -845,7 +863,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-2">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_2.png" alt="Carne Desfiada com Feijão, Arroz Integral e Seleta de Legumes" loading="lazy" />
+            <img src="/images/menu/carne-desfiada-integral.webp" alt="Carne Desfiada com Feijão, Arroz Integral e Seleta de Legumes" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🥩 Carnes</span>
             </div>
@@ -897,6 +915,13 @@
                   <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/carne-desfiada-integral.webp"
+                     alt="Rótulo da embalagem de Carne Desfiada com Feijão, Arroz Integral e Seleta de Legumes, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -908,7 +933,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-3">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_3.png" alt="Carne Desfiada com Massa" loading="lazy" />
+            <img src="/images/menu/massa-carne-desfiada.webp" alt="Carne Desfiada com Massa" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🍝 Massas · 🥩 Carnes</span>
             </div>
@@ -960,6 +985,13 @@
                   <p class="allergens-text">Contém ovos e derivados de trigo e soja. Pode conter centeio, cevada, aveia e triticale. <strong>Contém glúten.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/massa-carne-desfiada.webp"
+                     alt="Rótulo da embalagem de Carne Desfiada com Massa, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -971,7 +1003,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-4">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_4.png" alt="Carne Desfiada com Feijão, Arroz, Legumes e Purê de Moranga" loading="lazy" />
+            <img src="/images/menu/carne-desfiada-pure-moranga.webp" alt="Carne Desfiada com Feijão, Arroz, Legumes e Purê de Moranga" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🥩 Carnes · 🥬 Low Calorie</span>
             </div>
@@ -1023,6 +1055,13 @@
                   <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/carne-desfiada-pure-moranga.webp"
+                     alt="Rótulo da embalagem de Carne Desfiada com Feijão, Arroz, Legumes e Purê de Moranga, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1034,7 +1073,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-5">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_5.png" alt="Carne Moída, Arroz com Cenoura e Legumes" loading="lazy" />
+            <img src="/images/menu/carne-moida.webp" alt="Carne Moída, Arroz com Cenoura e Legumes" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🥩 Carnes · 🥬 Low Calorie</span>
             </div>
@@ -1086,6 +1125,13 @@
                   <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/carne-moida.webp"
+                     alt="Rótulo da embalagem de Carne Moída, Arroz com Cenoura e Legumes, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1097,7 +1143,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-6">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_6.png" alt="Escondidinho de Batata com Carne e Queijo" loading="lazy" />
+            <img src="/images/menu/escondidinho.webp" alt="Escondidinho de Batata com Carne e Queijo" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🥩 Carnes · 💪 Proteico</span>
             </div>
@@ -1149,6 +1195,13 @@
                   <p class="allergens-text">Contém leite. Pode conter soja, nozes, castanhas e avelã. <strong>Não contém glúten.</strong> <strong>Contém lactose.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/escondidinho.webp"
+                     alt="Rótulo da embalagem de Escondidinho de Batata com Carne e Queijo, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1160,7 +1213,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-7">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_7.png" alt="Frango em Cubos com Arroz Integral e Creme de Milho" loading="lazy" />
+            <img src="/images/menu/frango-creme-milho.webp" alt="Frango em Cubos com Arroz Integral e Creme de Milho" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🍗 Frango</span>
             </div>
@@ -1212,6 +1265,13 @@
                   <p class="allergens-text">Contém leite e derivados de soja. <strong>Não contém glúten.</strong> <strong>Contém lactose.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/frango-creme-milho.webp"
+                     alt="Rótulo da embalagem de Frango em Cubos com Arroz Integral e Creme de Milho, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1222,8 +1282,8 @@
         <div class="card-trigger" onclick="toggleCard(this)" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-8">
-          <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_8.png" alt="Filé de Peito de Frango com Seleta de Legumes" loading="lazy" />
+          <div class="card-photo is-label">
+            <img src="/images/labels/file-peito-seleta.webp" alt="Filé de Peito de Frango com Seleta de Legumes" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🍗 Frango · 💪 Proteico · 🥬 Low Cal</span>
             </div>
@@ -1275,6 +1335,13 @@
                   <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/file-peito-seleta.webp"
+                     alt="Rótulo da embalagem de Filé de Peito de Frango com Seleta de Legumes, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1286,7 +1353,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-9">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_9.png" alt="Risoto de Carne Desfiada" loading="lazy" />
+            <img src="/images/menu/risoto-carne-panela.webp" alt="Risoto de Carne Desfiada" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🥩 Carnes · 💪 Proteico</span>
             </div>
@@ -1338,6 +1405,13 @@
                   <p class="allergens-text">Pode conter soja. <strong>Não contém glúten.</strong></p>
                 </div>
               </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/risoto-carne-panela.webp"
+                     alt="Rótulo da embalagem de Risoto de Carne Desfiada, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1349,7 +1423,7 @@
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}"
              aria-expanded="false" aria-controls="details-prato-10">
           <div class="card-photo">
-            <img src="/images/dishes/embalagem_vivere_10.png" alt="Frango Cremoso, Arroz Integral e Legumes" loading="lazy" />
+            <img src="/images/menu/frango-cremoso.webp" alt="Frango Cremoso, Arroz Integral e Legumes" loading="lazy" />
             <div class="card-photo-overlay">
               <span class="meal-category-tag">🍗 Frango · 🥬 Low Calorie</span>
             </div>
@@ -1400,6 +1474,13 @@
                   <span class="allergen-icon" aria-hidden="true">⚠️</span>
                   <p class="allergens-text">Contém leite e derivados de soja. Pode conter nozes, castanhas ou avelãs. <strong>Não contém glúten.</strong> <strong>Contém lactose.</strong></p>
                 </div>
+              </div>
+              <div class="label-wrap">
+                <div class="section-title">🏷️ Rótulo da embalagem</div>
+                <img class="label-img" src="/images/labels/frango-cremoso.webp"
+                     alt="Rótulo da embalagem de Frango Cremoso, Arroz Integral e Legumes, com a tabela nutricional impressa"
+                     loading="lazy" decoding="async" width="1100" height="780" />
+                <p class="label-note">É exatamente o que vem impresso na caixa que chega na sua casa.</p>
               </div>
             </div>
           </div>
