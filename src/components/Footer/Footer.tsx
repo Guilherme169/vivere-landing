@@ -11,6 +11,7 @@ import {
   WHATSAPP_PHONE_HUMAN,
 } from '@/lib/constants'
 import { DELIVERY_CITIES, DELIVERY_ON_REQUEST } from '@/lib/delivery'
+import { CITIES } from '@/lib/cities'
 import { WORDMARK_ALT, WORDMARK_WHITE } from '@/lib/brand'
 
 const HOUR_CARDS = [
@@ -19,7 +20,7 @@ const HOUR_CARDS = [
   {
     icon: Truck,
     title: 'Entregas',
-    text: `${DELIVERY_CITIES.map((city) => `${city.city}: ${city.days.toLowerCase()}`).join(' · ')}. Em ${DELIVERY_ON_REQUEST.join(', ')}, a data é combinada no WhatsApp.`,
+    text: `${DELIVERY_CITIES.map((city) => `${city.name}: ${city.days.toLowerCase()}`).join(' · ')}. Em ${DELIVERY_ON_REQUEST.join(', ')}, a data é combinada no WhatsApp.`,
   },
   { icon: MapPin, title: 'Retirada no local', text: HOURS.store },
 ]
@@ -90,6 +91,25 @@ export function Footer() {
             >
               <MessageCircle size={17} aria-hidden="true" />
             </WhatsAppLink>
+          </div>
+
+          <div className="h-px w-24 bg-white/15" />
+
+          <div className="flex flex-col items-center gap-2.5">
+            <p className="text-[10px] font-bold uppercase tracking-[.14em] text-gold">
+              Entregamos em
+            </p>
+            <nav className="flex flex-wrap justify-center gap-2">
+              {CITIES.map((city) => (
+                <a
+                  key={city.slug}
+                  href={`/${city.slug}`}
+                  className="rounded-full border border-white/15 px-3.5 py-1.5 text-[12px] text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  {city.name}
+                </a>
+              ))}
+            </nav>
           </div>
 
           <div className="h-px w-24 bg-white/15" />

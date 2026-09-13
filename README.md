@@ -6,22 +6,27 @@ A página existe para uma coisa: levar quem chegou de um link externo até o car
 
 ## Fluxo da página
 
-1. **Hero** — cabeçalho com marca e atalhos, promessa, foto do prato e a âncora de preço dos combos.
-2. **DeliveryBar** — cidades atendidas e dia de entrega de cada uma. Primeira dúvida de quem nunca comprou.
+1. **Hero** — cabeçalho com marca e atalhos, promessa e galeria com cinco pratos em transição lenta.
+2. **DeliveryBar** — as 8 cidades: cinco com dia fixo, três com data combinada no WhatsApp.
 3. **Combos** — oferta principal: 10, 15 e 30 marmitas, com preço "a partir de" por unidade e economia em reais. Abaixo, os cupons automáticos de quem compra avulso.
 4. **ComboCalculator** — quantas marmitas por semana → quanto tempo cada combo dura e qual encaixa melhor.
-5. **Menu** — cardápio completo, filtrável por tipo, com preço e gramatura reais.
-6. **CardapioCTA** — chamada principal para o cardápio online.
-7. **HowItWorks** — passo a passo da compra, em acordeão acessível.
-8. **PersonalizedDiet** — atendimento para dieta prescrita e restrições.
-9. **Stats** — preparo, validade e disponibilidade do cardápio.
-10. **Brand** — a embalagem: tabela impressa na caixa, micro-ondas, linhas Dia a Dia e Pasta.
-11. **Testimonials** — avaliações reais do Google.
-12. **NutricionalCTA** — ponte para `/nutricional.html`.
-13. **FAQ** — objeções de congelado, entrega, pagamento e retirada.
-14. **InstagramCTA** — convite para seguir o perfil.
-15. **Footer** — atendimento, entregas, endereço e CNPJ.
-16. **FloatingCTA** — barra fixa de conversão no mobile, a partir do fim do hero.
+5. **Testimonials** — prova social logo depois da oferta, uma citação por vez em corpo serifado.
+6. **Menu** — cardápio completo: 8 pratos com expansão para os 17, filtrável por tipo.
+7. **HowItWorks** — passo a passo da compra, em acordeão acessível. Vem antes do CTA de propósito: explica, depois convida.
+8. **CardapioCTA** — chamada principal, deixando explícito que o pedido é fechado no cardápio online e que o site serve para entender produto, promoções e marca.
+9. **PersonalizedDiet** — atendimento para dieta prescrita e restrições.
+10. **Brand** — embalagem e conservação numa seção só: preparo em 5 minutos, 180 dias de validade, tabela impressa na caixa, linhas Dia a Dia e Pasta.
+11. **NutricionalCTA** — ponte para `/nutricional`.
+12. **FAQ** — objeções de congelado, entrega, pagamento e retirada.
+13. **InstagramCTA** — convite para seguir o perfil.
+14. **Footer** — atendimento, entregas, endereço e CNPJ.
+15. **FloatingCTA** — barra fixa no celular (pedido + WhatsApp) e botão fixo de WhatsApp no desktop. Sempre visíveis.
+
+Além das seções, o **StickyHeader** aparece no desktop a partir do fim do hero, com a navegação e o CTA sempre à mão. No celular esse papel é da barra inferior — duas barras fixas comeriam metade da tela.
+
+### Ordem das seções
+
+A ordem não é acidental. A prova social vem logo depois da oferta, porque quem está em dúvida decide antes de chegar ao fim da página. O passo a passo vem antes do CTA grande, para ninguém clicar sem entender que o pedido é fechado fora daqui. E os fundos alternam entre `cream`, `sand`, `white` e `green-forest` de forma que duas seções vizinhas nunca compartilhem o mesmo fundo.
 
 ## Onde ficam os dados
 
@@ -76,6 +81,23 @@ Prato sem `image` aparece com o monograma da marca no lugar da foto — não que
 
 A imagem de compartilhamento (`public/og-image.jpg`, 1200×630) é o que aparece quando o link é colado no WhatsApp ou no Instagram.
 
+## Páginas de cidade
+
+Cada cidade atendida tem a própria página em `/<slug>` — `/osorio`, `/capao-da-canoa`, `/tramandai`… São HTML puro, sem React e sem JavaScript de aplicação: quem busca "marmita congelada em Osório" quer a resposta na primeira tela, não um bundle.
+
+Elas não são escritas à mão. O plugin `paginasDeCidade()` do `vite.config.ts` roda no fim do build e monta cada página a partir de `scripts/city-page.ts`, usando os mesmos dados da landing (`cities.ts`, `meals.ts`, `combos.ts`, `constants.ts`). Preço, gramatura e dia de entrega nunca divergem entre a home e a página da cidade, porque saem do mesmo lugar.
+
+Para mudar o texto de uma cidade, mexa em `src/lib/cities.ts` — é lá que ficam o slug, o dia, o período e o parágrafo próprio de cada uma. Para mudar o layout de todas, mexa em `scripts/city-page.ts` (`renderCityPage` e `CITY_CSS`).
+
+Cada parágrafo de cidade é escrito à mão de propósito: oito páginas com o mesmo texto e o nome trocado é página-isca, e o Google trata como tal.
+
+Duas coisas saem do build junto com elas:
+
+- `dist/cidades.css` — folha única de ~8 KB que todas usam, com os mesmos tokens de marca da landing.
+- `dist/sitemap.xml` — regenerado a cada build com a data do dia, já com as 8 cidades. Por isso **não existe** `public/sitemap.xml`: editar um arquivo que o build sobrescreve só gera confusão.
+
+As cidades se ligam entre si e com a home: os cartões da DeliveryBar, os chips das cidades sem dia fixo, o rodapé da landing e o rodapé de cada página de cidade.
+
 ## Stack
 
 - **React 18** + **TypeScript** (strict)
@@ -96,7 +118,7 @@ npm run dev -- --host    # abre para o celular na mesma rede
 ## Build
 
 ```bash
-npm run build     # tsc -b && vite build → dist/
+npm run build     # tsc -b && vite build → dist/ (+ 8 páginas de cidade e sitemap)
 npm run preview   # confere o build antes de publicar
 ```
 
@@ -124,13 +146,14 @@ O `vercel.json` cuida de três coisas:
 | `/whatsapp` | conversa no WhatsApp com mensagem pronta |
 | `/criadores` | página do programa de criadores |
 
-Ao trocar o domínio, atualize em cinco lugares: `SITE_URL` em `src/lib/constants.ts`, as tags `canonical` / `og:url` / `og:image` / `twitter:image` do `index.html`, o mesmo bloco em `public/nutricional.html`, o `public/robots.txt` e o `public/sitemap.xml`.
+Ao trocar o domínio, atualize em cinco lugares: `SITE_URL` em `src/lib/constants.ts`, as tags `canonical` / `og:url` / `og:image` / `twitter:image` do `index.html`, o mesmo bloco em `public/nutricional.html`, e o `public/robots.txt`. O `sitemap.xml` se atualiza sozinho no build.
 
 ## SEO
 
 - `index.html` traz o JSON-LD de `Restaurant` (endereço, cidades atendidas, nota, horário) e de `FAQPage`.
 - `MenuJsonLd` publica o cardápio inteiro como `Menu` em tempo de execução, a partir de `meals.ts` e `combos.ts` — assim os dados estruturados nunca ficam defasados em relação aos preços da página.
-- `robots.txt` e `sitemap.xml` ficam em `public/`.
+- Cada página de cidade tem título, descrição, canonical, Open Graph e JSON-LD próprios (`Restaurant` + `FAQPage` + `BreadcrumbList`).
+- `robots.txt` fica em `public/`. O `sitemap.xml` é gerado pelo build em `dist/` — veja *Páginas de cidade*.
 
 ## Decisões que valem lembrar
 

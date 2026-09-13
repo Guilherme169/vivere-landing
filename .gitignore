@@ -30,3 +30,6 @@ _to_delete/
 # cópias que o iCloud cria em conflito de gravação
 * 2.*
 * [0-9].*
+
+# config local do Claude
+.claude/

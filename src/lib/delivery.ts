@@ -1,31 +1,22 @@
-export interface DeliveryCity {
-  city: string
-  days: string
-  period: string
-  /** Cidade-sede: produção e retirada no local. */
-  isBase?: boolean
-}
+// Import relativo de propósito: este arquivo também é lido pelo vite.config,
+// que não resolve o alias '@'.
+import { CITIES, type City } from './cities'
 
-/** Cidades com dia fixo de entrega. Atualizado em 13/09/2026. */
-export const DELIVERY_CITIES: DeliveryCity[] = [
-  { city: 'Santo Antônio da Patrulha', days: 'Segunda a sexta', period: 'a combinar', isBase: true },
-  { city: 'Osório', days: 'Terças e sextas', period: 'pela manhã' },
-  { city: 'Glorinha', days: 'Quartas', period: 'pela manhã' },
-  { city: 'Capão da Canoa', days: 'Sextas', period: 'pela manhã' },
-  { city: 'Xangri-Lá', days: 'Sextas', period: 'pela manhã' },
-]
+export type DeliveryCity = City
+
+/** Cidades com dia fixo de entrega. */
+export const DELIVERY_CITIES: DeliveryCity[] = CITIES.filter((city) => !city.onRequest)
 
 /**
  * Cidades atendidas sem dia fixo: o cliente faz o pedido normalmente e a data
  * é combinada com o atendimento no WhatsApp logo depois.
  */
-export const DELIVERY_ON_REQUEST = ['Tramandaí', 'Imbé', 'Caraá'] as const
+export const DELIVERY_ON_REQUEST = CITIES.filter((city) => city.onRequest).map(
+  (city) => city.name,
+)
 
 /** Todas as cidades atendidas, para SEO e para o rodapé. */
-export const ALL_DELIVERY_CITIES = [
-  ...DELIVERY_CITIES.map((city) => city.city),
-  ...DELIVERY_ON_REQUEST,
-]
+export const ALL_DELIVERY_CITIES = CITIES.map((city) => city.name)
 
 export const FREIGHT = {
   price: 9,
