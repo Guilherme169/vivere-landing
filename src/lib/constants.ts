@@ -33,6 +33,16 @@ export const WHATSAPP_FAQ_LINK = whatsappLink(
 
 export const CARDAPIO_LINK = 'https://app.cardapioweb.com/vivere_comercio_de_alimentos?s=cb'
 
+/**
+ * Perfil da Vivere no Google e link direto de avaliação.
+ *
+ * Enquanto estiverem vazios, a nota aparece como selo simples e nada quebra.
+ * Basta preencher aqui para a nota virar link em toda a landing e nas oito
+ * páginas de cidade — não há endereço de perfil escrito em nenhum outro lugar.
+ */
+export const GOOGLE_PROFILE_LINK: string = ''
+export const GOOGLE_REVIEW_LINK: string = ''
+
 export const INSTAGRAM_HANDLE = '@viverealimentos'
 export const INSTAGRAM_LINK = 'https://instagram.com/viverealimentos'
 

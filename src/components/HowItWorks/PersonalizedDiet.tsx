@@ -42,7 +42,7 @@ export function PersonalizedDiet() {
             <WhatsAppLink
               source="dieta-personalizada"
               href={WHATSAPP_DIET_LINK}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange px-6 py-4 text-[14.5px] font-semibold text-white transition-colors hover:bg-orange-dark"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange px-6 py-4 text-[14.5px] font-semibold text-ink transition-colors hover:bg-orange-hover"
             >
               <HeartHandshake size={17} aria-hidden="true" />
               Montar minha dieta personalizada

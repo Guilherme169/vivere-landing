@@ -98,7 +98,7 @@ export function HowItWorks() {
                   <span
                     className={cn(
                       'flex h-10 w-10 flex-none items-center justify-center rounded-xl transition-colors duration-200',
-                      isOpen ? 'bg-green text-white' : 'bg-cream text-green-forest',
+                      isOpen ? 'bg-green text-green-deep' : 'bg-cream text-green-forest',
                     )}
                   >
                     <Icon size={17} aria-hidden="true" />

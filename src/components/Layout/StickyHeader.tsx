@@ -82,7 +82,7 @@ export function StickyHeader() {
           <OrderLink
             source="header-fixo"
             tabIndex={visible ? undefined : -1}
-            className="rounded-full bg-green px-5 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-green-dark"
+            className="rounded-full bg-green px-5 py-2.5 text-[13.5px] font-semibold text-green-deep transition-colors hover:bg-green-hover"
           >
             Fazer meu pedido
           </OrderLink>

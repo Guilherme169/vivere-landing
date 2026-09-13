@@ -48,7 +48,7 @@ export function Hero() {
             </WhatsAppLink>
             <OrderLink
               source="header"
-              className="rounded-full bg-green px-4 py-2 text-[13px] font-semibold transition-colors hover:bg-green-dark"
+              className="rounded-full bg-green px-4 py-2 text-[13px] font-semibold text-green-deep transition-colors hover:bg-green-hover"
             >
               Cardápio
             </OrderLink>
@@ -92,7 +92,7 @@ export function Hero() {
           <div className="flex w-full items-center gap-2.5">
             <OrderLink
               source="hero"
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-green px-5 py-3.5 text-[14.5px] font-semibold text-white shadow-lg shadow-black/25 transition-colors hover:bg-green-dark sm:flex-none sm:px-7 sm:py-4 sm:text-[15px]"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-green px-5 py-3.5 text-[14.5px] font-semibold text-green-deep shadow-lg shadow-black/25 transition-colors hover:bg-green-hover sm:flex-none sm:px-7 sm:py-4 sm:text-[15px]"
             >
               Montar meu pedido
             </OrderLink>

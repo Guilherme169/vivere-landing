@@ -8,6 +8,7 @@ interface Data {
   siteUrl: string
   cardapioLink: string
   whatsappLink: string
+  googleProfileLink: string
   instagramLink: string
   businessAddress: string
   businessCnpj: string
@@ -99,7 +100,7 @@ export function renderCityPage(city: City, d: Data): string {
         },
         areaServed: { '@type': 'City', name: city.name },
         hasMenu: d.cardapioLink,
-        sameAs: [d.instagramLink],
+        sameAs: [d.instagramLink, d.googleProfileLink].filter(Boolean),
       },
       {
         '@type': 'FAQPage',
@@ -230,6 +231,12 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
         <div><span class="dc-label">Preparo</span><strong>5 minutos</strong><span>no micro-ondas</span></div>
       </div>
 
+      ${
+        d.googleProfileLink
+          ? `<a class="nota" href="${esc(d.googleProfileLink)}" target="_blank" rel="noopener"><span class="nota-n">5,0</span><span class="nota-estrelas" aria-label="Nota cinco de cinco no Google">★★★★★</span><span class="nota-txt">no Google · ver avaliações</span></a>`
+          : `<p class="nota"><span class="nota-n">5,0</span><span class="nota-estrelas" aria-label="Nota cinco de cinco no Google">★★★★★</span><span class="nota-txt">no Google</span></p>`
+      }
+
       <div class="hero-cta">
         <a class="btn btn-lg" href="${esc(cardapioUrl(d.cardapioLink, city.slug))}" target="_blank" rel="noopener">Ver cardápio e pedir</a>
         <a class="btn btn-ghost btn-lg" href="${esc(whatsappCidade(d.whatsappLink, city))}" target="_blank" rel="noopener">${city.onRequest ? 'Combinar entrega no WhatsApp' : 'Falar no WhatsApp'}</a>
@@ -300,8 +307,8 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
 
 export const CITY_CSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --forest:#1b3f14;--deep:#112a0c;--green:#49b657;--green-dark:#3a9446;--moss:#a8e6ae;
-  --cream:#f6f2eb;--sand:#ece5d8;--ink:#14160f;--neutral:#63675a;--gold:#c09548;--white:#fff;
+  --forest:#1b3f14;--deep:#112a0c;--green:#49b657;--green-hover:#3da54b;--green-dark:#2f7a39;--moss:#a8e6ae;
+  --cream:#f6f2eb;--sand:#ece5d8;--ink:#14160f;--neutral:#63675a;--gold:#c9a055;--white:#fff;
 }
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -321,11 +328,11 @@ sup{font-size:.55em;font-family:Inter,sans-serif;font-weight:600;vertical-align:
 .link-quiet{font-size:13px;color:rgba(255,255,255,.75);text-decoration:none}
 .link-quiet:hover{color:#fff;text-decoration:underline}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;background:var(--green);color:#fff;font-weight:600;font-size:14px;padding:12px 22px;text-decoration:none;transition:background .2s}
-.btn:hover{background:var(--green-dark)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;background:var(--green);color:var(--deep);font-weight:600;font-size:14px;padding:12px 22px;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--green-hover)}
 .btn-sm{padding:8px 16px;font-size:13px}
 .btn-lg{padding:15px 28px;font-size:15px}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.28)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
 .btn-ghost:hover{background:rgba(255,255,255,.1)}
 .btn-white{background:#fff;color:var(--forest)}
 .btn-white:hover{background:var(--cream)}
@@ -414,4 +421,10 @@ sup{font-size:.55em;font-family:Inter,sans-serif;font-weight:600;vertical-align:
 .zap-fixo{position:fixed;right:16px;bottom:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:var(--deep);color:#fff;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12)}
 .zap-fixo:hover{background:var(--forest)}
 .zap-fixo svg{color:var(--moss);flex:none}
+
+.nota{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);text-decoration:none;color:#fff}
+.nota-n{font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+.nota-estrelas{color:#fbbc04;font-size:13px;letter-spacing:1px}
+.nota-txt{font-size:12px;color:rgba(255,255,255,.7)}
+a.nota:hover{background:rgba(255,255,255,.12)}
 `

@@ -28,7 +28,7 @@ export function NutricionalCTA() {
 
           <a
             href="/nutricional"
-            className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-green px-6 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-green-dark"
+            className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-green px-6 py-3.5 text-[14.5px] font-semibold text-green-deep transition-colors hover:bg-green-hover"
           >
             <ClipboardList size={17} aria-hidden="true" />
             Consultar tabela nutricional

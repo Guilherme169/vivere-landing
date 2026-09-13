@@ -6,16 +6,26 @@ export default {
       colors: {
         green: {
           DEFAULT: '#49b657',
-          dark: '#3a9446',
+          // `DEFAULT` é o verde da marca e continua sendo o preenchimento dos
+          // botões — o que mudou foi o texto por cima: era branco (2,6:1,
+          // ilegível no celular sob sol) e passou a ser `deep` (6,0:1).
+          // `hover` é o mesmo verde um tom abaixo, ainda com 4,9:1.
+          hover: '#3da54b',
+          // `dark` só aparece como texto e ícone sobre fundo claro: 5,3:1.
+          dark: '#2f7a39',
           forest: '#1b3f14',
           deep: '#112a0c',
           moss: '#a8e6ae',
         },
         orange: {
           DEFAULT: '#ef8b3a',
-          dark: '#b3611a',
+          // 6,4:1 como fundo de botão com texto escuro.
+          hover: '#e57f2c',
+          // 4,8:1 como texto sobre o creme.
+          dark: '#a55916',
         },
-        gold: '#c09548',
+        // 4,9:1 sobre o verde-floresta, onde o dourado sempre aparece como texto.
+        gold: '#c9a055',
         cream: '#f6f2eb',
         sand: '#ece5d8',
         ink: '#14160f',

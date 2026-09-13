@@ -20,7 +20,7 @@ export function FloatingCTA() {
         <div className="relative flex w-full max-w-[460px] items-center gap-2">
           <OrderLink
             source="barra-flutuante"
-            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-green px-4 py-3.5 text-[14px] font-bold text-white shadow-lift"
+            className="flex flex-1 items-center justify-center gap-2 rounded-full bg-green px-4 py-3.5 text-[14px] font-bold text-green-deep shadow-lift"
           >
             <UtensilsCrossed size={16} aria-hidden="true" />
             Fazer meu pedido

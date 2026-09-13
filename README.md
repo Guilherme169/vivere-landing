@@ -81,6 +81,23 @@ Prato sem `image` aparece com o monograma da marca no lugar da foto — não que
 
 A imagem de compartilhamento (`public/og-image.jpg`, 1200×630) é o que aparece quando o link é colado no WhatsApp ou no Instagram.
 
+## Regra de cor dos botões
+
+Contraste medido, não achismo. O verde da marca (`#49b657`) com texto branco dá **2,6:1** — abaixo do mínimo de 4,5:1 e visivelmente ruim num celular sob sol. A correção não foi trocar o verde, foi trocar o texto: os botões mantêm o verde da marca e usam `text-green-deep`, o que dá **6,0:1**.
+
+Daí os tokens em `tailwind.config.js`:
+
+| Token | Onde entra | Contraste |
+| --- | --- | --- |
+| `green.DEFAULT` `#49b657` | fundo de botão, com `text-green-deep` por cima | 6,0:1 |
+| `green.hover` `#3da54b` | hover desses botões | 4,9:1 |
+| `green.dark` `#2f7a39` | texto e ícone verdes sobre fundo claro | 5,3:1 |
+| `orange.DEFAULT` `#ef8b3a` | botão da dieta, com `text-ink` | 7,3:1 |
+| `orange.dark` `#a55916` | texto laranja sobre o creme | 4,8:1 |
+| `gold` `#c9a055` | rótulos pequenos sobre o verde-floresta | 4,9:1 |
+
+Ao criar um botão novo: fundo `bg-green`, texto `text-green-deep`, hover `hover:bg-green-hover`. Nunca `text-white` sobre `bg-green`.
+
 ## Vitrine do hero
 
 Três quadros: um prato em destaque e dois menores ao lado. Um deles troca a cada 2,6 s — nunca os três juntos — e a foto que entra aparece por cima da anterior, com uma deriva lenta de escala. A ideia é mostrar a variedade do cardápio na primeira tela sem carrossel deslizante.

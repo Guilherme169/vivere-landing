@@ -13,15 +13,17 @@ import { cn } from '@/lib/cn'
  */
 export function Combos() {
   return (
-    <section id="combos" className="scroll-mt-4 lg:scroll-mt-20 bg-green-forest py-14 text-white sm:py-20">
+    <section
+      id="combos"
+      className="scroll-mt-4 lg:scroll-mt-20 bg-green-forest py-14 text-white sm:py-20"
+    >
       <div className="shell flex flex-col gap-9">
         <SectionTitle
           eyebrow="Combos"
           tone="light"
           title={
             <>
-              Abasteça o freezer e{' '}
-              <em className="text-green-moss">pague menos por marmita</em>
+              Abasteça o freezer e <em className="text-green-moss">pague menos por marmita</em>
             </>
           }
           description="Você escolhe os sabores um a um até completar o combo. Pode misturar tudo do cardápio — o preço promocional vale para qualquer combinação, e a entrega sai de graça."
@@ -159,7 +161,7 @@ export function Combos() {
                   className={cn(
                     'mt-auto inline-flex items-center justify-center rounded-full px-5 py-3.5 text-[14px] font-semibold transition-colors',
                     combo.highlight
-                      ? 'bg-green text-white hover:bg-green-dark'
+                      ? 'bg-green text-green-deep hover:bg-green-hover'
                       : 'border border-white/25 text-white hover:bg-white/10',
                   )}
                 >
@@ -170,9 +172,7 @@ export function Combos() {
           })}
         </ul>
 
-        <p className="max-w-prose text-[12px] leading-relaxed text-white/55">
-          * {UNIT_PRICE_NOTE}
-        </p>
+        <p className="max-w-prose text-[12px] leading-relaxed text-white/55">* {UNIT_PRICE_NOTE}</p>
 
         <div className="rounded-2xl border border-white/12 bg-white/[.04] p-5 sm:p-6">
           <p className="text-[10.5px] font-bold uppercase tracking-[.09em] text-green-moss">

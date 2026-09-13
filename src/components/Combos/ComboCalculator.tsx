@@ -68,8 +68,8 @@ export function ComboCalculator() {
               </output>
             </div>
             <p className="tnum text-[12.5px] text-neutral">
-              Dá cerca de <strong className="font-semibold text-ink">{perMonth} marmitas</strong> por
-              mês.
+              Dá cerca de <strong className="font-semibold text-ink">{perMonth} marmitas</strong>{' '}
+              por mês.
             </p>
           </div>
 
@@ -118,7 +118,7 @@ export function ComboCalculator() {
               source={`calculadora-${recommended.units}`}
               productId={recommended.productId}
               combo={{ id: recommended.id, value: recommended.price }}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-green px-6 py-3.5 text-[14px] font-semibold text-white transition-colors hover:bg-green-dark"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-green px-6 py-3.5 text-[14px] font-semibold text-green-deep transition-colors hover:bg-green-hover"
             >
               Montar o {recommended.title}
               <ArrowRight size={16} aria-hidden="true" />

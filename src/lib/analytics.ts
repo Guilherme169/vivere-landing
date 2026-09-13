@@ -41,3 +41,7 @@ export function trackWhatsApp(source: string): void {
 export function trackComboIntent(comboId: string, value: number): void {
   window.fbq?.('trackCustom', 'CliqueCombo', { combo: comboId, value, currency: 'BRL' })
 }
+
+export function trackGoogleProfile(source: string): void {
+  window.fbq?.('trackCustom', 'CliqueGoogle', { source })
+}

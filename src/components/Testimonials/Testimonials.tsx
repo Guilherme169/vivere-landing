@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Star } from 'lucide-react'
+import { ArrowUpRight, Star } from 'lucide-react'
 import { Eyebrow } from '@/components/ui/Badge'
 import { TESTIMONIALS } from '@/lib/testimonials'
+import { GOOGLE_PROFILE_LINK } from '@/lib/constants'
+import { trackGoogleProfile } from '@/lib/analytics'
 import { cn } from '@/lib/cn'
 
 const INTERVAL = 7500
@@ -34,6 +36,49 @@ function GoogleIcon({ size = 16 }: { size?: number }) {
  * seletor. Com cinco depoimentos, mostrar um de cada vez lê como curadoria;
  * mostrar os cinco em cartõezinhos lê como "só temos cinco".
  */
+/**
+ * Nota do Google. Vira link para o perfil assim que `GOOGLE_PROFILE_LINK`
+ * estiver preenchido em constants.ts — enquanto estiver vazio, continua
+ * sendo um selo simples, sem link morto.
+ */
+function Selo() {
+  const conteudo = (
+    <>
+      <GoogleIcon size={18} />
+      <span className="tnum text-[15px] font-bold leading-none">5,0</span>
+      <span className="flex gap-0.5 text-[#FBBC04]" aria-label="Nota cinco de cinco no Google">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star key={i} size={12} fill="currentColor" strokeWidth={0} />
+        ))}
+      </span>
+      <span className="text-[12px] text-neutral">no Google</span>
+    </>
+  )
+
+  const base =
+    'mt-1 flex items-center gap-3 rounded-full border border-ink/[.08] bg-white px-4 py-2.5'
+
+  if (!GOOGLE_PROFILE_LINK) {
+    return <div className={base}>{conteudo}</div>
+  }
+
+  return (
+    <a
+      href={GOOGLE_PROFILE_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => trackGoogleProfile('depoimentos')}
+      className={cn(base, 'transition-shadow hover:shadow-card')}
+    >
+      {conteudo}
+      <span className="flex items-center gap-1 border-l border-ink/10 pl-3 text-[12px] font-semibold text-green-forest">
+        Ver avaliações
+        <ArrowUpRight size={12} aria-hidden="true" />
+      </span>
+    </a>
+  )
+}
+
 export function Testimonials() {
   const [index, setIndex] = useState(0)
   const [pausado, setPausado] = useState(false)
@@ -65,19 +110,7 @@ export function Testimonials() {
             O que dizem <em className="text-orange-dark">nossos clientes</em>
           </h2>
 
-          <div className="mt-1 flex items-center gap-3 rounded-full border border-ink/[.08] bg-white px-4 py-2.5">
-            <GoogleIcon size={18} />
-            <span className="tnum text-[15px] font-bold leading-none">5,0</span>
-            <span
-              className="flex gap-0.5 text-[#FBBC04]"
-              aria-label="Nota cinco de cinco no Google"
-            >
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={12} fill="currentColor" strokeWidth={0} />
-              ))}
-            </span>
-            <span className="text-[12px] text-neutral">no Google</span>
-          </div>
+          <Selo />
         </div>
 
         <div
