@@ -1,6 +1,6 @@
 import { Clock, UtensilsCrossed } from 'lucide-react'
 import { OrderLink } from '@/components/ui/OrderLink'
-import { BEST_UNIT_PRICE, UNIT_PRICE_NOTE } from '@/lib/combos'
+import { BEST_UNIT_PRICE, UNIT_PRICE_NOTE_SHORT } from '@/lib/combos'
 import { formatBRL } from '@/lib/meals'
 
 export function CardapioCTA() {
@@ -18,7 +18,7 @@ export function CardapioCTA() {
             Cardápio completo, com foto, peso e composição de cada marmita. Combos a partir de R${' '}
             {formatBRL(BEST_UNIT_PRICE)}
             <sup className="ml-0.5 text-[11px] font-semibold">*</sup> por unidade, com entrega
-            grátis.
+            grátis. <span className="text-white/60">(* {UNIT_PRICE_NOTE_SHORT})</span>
           </p>
 
           <OrderLink
@@ -34,9 +34,6 @@ export function CardapioCTA() {
             Pedidos 24h por dia · você agenda a data da entrega
           </p>
 
-          <p className="max-w-prose text-[11px] leading-relaxed text-white/60">
-            * {UNIT_PRICE_NOTE}
-          </p>
         </div>
       </div>
     </section>

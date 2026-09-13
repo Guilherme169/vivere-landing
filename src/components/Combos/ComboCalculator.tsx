@@ -2,7 +2,7 @@ import { useId, useMemo, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/Badge'
 import { OrderLink } from '@/components/ui/OrderLink'
-import { BASE_UNIT_PRICE, COMBOS, UNIT_PRICE_NOTE, unitPrice } from '@/lib/combos'
+import { BASE_UNIT_PRICE, COMBOS, UNIT_PRICE_NOTE_SHORT, unitPrice } from '@/lib/combos'
 import { formatBRL } from '@/lib/meals'
 import { cn } from '@/lib/cn'
 
@@ -126,7 +126,7 @@ export function ComboCalculator() {
           </div>
 
           <p className="text-[11.5px] leading-relaxed text-neutral">
-            * {UNIT_PRICE_NOTE} A economia é calculada contra o preço avulso de R${' '}
+            * Valor {UNIT_PRICE_NOTE_SHORT}. A economia é calculada contra o preço avulso de R${' '}
             {formatBRL(BASE_UNIT_PRICE)}.
           </p>
         </div>

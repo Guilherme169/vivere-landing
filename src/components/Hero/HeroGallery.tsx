@@ -27,6 +27,10 @@ const INTERVAL = 4800
 export function HeroGallery() {
   const [index, setIndex] = useState(0)
   const [ready, setReady] = useState(false)
+  /** Pausa enquanto o visitante está com o dedo/mouse na galeria. */
+  const [pausado, setPausado] = useState(false)
+  /** Depois de escolher uma foto na mão, a troca automática não volta. */
+  const [manual, setManual] = useState(false)
 
   const reduced = useMemo(
     () =>
@@ -41,18 +45,24 @@ export function HeroGallery() {
   }, [])
 
   useEffect(() => {
-    if (!ready || reduced || HERO_MEALS.length < 2) return
+    if (!ready || reduced || manual || pausado || HERO_MEALS.length < 2) return
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % HERO_MEALS.length)
     }, INTERVAL)
     return () => window.clearInterval(id)
-  }, [ready, reduced])
+  }, [ready, reduced, manual, pausado])
 
   const active = HERO_MEALS[index]
 
   return (
     <div className="relative">
-      <div className="relative aspect-[5/4] overflow-hidden rounded-[28px] bg-green-deep shadow-2xl shadow-black/30 ring-1 ring-gold/20 sm:aspect-square">
+      <div
+        className="relative aspect-[5/4] overflow-hidden rounded-[28px] bg-green-deep shadow-2xl shadow-black/30 ring-1 ring-gold/20 sm:aspect-square"
+        onPointerEnter={() => setPausado(true)}
+        onPointerLeave={() => setPausado(false)}
+        onFocusCapture={() => setPausado(true)}
+        onBlurCapture={() => setPausado(false)}
+      >
         {HERO_MEALS.map((meal, i) => {
           const isActive = i === index
           if (i > 0 && !ready) return null
@@ -94,7 +104,10 @@ export function HeroGallery() {
                 role="tab"
                 aria-selected={i === index}
                 aria-label={meal.cardName ?? meal.name}
-                onClick={() => setIndex(i)}
+                onClick={() => {
+                  setIndex(i)
+                  setManual(true)
+                }}
                 className={cn(
                   'h-1.5 rounded-full transition-all duration-500',
                   i === index ? 'w-6 bg-white' : 'w-1.5 bg-white/45 hover:bg-white/70',

@@ -65,7 +65,7 @@ export function Hero() {
               R$ {formatBRL(BEST_UNIT_PRICE)}
             </strong>
             <sup className="ml-0.5 text-[10px] font-semibold text-green-moss">*</sup> por marmita
-            <span className="mt-0.5 block text-[10.5px] text-white/45">
+            <span className="mt-0.5 block text-[10.5px] text-white/60">
               * {UNIT_PRICE_NOTE_SHORT}
             </span>
           </p>
@@ -125,7 +125,7 @@ export function Hero() {
                 por marmita
               </span>
             </p>
-            <p className="mt-1.5 text-[10px] leading-snug text-white/50">
+            <p className="mt-1.5 text-[10px] leading-snug text-white/60">
               * {UNIT_PRICE_NOTE_SHORT}
             </p>
           </div>

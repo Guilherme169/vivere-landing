@@ -22,3 +22,11 @@ npm-debug.log*
 
 # os
 .DS_Store
+
+# pastas temporárias de trabalho
+_restore/
+_to_delete/
+
+# cópias que o iCloud cria em conflito de gravação
+* 2.*
+* [0-9].*

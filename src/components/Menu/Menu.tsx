@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Plus } from 'lucide-react'
+import { ChevronDown, Plus } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/Badge'
 import { MealImage } from '@/components/ui/MealImage'
 import { OrderLink } from '@/components/ui/OrderLink'
@@ -17,13 +17,20 @@ const FILTERS: { id: Filter; label: string }[] = [
   { id: 'lowcarb', label: CATEGORY_LABELS.lowcarb },
 ]
 
+/** Quantos pratos aparecem antes de o visitante pedir para ver o resto. */
+const PREVIEW = 8
+
 export function Menu() {
   const [filter, setFilter] = useState<Filter>('todos')
+  const [expandido, setExpandido] = useState(false)
 
   const meals = useMemo(
     () => (filter === 'todos' ? MEALS : MEALS.filter((meal) => meal.category === filter)),
     [filter],
   )
+
+  const visiveis = expandido ? meals : meals.slice(0, PREVIEW)
+  const restantes = meals.length - visiveis.length
 
   return (
     <section id="cardapio" className="scroll-mt-4 lg:scroll-mt-20 bg-cream py-14 sm:py-20">
@@ -49,7 +56,10 @@ export function Menu() {
               <button
                 key={option.id}
                 type="button"
-                onClick={() => setFilter(option.id)}
+                onClick={() => {
+                  setFilter(option.id)
+                  setExpandido(false)
+                }}
                 aria-pressed={isActive}
                 className={cn(
                   'flex-none rounded-full border px-4 py-2 text-[13px] font-semibold transition-colors',
@@ -65,10 +75,21 @@ export function Menu() {
         </div>
 
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
-          {meals.map((meal) => (
+          {visiveis.map((meal) => (
             <MealCard key={meal.id} meal={meal} />
           ))}
         </ul>
+
+        {restantes > 0 ? (
+          <button
+            type="button"
+            onClick={() => setExpandido(true)}
+            className="mx-auto inline-flex items-center gap-2 rounded-full border border-green-forest/25 px-6 py-3 text-[14px] font-semibold text-green-forest transition-colors hover:bg-green-forest/5"
+          >
+            Ver mais {restantes} {restantes === 1 ? 'prato' : 'pratos'}
+            <ChevronDown size={16} aria-hidden="true" />
+          </button>
+        ) : null}
 
         <p className="text-[12px] leading-relaxed text-neutral">
           Cada prato abre a própria ficha no cardápio online, com a composição em gramas e o modo de
