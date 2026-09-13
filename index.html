@@ -2,20 +2,191 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Vivere — Marmitas congeladas gourmet no Litoral Norte do RS e região</title>
+    <meta
+      name="description"
+      content="Marmitas congeladas gourmet, prontas em 5 minutos. Combos com marmitas a partir de R$ 17,00, e desconto automático também nas compras avulsas. Entregamos em Santo Antônio da Patrulha, Osório, Glorinha, Capão da Canoa, Xangri-Lá, Tramandaí, Imbé e Caraá."
+    />
+    <link rel="canonical" href="https://vivere-landing.vercel.app/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1b3f14" />
+
+    <!-- Ícones -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#71BA6C" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Vivere — Marmitas congeladas gourmet. Peça pelo cardápio online ou WhatsApp, com frete grátis acima de R$100." />
-    <meta property="og:title" content="Vivere — Alimentação que acompanha o seu ritmo" />
-    <meta property="og:description" content="Marmitas congeladas gourmet, prontas em 5 minutos. Peça agora pelo cardápio online." />
+
+    <!-- Fontes: preconnect + link (não bloqueia como o @import no CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+    />
+
+    <!-- Primeira imagem do hero, para o LCP -->
+    <link rel="preload" as="image" href="/images/menu/frango-caseiro.webp" type="image/webp" />
+
+    <!-- Compartilhamento (WhatsApp, Instagram, Facebook) -->
     <meta property="og:type" content="website" />
-    <meta name="robots" content="index, follow" />
-    <title>Vivere — Alimentação que acompanha o seu ritmo</title>
+    <meta property="og:site_name" content="Vivere Alimentos" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://vivere-landing.vercel.app/" />
+    <meta property="og:title" content="Vivere — Alimentação que acompanha o seu ritmo" />
+    <meta
+      property="og:description"
+      content="Marmitas congeladas gourmet, prontas em 5 minutos. Combos com marmitas a partir de R$ 17,00 e frete grátis acima de R$ 100."
+    />
+    <meta property="og:image" content="https://vivere-landing.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Marmita Vivere de feijoada completa, com arroz, farofa e couve." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vivere — Alimentação que acompanha o seu ritmo" />
+    <meta
+      name="twitter:description"
+      content="Marmitas congeladas gourmet, prontas em 5 minutos. Combos com marmitas a partir de R$ 17,00."
+    />
+    <meta name="twitter:image" content="https://vivere-landing.vercel.app/og-image.jpg" />
+
+    <!-- Dados estruturados: negócio local + área de entrega -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "@id": "https://vivere-landing.vercel.app/#business",
+        "name": "Vivere Alimentos",
+        "legalName": "Vivere Comércio de Alimentos",
+        "url": "https://vivere-landing.vercel.app/",
+        "image": "https://vivere-landing.vercel.app/og-image.jpg",
+        "servesCuisine": "Brasileira",
+        "priceRange": "R$ 17 - R$ 26",
+        "telephone": "+55-51-98088-9884",
+        "vatID": "66.705.927/0001-35",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Sezefredo da Costa Tôrres, 373, Centro",
+          "addressLocality": "Santo Antônio da Patrulha",
+          "addressRegion": "RS",
+          "addressCountry": "BR"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Santo Antônio da Patrulha" },
+          { "@type": "City", "name": "Osório" },
+          { "@type": "City", "name": "Glorinha" },
+          { "@type": "City", "name": "Capão da Canoa" },
+          { "@type": "City", "name": "Xangri-Lá" },
+          { "@type": "City", "name": "Tramandaí" },
+          { "@type": "City", "name": "Imbé" },
+          { "@type": "City", "name": "Caraá" }
+        ],
+        "hasMenu": "https://app.cardapioweb.com/vivere_comercio_de_alimentos",
+        "acceptsReservations": false,
+        "sameAs": ["https://instagram.com/viverealimentos"],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "reviewCount": "5"
+        },
+        "potentialAction": {
+          "@type": "OrderAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://app.cardapioweb.com/vivere_comercio_de_alimentos",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "deliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Posso pedir a qualquer hora?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. O cardápio online fica aberto 24 horas por dia, todos os dias. Você monta o pedido quando quiser e escolhe a data de entrega na hora da compra."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando a Vivere entrega na minha cidade?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Com dia fixo: Santo Antônio da Patrulha de segunda a sexta, Osório às terças e sextas, Glorinha às quartas, Capão da Canoa e Xangri-Lá às sextas. Em Tramandaí, Imbé e Caraá a data é combinada pelo WhatsApp depois do pedido."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto custa a entrega?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "R$ 9,00 para todas as cidades atendidas. Acima de R$ 100 em produtos, a entrega sai de graça — o cupom entra sozinho no carrinho."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo as marmitas duram?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Até 180 dias no congelador. São ultracongeladas logo depois do preparo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como eu preparo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Direto do congelador para o micro-ondas, na própria embalagem: 5 minutos e está pronto."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        }
+        if (!f._fbq) f._fbq = n
+        n.push = n
+        n.loaded = !0
+        n.version = '2.0'
+        n.queue = []
+        t = b.createElement(e)
+        t.async = !0
+        t.src = v
+        s = b.getElementsByTagName(e)[0]
+        s.parentNode.insertBefore(t, s)
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+      fbq('init', '1503053695196978')
+      fbq('track', 'PageView')
+    </script>
   </head>
   <body>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        alt=""
+        src="https://www.facebook.com/tr?id=1503053695196978&ev=PageView&noscript=1"
+    /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

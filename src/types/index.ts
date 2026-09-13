@@ -1,13 +1,40 @@
-export interface DishPhoto {
+export type MealCategory = 'carnes' | 'frango' | 'massas' | 'lowcarb'
+
+export type MealTag = 'novidade' | 'mais-pedido' | 'oferta' | 'recomendado'
+
+export interface Meal {
   id: string
+  /** Id do produto no cardápio online — abre a ficha direto. */
+  productId: string
   name: string
-  image: string
-  /** Price in BRL, confirmed against the live cardápio. Omitted when the
-   * dish has no exact current match — never fabricate a price. */
-  price?: number
-  weight?: string
+  /** Nome curto para o card, quando o do cardápio é longo demais. */
+  cardName?: string
+  weight: string
+  /** Preço avulso em BRL, conferido no cardápio online. */
+  price: number
+  category: MealCategory
+  /** Base do arquivo em /public/images/menu (sem extensão). Ausente = ainda sem foto. */
+  image?: string
   description: string
-  isNew?: boolean
+  tag?: MealTag
+  soldOut?: boolean
+  /** Tem tabela nutricional publicada em /nutricional.html. */
+  hasNutrition?: boolean
+}
+
+export interface Combo {
+  id: string
+  /** Id do produto no cardápio online — abre o combo já com o seletor de sabores. */
+  productId: string
+  units: number
+  title: string
+  subtitle: string
+  /** Preço total do combo no cardápio. */
+  price: number
+  /** Mesmo número de marmitas comprado avulso, na linha de R$ 19,97. */
+  reference: number
+  highlight?: boolean
+  tag?: string
 }
 
 export interface Testimonial {
@@ -17,7 +44,7 @@ export interface Testimonial {
   stars: number
 }
 
-export interface Step {
-  title: string
-  description: string
+export interface FaqItem {
+  question: string
+  answer: string
 }

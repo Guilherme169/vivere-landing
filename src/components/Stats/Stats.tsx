@@ -1,52 +1,58 @@
-import { Flame, Snowflake, Clock } from 'lucide-react'
-import { Eyebrow } from '@/components/ui/Badge'
+import { Clock, Snowflake, Store } from 'lucide-react'
+import { SectionTitle } from '@/components/ui/Badge'
 
 const FACTS = [
   {
-    icon: Flame,
+    icon: Clock,
     title: 'Pronto em 5 minutos',
-    description: 'Direto do congelador pro micro-ondas',
+    description: 'Direto do congelador para o micro-ondas, na própria embalagem.',
   },
   {
     icon: Snowflake,
     title: 'Ultracongeladas',
-    description: 'Validade de até 180 dias, sem perder qualidade',
+    description: 'Até 180 dias de validade sem conservante e sem perder textura.',
   },
   {
-    icon: Clock,
-    title: 'Cardápio aberto 24h',
-    description: 'Peça a qualquer hora e agende a entrega',
+    icon: Store,
+    title: 'Pedido a qualquer hora',
+    description: 'O cardápio online não fecha. A entrega você agenda na compra.',
   },
 ]
 
 export function Stats() {
   return (
-    <section className="px-5 py-8 sm:px-10">
-      <Eyebrow>Como funciona</Eyebrow>
-      <h2 className="text-[clamp(1.5rem,6vw,1.9rem)] font-extrabold leading-tight tracking-tight">
-        Do congelador pro <em className="font-serif not-italic italic text-orange">prato</em> em 5 minutos
-      </h2>
+    <section className="bg-cream py-14 sm:py-20">
+      <div className="shell grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:gap-14">
+        <SectionTitle
+          eyebrow="Como funciona"
+          title={
+            <>
+              Do congelador pro prato em <em className="text-orange-dark">cinco minutos</em>
+            </>
+          }
+        />
 
-      <div className="mt-4 flex flex-col gap-2.5">
-        {FACTS.map((fact) => {
-          const Icon = fact.icon
-          return (
-            <div
-              key={fact.title}
-              className="flex items-center gap-3 rounded-2xl border border-black/5 bg-white p-3.5"
-            >
-              <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[11px] bg-green/10">
-                <Icon size={17} className="text-green-dark" />
-              </div>
-              <p className="text-xs font-semibold leading-tight">
-                {fact.title}
-                <span className="mt-0.5 block text-[10.5px] font-normal text-neutral">
-                  {fact.description}
+        <ul className="grid gap-3 sm:grid-cols-3">
+          {FACTS.map((fact) => {
+            const Icon = fact.icon
+            return (
+              <li
+                key={fact.title}
+                className="flex flex-col gap-3 rounded-2xl border border-black/[.06] bg-white p-5 shadow-card"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-green/10">
+                  <Icon size={18} className="text-green-forest" aria-hidden="true" />
                 </span>
-              </p>
-            </div>
-          )
-        })}
+                <div>
+                  <h3 className="text-[14px] font-bold leading-tight">{fact.title}</h3>
+                  <p className="mt-1.5 text-[12.5px] leading-relaxed text-neutral">
+                    {fact.description}
+                  </p>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </section>
   )

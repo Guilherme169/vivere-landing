@@ -1,0 +1,67 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/cardapio",
+      "destination": "https://app.cardapioweb.com/vivere_comercio_de_alimentos?utm_source=atalho&utm_medium=qrcode&utm_campaign=vivere-landing&utm_content=cardapio",
+      "permanent": false
+    },
+    {
+      "source": "/combo10",
+      "destination": "https://app.cardapioweb.com/vivere_comercio_de_alimentos?utm_source=atalho&utm_medium=qrcode&utm_campaign=vivere-landing&utm_content=combo-10&id=5088077#produto",
+      "permanent": false
+    },
+    {
+      "source": "/combo15",
+      "destination": "https://app.cardapioweb.com/vivere_comercio_de_alimentos?utm_source=atalho&utm_medium=qrcode&utm_campaign=vivere-landing&utm_content=combo-15&id=5088106#produto",
+      "permanent": false
+    },
+    {
+      "source": "/combo30",
+      "destination": "https://app.cardapioweb.com/vivere_comercio_de_alimentos?utm_source=atalho&utm_medium=qrcode&utm_campaign=vivere-landing&utm_content=combo-30&id=5088108#produto",
+      "permanent": false
+    },
+    {
+      "source": "/whatsapp",
+      "destination": "https://wa.me/5551980889884?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20marmitas%20da%20Vivere.",
+      "permanent": false
+    },
+    { "source": "/criadores", "destination": "/criadores-osorio", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/og-image.jpg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
+  ]
+}

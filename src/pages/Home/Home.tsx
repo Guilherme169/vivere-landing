@@ -1,31 +1,41 @@
+import { StickyHeader } from '@/components/Layout/StickyHeader'
+import { MenuJsonLd } from '@/components/Seo/MenuJsonLd'
 import { Hero } from '@/components/Hero/Hero'
-import { QuickLinks } from '@/components/QuickLinks/QuickLinks'
-import { FeaturedMeals } from '@/components/FeaturedMeals/FeaturedMeals'
-import { Gallery } from '@/components/Gallery/Gallery'
-import { HowItWorks } from '@/components/HowItWorks/HowItWorks'
+import { DeliveryBar } from '@/components/Delivery/DeliveryBar'
+import { Combos } from '@/components/Combos/Combos'
+import { ComboCalculator } from '@/components/Combos/ComboCalculator'
+import { Menu } from '@/components/Menu/Menu'
 import { CardapioCTA } from '@/components/HowItWorks/CardapioCTA'
+import { HowItWorks } from '@/components/HowItWorks/HowItWorks'
 import { PersonalizedDiet } from '@/components/HowItWorks/PersonalizedDiet'
 import { Stats } from '@/components/Stats/Stats'
+import { Brand } from '@/components/Brand/Brand'
 import { Testimonials } from '@/components/Testimonials/Testimonials'
-import { InstagramCTA } from '@/components/Instagram/InstagramCTA'
 import { NutricionalCTA } from '@/components/NutricionalCTA/NutricionalCTA'
+import { FAQ } from '@/components/FAQ/FAQ'
+import { InstagramCTA } from '@/components/Instagram/InstagramCTA'
 import { Footer } from '@/components/Footer/Footer'
 import { FloatingCTA } from '@/components/FloatingCTA/FloatingCTA'
 
 export function Home() {
   return (
-    <main className="relative mx-auto min-h-screen max-w-[480px] bg-cream shadow-[0_0_40px_rgba(0,0,0,0.06)] sm:max-w-3xl">
+    <main className="min-h-screen bg-cream">
+      <MenuJsonLd />
+      <StickyHeader />
       <Hero />
-      <QuickLinks />
-      <FeaturedMeals />
-      <Gallery />
+      <DeliveryBar />
+      <Combos />
+      <ComboCalculator />
+      <Menu />
       <CardapioCTA />
       <HowItWorks />
       <PersonalizedDiet />
       <Stats />
+      <Brand />
       <Testimonials />
-      <InstagramCTA />
       <NutricionalCTA />
+      <FAQ />
+      <InstagramCTA />
       <Footer />
       <FloatingCTA />
     </main>

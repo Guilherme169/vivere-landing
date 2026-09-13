@@ -1,33 +1,44 @@
-import { UtensilsCrossed, Clock } from 'lucide-react'
-import { LinkButton } from '@/components/ui/Button'
-import { CARDAPIO_LINK } from '@/lib/constants'
+import { Clock, UtensilsCrossed } from 'lucide-react'
+import { OrderLink } from '@/components/ui/OrderLink'
+import { BEST_UNIT_PRICE, UNIT_PRICE_NOTE } from '@/lib/combos'
+import { formatBRL } from '@/lib/meals'
 
 export function CardapioCTA() {
   return (
-    <div className="px-5 pt-2 sm:px-10">
-      <div
-        id="cardapio-cta"
-        className="scroll-mt-6 rounded-[26px] bg-gradient-to-br from-green to-green-dark p-6 text-center text-white shadow-xl shadow-green/35"
-      >
-        <h3 className="text-[1.4rem] font-extrabold leading-tight">
-          Bora montar
-          <br />
-          seu pedido?
-        </h3>
-        <p className="mt-1.5 text-xs text-white/85">
-          Cardápio completo, com fotos, preços e tabela nutricional de cada marmita.
-        </p>
+    <section className="bg-cream pb-14 sm:pb-20">
+      <div className="shell">
+        <div
+          id="cardapio-cta"
+          className="flex scroll-mt-6 flex-col lg:scroll-mt-24 items-center gap-5 rounded-3xl bg-gradient-to-br from-green to-green-dark px-6 py-10 text-center text-white shadow-lift sm:px-12 sm:py-14"
+        >
+          <h2 className="balance font-serif text-[clamp(1.9rem,5.5vw,3rem)] leading-[1.05]">
+            Bora montar seu pedido?
+          </h2>
+          <p className="max-w-prose text-[14.5px] leading-relaxed text-white/85">
+            Cardápio completo, com foto, peso e composição de cada marmita. Combos a partir de R${' '}
+            {formatBRL(BEST_UNIT_PRICE)}
+            <sup className="ml-0.5 text-[11px] font-semibold">*</sup> por unidade, com entrega
+            grátis.
+          </p>
 
-        <LinkButton href={CARDAPIO_LINK} variant="secondary" size="lg" className="mt-4 w-full">
-          <UtensilsCrossed size={18} />
-          Montar meu pedido
-        </LinkButton>
+          <OrderLink
+            source="cta-principal"
+            className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-[15px] font-bold text-green-forest shadow-lg shadow-black/10 transition-colors hover:bg-cream sm:w-auto"
+          >
+            <UtensilsCrossed size={18} aria-hidden="true" />
+            Abrir o cardápio online
+          </OrderLink>
 
-        <p className="mt-3 flex items-center justify-center gap-1.5 text-[10.5px] text-white/75">
-          <Clock size={12} />
-          Aberto 24h · agende sua entrega quando quiser
-        </p>
+          <p className="flex items-center gap-2 text-[12px] text-white/75">
+            <Clock size={13} aria-hidden="true" />
+            Pedidos 24h por dia · você agenda a data da entrega
+          </p>
+
+          <p className="max-w-prose text-[11px] leading-relaxed text-white/60">
+            * {UNIT_PRICE_NOTE}
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

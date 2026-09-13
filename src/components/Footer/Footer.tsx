@@ -1,92 +1,105 @@
-import { Users, Bot, Truck, MapPin, Instagram, MessageCircle } from 'lucide-react'
-import { Eyebrow } from '@/components/ui/Badge'
-import logoV from '@/assets/logo/LOGO_V.jpeg'
+import { Bot, Instagram, MapPin, MessageCircle, Truck, Users } from 'lucide-react'
+import { SectionTitle } from '@/components/ui/Badge'
+import { WhatsAppLink } from '@/components/ui/OrderLink'
 import {
-  HOURS,
   BUSINESS_ADDRESS,
   BUSINESS_CNPJ,
+  BUSINESS_NAME,
+  HOURS,
   INSTAGRAM_LINK,
   WHATSAPP_LINK,
+  WHATSAPP_PHONE_HUMAN,
 } from '@/lib/constants'
+import { DELIVERY_CITIES, DELIVERY_ON_REQUEST } from '@/lib/delivery'
+import { WORDMARK_ALT, WORDMARK_WHITE } from '@/lib/brand'
 
 const HOUR_CARDS = [
   { icon: Users, title: 'Atendimento humano', text: HOURS.human },
   { icon: Bot, title: 'Chatbot no WhatsApp', text: HOURS.bot },
-  { icon: Truck, title: 'Entregas', text: HOURS.delivery },
-  { icon: MapPin, title: 'Loja física', text: HOURS.store },
+  {
+    icon: Truck,
+    title: 'Entregas',
+    text: `${DELIVERY_CITIES.map((city) => `${city.city}: ${city.days.toLowerCase()}`).join(' · ')}. Em ${DELIVERY_ON_REQUEST.join(', ')}, a data é combinada no WhatsApp.`,
+  },
+  { icon: MapPin, title: 'Retirada no local', text: HOURS.store },
 ]
 
 export function Footer() {
   return (
     <>
-      <section className="px-5 py-8 sm:px-10">
-        <Eyebrow>Atendimento</Eyebrow>
-        <h2 className="text-[clamp(1.5rem,6vw,1.9rem)] font-extrabold leading-tight tracking-tight">
-          Quando você
-          <br />
-          consegue <em className="font-serif not-italic italic text-orange">falar com a gente</em>
-        </h2>
+      <section className="bg-cream pb-14 sm:pb-20">
+        <div className="shell grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:gap-14">
+          <SectionTitle
+            eyebrow="Atendimento"
+            title={
+              <>
+                Quando você consegue <em className="text-orange-dark">falar com a gente</em>
+              </>
+            }
+            description={HOURS.cardapio}
+          />
 
-        <div className="mt-4 flex flex-col gap-2.5">
-          {HOUR_CARDS.map((card) => {
-            const Icon = card.icon
-            return (
-              <div
-                key={card.title}
-                className="flex items-start gap-3 rounded-2xl border border-black/5 bg-white p-3.5"
-              >
-                <div className="flex h-[34px] w-[34px] flex-shrink-0 items-center justify-center rounded-[10px] bg-cream">
-                  <Icon size={16} className="text-green-dark" />
-                </div>
-                <div>
-                  <h5 className="text-xs font-bold">{card.title}</h5>
-                  <p className="mt-0.5 text-[11.5px] leading-relaxed text-neutral">{card.text}</p>
-                </div>
-              </div>
-            )
-          })}
+          <ul className="grid gap-2.5 sm:grid-cols-2">
+            {HOUR_CARDS.map((card) => {
+              const Icon = card.icon
+              return (
+                <li
+                  key={card.title}
+                  className="flex items-start gap-3 rounded-2xl border border-black/[.06] bg-white p-4 shadow-card"
+                >
+                  <span className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-cream">
+                    <Icon size={16} className="text-green-forest" aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-[13px] font-bold">{card.title}</h3>
+                    <p className="mt-1 text-[12px] leading-relaxed text-neutral">{card.text}</p>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </section>
 
-      <footer className="bg-green-forest px-6 py-10 text-center text-white/80">
-        <img
-          src={logoV}
-          alt="Vivere"
-          className="mx-auto w-20 sm:w-28 object-contain"
-        />
+      <footer className="bg-green-forest pb-24 pt-12 text-white/75 lg:pb-12">
+        <div className="shell flex flex-col items-center gap-5 text-center">
+          <img
+            src={WORDMARK_WHITE}
+            alt={WORDMARK_ALT}
+            width={720}
+            height={257}
+            loading="lazy"
+            className="h-12 w-auto sm:h-14"
+          />
 
-        <p className="mt-3 font-serif italic text-sm text-white/60">
-          Alimentação que acompanha o seu ritmo
-        </p>
+          <div className="flex gap-3">
+            <a
+              href={INSTAGRAM_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da Vivere"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+            >
+              <Instagram size={17} aria-hidden="true" />
+            </a>
+            <WhatsAppLink
+              source="rodape"
+              href={WHATSAPP_LINK}
+              aria-label="WhatsApp da Vivere"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+            >
+              <MessageCircle size={17} aria-hidden="true" />
+            </WhatsAppLink>
+          </div>
 
-        <div className="my-4 flex justify-center gap-3">
-          <a
-            href={INSTAGRAM_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-          >
-            <Instagram size={16} />
-          </a>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-          >
-            <MessageCircle size={16} />
-          </a>
+          <div className="h-px w-24 bg-white/15" />
+
+          <p className="text-[11.5px] leading-relaxed text-white/45">
+            {BUSINESS_NAME} · CNPJ {BUSINESS_CNPJ}
+            <br />
+            {BUSINESS_ADDRESS} · {WHATSAPP_PHONE_HUMAN}
+          </p>
         </div>
-
-        <div className="mx-auto h-px max-w-[120px] bg-white/10" />
-
-        <p className="mt-4 text-[10.5px] leading-relaxed text-white/45">
-          Vivere Comércio de Alimentos · CNPJ {BUSINESS_CNPJ}
-          <br />
-          {BUSINESS_ADDRESS}
-        </p>
       </footer>
     </>
   )

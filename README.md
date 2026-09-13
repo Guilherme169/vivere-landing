@@ -1,150 +1,141 @@
 # Vivere Landing
 
-Landing page de conversão da **Vivere** (marmitas congeladas gourmet) — mobile-first, pensada para ser o destino do link da bio do Instagram, QR Codes, campanhas de marketing e disparos de WhatsApp.
+Landing page de conversão da **Vivere** (marmitas congeladas gourmet). É o destino do link da bio do Instagram, dos QR Codes, das campanhas de tráfego pago e dos disparos de WhatsApp.
 
-Este projeto é **independente** do site institucional da Vivere (`vivere-site`). Ele não o substitui — os dois convivem lado a lado, com objetivos diferentes: o site institucional apresenta a marca por completo (cardápio, sobre, depoimentos); esta landing existe para converter em segundos quem chega de um link externo.
+A página existe para uma coisa: levar quem chegou de um link externo até o cardápio online com o pedido montado. Desde setembro de 2026 o argumento principal deixou de ser a marmita avulsa e passou a ser o **combo** — ticket maior, preço por marmita menor, entrega grátis.
 
 ## Fluxo da página
 
-1. **Hero** — carrossel de fotos reais das marmitas ("food porn") + headline + CTA.
-2. **QuickLinks** — atalhos diretos: Cardápio online, WhatsApp, Dieta personalizada, Instagram.
-3. **FeaturedMeals** — pratos em promoção (com preço real, confirmado no cardápio online).
-4. **Gallery** — grade com o restante do cardápio fotografado.
-5. **HowItWorks** — passo a passo interativo de como comprar pelo cardápio online, seguido do CTA principal (cardápio como canal prioritário) e do WhatsApp como opção secundária.
-6. **PersonalizedDiet** — explicação do atendimento para dietas específicas.
-7. **Stats** — como funciona a Vivere (pronto em 5 min, ultracongelado, cardápio 24h).
-8. **Testimonials** — depoimentos reais de clientes (Google, 5,0★).
-9. **InstagramCTA** — convite para seguir o perfil.
-10. **Footer** — horários de atendimento, endereço, CNPJ, redes sociais.
-11. **FloatingCTA** — barra fixa inferior (some no topo, aparece ao rolar) com os dois CTAs prioritários.
+1. **Hero** — cabeçalho com marca e atalhos, promessa, foto do prato e a âncora de preço dos combos.
+2. **DeliveryBar** — cidades atendidas e dia de entrega de cada uma. Primeira dúvida de quem nunca comprou.
+3. **Combos** — oferta principal: 10, 15 e 30 marmitas, com preço "a partir de" por unidade e economia em reais. Abaixo, os cupons automáticos de quem compra avulso.
+4. **ComboCalculator** — quantas marmitas por semana → quanto tempo cada combo dura e qual encaixa melhor.
+5. **Menu** — cardápio completo, filtrável por tipo, com preço e gramatura reais.
+6. **CardapioCTA** — chamada principal para o cardápio online.
+7. **HowItWorks** — passo a passo da compra, em acordeão acessível.
+8. **PersonalizedDiet** — atendimento para dieta prescrita e restrições.
+9. **Stats** — preparo, validade e disponibilidade do cardápio.
+10. **Brand** — a embalagem: tabela impressa na caixa, micro-ondas, linhas Dia a Dia e Pasta.
+11. **Testimonials** — avaliações reais do Google.
+12. **NutricionalCTA** — ponte para `/nutricional.html`.
+13. **FAQ** — objeções de congelado, entrega, pagamento e retirada.
+14. **InstagramCTA** — convite para seguir o perfil.
+15. **Footer** — atendimento, entregas, endereço e CNPJ.
+16. **FloatingCTA** — barra fixa de conversão no mobile, a partir do fim do hero.
+
+## Onde ficam os dados
+
+Nenhum preço, horário ou telefone vive dentro de componente. Tudo em `src/lib/`:
+
+| Arquivo | O que guarda |
+| --- | --- |
+| `constants.ts` | Domínio, WhatsApp, Instagram, endereço, CNPJ, ID do pixel, horários, descontos automáticos |
+| `meals.ts` | Os 17 pratos: nome, preço, gramatura, categoria, foto, etiqueta |
+| `combos.ts` | Os combos e o preço de referência usado em toda a página |
+| `delivery.ts` | Cidades, dias de entrega e regra de frete |
+| `faq.ts` | Perguntas frequentes |
+| `analytics.ts` | Eventos do pixel, carimbo de origem e link direto para a ficha do produto |
+| `brand.ts` | Wordmark e fotos institucionais |
+
+**Quando o cardápio online mudar de preço, mexa só em `meals.ts` e `combos.ts`.** O resto da página se ajusta sozinho — inclusive a âncora "a partir de R$ …" do hero e a contagem de pratos.
+
+## Medição
+
+Todo link que sai da página para o cardápio passa por `<OrderLink source="…">`, e todo link de WhatsApp por `<WhatsAppLink source="…">`. Os dois:
+
+- carimbam `utm_content` com o nome do bloco de origem, e
+- disparam um evento no Meta Pixel (`CliqueCardapio` / `CliqueWhatsApp`, mais os eventos padrão `InitiateCheckout` e `Contact`).
+
+Assim dá pra ver qual seção converte. **Nunca adicione um `<a href={CARDAPIO_LINK}>` solto** — use o componente, ou o clique sai da página sem medição.
+
+## Link direto para o produto
+
+Cada prato e cada combo tem um `productId` — o id do produto dentro do cardápio online. Passando `productId` para o `OrderLink`, o link vira `?id=<productId>#produto` e o cardápio **abre a ficha direto**, já com o seletor de sabores no caso dos combos. Sem `productId`, cai na home do cardápio e o cliente tem que procurar.
+
+Para descobrir o id de um produto novo: abra o cardápio, inspecione o card e leia o atributo `data-product-id`.
+
+O ID do pixel está em `constants.ts` e no `index.html` (código base do Meta). É o mesmo da página de criadores.
+
+## Identidade visual
+
+O wordmark oficial vive em `public/images/brand/` em duas versões, ambas com fundo transparente:
+
+- `vivere-wordmark-white.png` — para fundo verde-escuro (cabeçalho, rodapé)
+- `vivere-wordmark-forest.png` — para fundo claro
+
+Use o arquivo certo em vez de recolorir por CSS. As fotos institucionais da embalagem ficam na mesma pasta e são listadas em `src/lib/brand.ts`.
+
+## Fotos dos pratos
+
+Ficam em `public/images/menu/<slug>.webp` com `<slug>.jpg` de fallback, em 700×700. Para adicionar uma foto nova:
+
+1. Salve o arquivo quadrado nos dois formatos com o mesmo nome.
+2. Aponte o campo `image` do prato em `meals.ts` para esse nome (sem extensão).
+
+Prato sem `image` aparece com o monograma da marca no lugar da foto — não quebra o layout.
+
+A imagem de compartilhamento (`public/og-image.jpg`, 1200×630) é o que aparece quando o link é colado no WhatsApp ou no Instagram.
 
 ## Stack
 
-- **React 18** + **TypeScript** (strict mode)
-- **Vite 6** — dev server e build
-- **Tailwind CSS 3** — estilização utilitária, tokens de marca via `tailwind.config.js`
+- **React 18** + **TypeScript** (strict)
+- **Vite 6**
+- **Tailwind CSS 3** — tokens de marca em `tailwind.config.js`
 - **lucide-react** — ícones
-- **ESLint 9** (flat config) + **Prettier** — qualidade e formatação de código
+- **ESLint 9** + **Prettier**
 - Alias `@` → `src/`
 
-### Sobre shadcn/ui e Framer Motion
-
-O briefing original pedia shadcn/ui e Framer Motion. Este projeto implementa a **mesma filosofia** desses dois — um `cn()` utilitário em `src/lib/cn.ts` e primitivos (`Button`, `Badge`/`Eyebrow`) em `src/components/ui/` no mesmo espírito do shadcn; scroll-reveal e transições via Tailwind + um hook `useInView` em vez de `framer-motion` — **sem** as duas dependências reais.
-
-O motivo é 100% técnico: este projeto foi montado num ambiente sandboxed sem acesso ao registry do npm, então não foi possível instalar nem verificar essas duas bibliotecas de verdade. Em vez de declarar dependências não testadas, preferi entregar um projeto **verificado e funcional** com um stack levemente mais enxuto. Se quiser as bibliotecas literais mais tarde:
-
-```bash
-npm install framer-motion class-variance-authority clsx tailwind-merge tailwindcss-animate
-npx shadcn@latest init
-npx shadcn@latest add button badge
-```
-
-Os componentes já seguem a convenção de props/nomenclatura do shadcn, então a migração é direta.
-
-## Como instalar
-
-Pré-requisito: [Node.js](https://nodejs.org) 18 ou superior.
+## Rodando
 
 ```bash
 npm install
+npm run dev              # http://localhost:5173
+npm run dev -- --host    # abre para o celular na mesma rede
 ```
 
-> Se uma pasta `node_modules/` já vier junto com o projeto, apague-a antes (`rm -rf node_modules package-lock.json`) e rode `npm install` de novo — ela foi gerada apenas para testes internos de compilação e não deve ser usada em produção.
-
-## Como executar em desenvolvimento
+## Build
 
 ```bash
-npm run dev
-```
-
-Abre em `http://localhost:5173`. Para acessar pelo celular na mesma rede Wi-Fi:
-
-```bash
-npm run dev -- --host
-```
-
-## Como gerar build de produção
-
-```bash
-npm run build
-```
-
-Gera a pasta `dist/`, pronta para deploy estático. Para conferir localmente antes de publicar:
-
-```bash
-npm run preview
+npm run build     # tsc -b && vite build → dist/
+npm run preview   # confere o build antes de publicar
 ```
 
 ## Lint e formatação
 
 ```bash
-npm run lint     # ESLint
-npm run format   # Prettier (escreve as correções)
+npm run lint
+npm run format
 ```
 
-## Estrutura de pastas
+## Publicação
 
-```
-vivere-landing/
-├── public/                  # favicons e manifest (servidos como estão)
-├── src/
-│   ├── assets/
-│   │   ├── images/
-│   │   │   ├── dishes/      # fotos reais das marmitas
-│   │   │   └── testimonials/# fotos reais dos clientes
-│   │   └── logo/            # logo-vivere.png
-│   ├── components/
-│   │   ├── Hero/
-│   │   ├── QuickLinks/
-│   │   ├── FeaturedMeals/
-│   │   ├── Gallery/
-│   │   ├── HowItWorks/      # steps + CardapioCTA + PersonalizedDiet
-│   │   ├── Stats/
-│   │   ├── Testimonials/
-│   │   ├── Instagram/
-│   │   ├── Footer/
-│   │   ├── FloatingCTA/
-│   │   └── ui/               # Button, Badge/Eyebrow (primitivos estilo shadcn)
-│   ├── pages/
-│   │   └── Home/             # composição das seções
-│   ├── hooks/                 # useCarousel, useInView
-│   ├── lib/                   # cn, constants, meals, testimonials
-│   ├── types/                 # tipos compartilhados
-│   ├── styles/                # globals.css (Tailwind + fontes)
-│   ├── App.tsx
-│   └── main.tsx
-├── index.html
-├── package.json
-├── vite.config.ts
-├── tailwind.config.js
-├── tsconfig.json / tsconfig.app.json / tsconfig.node.json
-└── README.md
-```
+Deploy estático na Vercel a partir do branch `main`. Preset `Vite`, build `npm run build`, saída `dist`.
 
-## Boas práticas adotadas
+O `vercel.json` cuida de três coisas:
 
-- **Mobile first**: todo layout nasce para 375–430px e ganha breakpoints `sm:`/`lg:` depois — nunca o contrário.
-- **Componentização de responsabilidade única**: cada seção é uma pasta com um único componente principal; nada de arquivos gigantes.
-- **Dados fora do JSX**: conteúdo de pratos, depoimentos, links e horários vive em `src/lib/`, não hardcoded dentro de componentes.
-- **Preços reais, nunca inventados**: os valores em `lib/meals.ts` foram confirmados diretamente no cardápio online; pratos sem correspondência exata no cardápio atual não exibem preço fabricado.
-- **Sem `console.log`, sem código comentado, sem TODOs esquecidos.**
-- **Acessibilidade**: `alt` em todas as imagens, `aria-label` em botões só-ícone, contraste de texto sobre imagem garantido via gradiente.
+- **URLs limpas** — `/nutricional` em vez de `/nutricional.html`.
+- **Cache** — `/assets/*` (arquivos com hash) fica imutável por um ano; `/images/*` fica uma hora no navegador e um ano no CDN, que a Vercel limpa a cada deploy. Trocar uma foto mantendo o mesmo nome aparece na hora para quem chega novo, e em até uma hora para quem já visitou.
+- **Atalhos de link** — para QR Code, bio e stories:
 
-## Publicação (Vercel / Cloudflare Pages / Netlify)
+| Atalho | Vai para |
+| --- | --- |
+| `/cardapio` | cardápio online, carimbado como `utm_medium=qrcode` |
+| `/combo10` `/combo15` `/combo30` | a ficha do combo, já com o seletor de sabores |
+| `/whatsapp` | conversa no WhatsApp com mensagem pronta |
+| `/criadores` | página do programa de criadores |
 
-O projeto já está pronto para deploy sem qualquer alteração — é uma SPA estática gerada por `vite build`.
+Ao trocar o domínio, atualize em cinco lugares: `SITE_URL` em `src/lib/constants.ts`, as tags `canonical` / `og:url` / `og:image` / `twitter:image` do `index.html`, o mesmo bloco em `public/nutricional.html`, o `public/robots.txt` e o `public/sitemap.xml`.
 
-**Vercel**
-1. Importe o repositório.
-2. Framework preset: `Vite`.
-3. Build command: `npm run build` · Output directory: `dist`.
+## SEO
 
-**Cloudflare Pages**
-1. Conecte o repositório.
-2. Build command: `npm run build` · Build output directory: `dist`.
+- `index.html` traz o JSON-LD de `Restaurant` (endereço, cidades atendidas, nota, horário) e de `FAQPage`.
+- `MenuJsonLd` publica o cardápio inteiro como `Menu` em tempo de execução, a partir de `meals.ts` e `combos.ts` — assim os dados estruturados nunca ficam defasados em relação aos preços da página.
+- `robots.txt` e `sitemap.xml` ficam em `public/`.
 
-**Netlify**
-1. Conecte o repositório.
-2. Build command: `npm run build` · Publish directory: `dist`.
+## Decisões que valem lembrar
 
-Em qualquer uma das três, configure o domínio ou subdomínio desejado (ex.: `link.vivereeu.com.br`) e aponte o DNS depois do primeiro deploy.
+- **Mobile primeiro, mas não só mobile.** O layout nasce em 390px e abre em 2 e 4 colunas. A página não fica mais presa a um container de largura de celular no desktop.
+- **Um preço de referência só.** Os três combos comparam contra a mesma marmita avulsa (`BASE_UNIT_PRICE`), senão não dá pra comparar entre eles.
+- **Preço de combo é piso, não valor fechado.** Todo "R$ X por marmita" vem com "a partir de" e com o asterisco de `UNIT_PRICE_NOTE`, porque o valor sobe conforme os sabores escolhidos.
+- **Preço nunca é inventado.** Todo valor exibido foi conferido no cardápio online. Prato sem correspondência não vai para a página.
+- **Acessibilidade.** Acordeão com `<button>` e `aria-expanded`, FAQ com `<details>` nativo, `alt` em toda imagem, foco visível, `prefers-reduced-motion` respeitado.

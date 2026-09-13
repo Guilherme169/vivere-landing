@@ -1,55 +1,64 @@
 import { ClipboardList } from 'lucide-react'
-import { Eyebrow } from '@/components/ui/Badge'
-import { LinkButton } from '@/components/ui/Button'
+import { SectionTitle } from '@/components/ui/Badge'
+import { MEALS } from '@/lib/meals'
 
 const IDEAL_FOR = [
   'faz dieta',
-  'possui acompanhamento nutricional',
+  'tem acompanhamento nutricional',
   'pratica atividade física',
-  'busca alimentação equilibrada',
+  'quer uma alimentação equilibrada',
 ]
+
+const WITH_NUTRITION = MEALS.filter((meal) => meal.hasNutrition).length
 
 export function NutricionalCTA() {
   return (
-    <section className="px-5 py-8 sm:px-10">
-      <Eyebrow>Nutrição</Eyebrow>
-      <h2 className="text-[clamp(1.5rem,6vw,1.9rem)] font-extrabold leading-tight tracking-tight">
-        Informações{' '}
-        <em className="font-serif not-italic italic text-orange">nutricionais</em>
-        <br />
-        completas
-      </h2>
+    <section className="bg-cream py-14 sm:py-20">
+      <div className="shell grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-14">
+        <div className="flex flex-col gap-5">
+          <SectionTitle
+            eyebrow="Nutrição"
+            title={
+              <>
+                Informações <em className="text-orange-dark">nutricionais</em> completas
+              </>
+            }
+            description="Calorias, proteínas, carboidratos, gorduras, sódio, ingredientes e alergênicos — exatamente como aparecem na embalagem, para você e seu nutricionista planejarem sem surpresa."
+          />
 
-      <p className="mt-2.5 text-[13px] leading-relaxed text-neutral">
-        Na Vivere você sabe exatamente o que está consumindo. Consulte ingredientes, calorias,
-        proteínas, carboidratos, gorduras, sódio e alergênicos de todas as refeições.
-      </p>
+          <a
+            href="/nutricional"
+            className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-green px-6 py-3.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-green-dark"
+          >
+            <ClipboardList size={17} aria-hidden="true" />
+            Consultar tabela nutricional
+          </a>
 
-      <div className="mt-4 rounded-2xl border border-black/5 bg-white p-4">
-        <p className="mb-3 text-[10.5px] font-bold uppercase tracking-wider text-neutral">
-          Ideal para quem:
-        </p>
-        <div className="flex flex-col gap-2.5">
-          {IDEAL_FOR.map((item) => (
-            <div key={item} className="flex items-center gap-2.5">
-              <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green/10 text-[10px] font-bold text-green-dark">
-                ✔
-              </span>
-              <p className="text-[13px] font-medium">{item}</p>
-            </div>
-          ))}
+          <p className="text-[12px] leading-relaxed text-neutral">
+            {WITH_NUTRITION} pratos já com tabela publicada. Os demais estão em finalização e entram
+            assim que ficarem prontos.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-black/[.06] bg-white p-6 shadow-card">
+          <p className="text-[10.5px] font-bold uppercase tracking-[.09em] text-neutral">
+            Ideal para quem
+          </p>
+          <ul className="mt-4 flex flex-col gap-3">
+            {IDEAL_FOR.map((item) => (
+              <li key={item} className="flex items-center gap-3">
+                <span
+                  className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-green/12 text-[10px] font-bold text-green-forest"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+                <span className="text-[13.5px] font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-
-      <LinkButton
-        href="/nutricional.html"
-        target="_self"
-        size="md"
-        className="mt-5 w-full gap-2"
-      >
-        <ClipboardList size={16} strokeWidth={2.5} />
-        Consultar informações nutricionais
-      </LinkButton>
     </section>
   )
 }

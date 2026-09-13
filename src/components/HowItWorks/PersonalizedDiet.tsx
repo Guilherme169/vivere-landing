@@ -1,41 +1,54 @@
 import { HeartHandshake } from 'lucide-react'
-import { Eyebrow } from '@/components/ui/Badge'
-import { LinkButton } from '@/components/ui/Button'
+import { SectionTitle } from '@/components/ui/Badge'
+import { WhatsAppLink } from '@/components/ui/OrderLink'
 import { WHATSAPP_DIET_LINK } from '@/lib/constants'
 
 const DIET_STEPS = [
   'Chame no nosso WhatsApp',
   'Peça pra falar com um atendente humano',
-  'Envie o PDF da sua dieta ou descreva pra gente',
-  'Receba um orçamento com opções que encaixam na sua dieta',
+  'Envie o PDF da sua dieta ou descreva as restrições',
+  'Receba um orçamento com as opções que encaixam',
   'Você escolhe, a gente prepara, congela e entrega',
 ]
 
 export function PersonalizedDiet() {
   return (
-    <section className="px-5 py-4 sm:px-10">
-      <div className="rounded-[22px] bg-[#fff8f0] p-5">
-        <Eyebrow tone="orange">Dieta específica?</Eyebrow>
-        <h2 className="text-[1.35rem] font-extrabold leading-tight tracking-tight">
-          A gente monta <em className="font-serif not-italic italic text-orange">com você</em>
-        </h2>
-        <p className="mt-2 text-[13.5px] leading-relaxed text-neutral">
-          Tem prescrição de nutricionista, plano alimentar ou restrições? Montamos um cardápio sob medida:
-        </p>
+    <section className="bg-white pb-14 sm:pb-20">
+      <div className="shell">
+        <div className="grid gap-7 rounded-3xl bg-[#fdf6ec] p-6 sm:p-9 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14">
+          <SectionTitle
+            eyebrow="Dieta específica?"
+            tone="orange"
+            title={
+              <>
+                A gente monta <em className="text-orange-dark">com você</em>
+              </>
+            }
+            description="Tem prescrição de nutricionista, plano alimentar ou restrição alimentar? Montamos um cardápio sob medida, com as gramaturas que a sua dieta pede."
+          />
 
-        <ol className="mt-3.5 flex flex-col gap-2">
-          {DIET_STEPS.map((step, index) => (
-            <li key={step} className="flex gap-2 text-xs leading-relaxed text-ink">
-              <b className="flex-shrink-0 font-extrabold text-orange">{index + 1}.</b>
-              {step}
-            </li>
-          ))}
-        </ol>
+          <div className="flex flex-col gap-5">
+            <ol className="flex flex-col gap-2.5">
+              {DIET_STEPS.map((step, index) => (
+                <li key={step} className="flex gap-3 text-[13.5px] leading-snug text-ink">
+                  <span className="tnum flex h-6 w-6 flex-none items-center justify-center rounded-full bg-orange/15 text-[11px] font-extrabold text-orange-dark">
+                    {index + 1}
+                  </span>
+                  <span className="pt-0.5">{step}</span>
+                </li>
+              ))}
+            </ol>
 
-        <LinkButton href={WHATSAPP_DIET_LINK} className="mt-4 w-full bg-orange text-white hover:bg-orange/90">
-          <HeartHandshake size={16} />
-          Montar minha dieta personalizada
-        </LinkButton>
+            <WhatsAppLink
+              source="dieta-personalizada"
+              href={WHATSAPP_DIET_LINK}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange px-6 py-4 text-[14.5px] font-semibold text-white transition-colors hover:bg-orange-dark"
+            >
+              <HeartHandshake size={17} aria-hidden="true" />
+              Montar minha dieta personalizada
+            </WhatsAppLink>
+          </div>
+        </div>
       </div>
     </section>
   )
