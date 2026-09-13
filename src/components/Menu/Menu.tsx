@@ -4,13 +4,18 @@ import { SectionTitle } from '@/components/ui/Badge'
 import { MealImage } from '@/components/ui/MealImage'
 import { OrderLink } from '@/components/ui/OrderLink'
 import { CATEGORY_LABELS, MEALS, TAG_LABELS, formatBRL } from '@/lib/meals'
+import { HIGH_PROTEIN, isHighProtein, macros } from '@/lib/nutrition'
 import type { Meal, MealCategory } from '@/types'
 import { cn } from '@/lib/cn'
 
-type Filter = 'todos' | MealCategory
+type Filter = 'todos' | MealCategory | 'proteina'
 
 const FILTERS: { id: Filter; label: string }[] = [
   { id: 'todos', label: 'Todos' },
+  // Filtro por objetivo, não por tipo de prato: é o que a pessoa pergunta
+  // primeiro quando treina ou está em dieta, e só a Vivere tem o número
+  // medido para responder.
+  { id: 'proteina', label: `Mais de ${HIGH_PROTEIN}g de proteína` },
   { id: 'carnes', label: CATEGORY_LABELS.carnes },
   { id: 'frango', label: CATEGORY_LABELS.frango },
   { id: 'massas', label: CATEGORY_LABELS.massas },
@@ -24,10 +29,11 @@ export function Menu() {
   const [filter, setFilter] = useState<Filter>('todos')
   const [expandido, setExpandido] = useState(false)
 
-  const meals = useMemo(
-    () => (filter === 'todos' ? MEALS : MEALS.filter((meal) => meal.category === filter)),
-    [filter],
-  )
+  const meals = useMemo(() => {
+    if (filter === 'todos') return MEALS
+    if (filter === 'proteina') return MEALS.filter((meal) => isHighProtein(meal.id))
+    return MEALS.filter((meal) => meal.category === filter)
+  }, [filter])
 
   const visiveis = expandido ? meals : meals.slice(0, PREVIEW)
   const restantes = meals.length - visiveis.length
@@ -42,7 +48,7 @@ export function Menu() {
               Tudo que você pode <em className="text-orange-dark">montar no seu combo</em>
             </>
           }
-          description="Preços e gramaturas exatamente como estão no cardápio online. Toque no prato para abrir a ficha dele direto, com composição e tabela."
+          description="Preços e gramaturas exatamente como estão no cardápio online. Onde aparecem proteína e calorias, os números vêm da análise de laboratório impressa na caixa — não são estimativa."
         />
 
         <div
@@ -93,7 +99,14 @@ export function Menu() {
 
         <p className="text-[12px] leading-relaxed text-neutral">
           Cada prato abre a própria ficha no cardápio online, com a composição em gramas e o modo de
-          preparo.
+          preparo.{' '}
+          <a
+            href="/nutricional"
+            className="font-semibold text-green-dark underline decoration-green-dark/30 underline-offset-4"
+          >
+            Ver as tabelas nutricionais completas
+          </a>
+          .
         </p>
       </div>
     </section>
@@ -101,6 +114,8 @@ export function Menu() {
 }
 
 function MealCard({ meal }: { meal: Meal }) {
+  const macro = macros(meal.id)
+
   const inner = (
     <>
       <div className="relative aspect-square overflow-hidden bg-sand">
@@ -132,6 +147,15 @@ function MealCard({ meal }: { meal: Meal }) {
           <p className="mt-1.5 text-[11px] leading-snug text-neutral sm:text-[11.5px]">
             {meal.description}
           </p>
+
+          {macro ? (
+            <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10.5px] font-semibold">
+              <span className="rounded-full bg-green/12 px-2 py-0.5 text-green-dark">
+                {macro.protein} g proteína
+              </span>
+              <span className="tnum text-neutral">{macro.kcal} kcal</span>
+            </p>
+          ) : null}
         </div>
 
         <div className="flex items-end justify-between gap-2 border-t border-gold/25 pt-2.5">

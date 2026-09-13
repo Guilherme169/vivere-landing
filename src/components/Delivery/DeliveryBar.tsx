@@ -1,8 +1,9 @@
-import { ArrowUpRight, MapPin, MessageCircle, Truck } from 'lucide-react'
+import { ArrowUpRight, CalendarClock, MapPin, MessageCircle, Truck } from 'lucide-react'
 import { WhatsAppLink } from '@/components/ui/OrderLink'
 import { whatsappLink } from '@/lib/constants'
 import { CITIES } from '@/lib/cities'
 import { ALL_DELIVERY_CITIES, DELIVERY_CITIES, DELIVERY_ON_REQUEST, FREIGHT } from '@/lib/delivery'
+import { entregaCurta, proximaEntrega } from '@/lib/proximaEntrega'
 import { cn } from '@/lib/cn'
 
 const SCHEDULE_LINK = whatsappLink(
@@ -35,39 +36,48 @@ export function DeliveryBar() {
         </div>
 
         <ul className="grid grid-cols-2 gap-2.5 lg:grid-cols-5">
-          {DELIVERY_CITIES.map((city) => (
-            <li key={city.slug} className="flex">
-              <a
-                href={`/${city.slug}`}
-                className={cn(
-                  'group flex w-full items-start gap-2.5 rounded-2xl border p-3.5 transition-shadow sm:p-4',
-                  city.isBase
-                    ? 'border-green/25 bg-green/[.07] hover:shadow-card'
-                    : 'border-ink/[.06] bg-white shadow-card hover:shadow-lift',
-                )}
-              >
-                <MapPin
-                  size={16}
-                  className="mt-0.5 flex-shrink-0 text-green-dark"
-                  aria-hidden="true"
-                />
-                <div className="min-w-0 flex-1">
-                  <p className="flex items-start gap-1 text-[13px] font-bold leading-tight">
-                    <span className="flex-1">{city.name}</span>
-                    <ArrowUpRight
-                      size={13}
-                      aria-hidden="true"
-                      className="mt-px flex-none text-neutral/50 transition-colors group-hover:text-green-dark"
-                    />
-                  </p>
-                  <p className="mt-1 text-[12px] leading-tight text-neutral">
-                    {city.days}
-                    <span className="block text-[11px] text-neutral/75">{city.period}</span>
-                  </p>
-                </div>
-              </a>
-            </li>
-          ))}
+          {DELIVERY_CITIES.map((city) => {
+            const proxima = proximaEntrega(city.weekdays)
+            return (
+              <li key={city.slug} className="flex">
+                <a
+                  href={`/${city.slug}`}
+                  className={cn(
+                    'group flex w-full items-start gap-2.5 rounded-2xl border p-3.5 transition-shadow sm:p-4',
+                    city.isBase
+                      ? 'border-green/25 bg-green/[.07] hover:shadow-card'
+                      : 'border-ink/[.06] bg-white shadow-card hover:shadow-lift',
+                  )}
+                >
+                  <MapPin
+                    size={16}
+                    className="mt-0.5 flex-shrink-0 text-green-dark"
+                    aria-hidden="true"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="flex items-start gap-1 text-[13px] font-bold leading-tight">
+                      <span className="flex-1">{city.name}</span>
+                      <ArrowUpRight
+                        size={13}
+                        aria-hidden="true"
+                        className="mt-px flex-none text-neutral/50 transition-colors group-hover:text-green-dark"
+                      />
+                    </p>
+                    <p className="mt-1 text-[11.5px] leading-snug text-neutral">
+                      {city.days} · {city.period.replace(/^pela /, '')}
+                    </p>
+                    {proxima ? (
+                      <p className="mt-1.5 flex items-center gap-1 whitespace-nowrap text-[11.5px] font-bold leading-tight text-green-dark">
+                        <CalendarClock size={12} className="flex-none" aria-hidden="true" />
+                        <span className="sr-only">Próxima entrega: </span>
+                        {entregaCurta(proxima)}
+                      </p>
+                    ) : null}
+                  </div>
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="flex flex-col gap-4 rounded-2xl border border-dashed border-green/30 bg-white/70 p-4 sm:p-5">
@@ -114,8 +124,8 @@ export function DeliveryBar() {
         </div>
 
         <p className="text-[12px] leading-relaxed text-neutral">
-          Nas cidades com dia fixo, você escolhe a data no momento da compra, dentro do cardápio
-          online.
+          As datas acima são as próximas passagens da nossa rota. Você escolhe a que preferir no
+          momento da compra, dentro do cardápio online.
         </p>
       </div>
     </section>

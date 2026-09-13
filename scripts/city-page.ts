@@ -226,7 +226,11 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
       <p class="lead">${esc(city.intro)}</p>
 
       <div class="delivery-card">
-        <div><span class="dc-label">Dia da entrega</span>${entregaLinha}</div>
+        <div><span class="dc-label">Dia da entrega</span>${entregaLinha}${
+          city.weekdays.length
+            ? `<span class="dc-proxima" data-weekdays="${city.weekdays.join(',')}"></span>`
+            : ''
+        }</div>
         <div><span class="dc-label">Frete</span><strong>R$ ${d.freight.price},00</strong><span>grátis acima de R$ ${d.freight.freeFrom}</span></div>
         <div><span class="dc-label">Preparo</span><strong>5 minutos</strong><span>no micro-ondas</span></div>
       </div>
@@ -295,6 +299,35 @@ fbq('init','1503053695196978');fbq('track','PageView');fbq('trackCustom','VerPag
     <a class="link-quiet" href="/">Ver o site completo da Vivere</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  var curtos = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+  var hoje = new Date();
+  var base = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+  document.querySelectorAll('.dc-proxima').forEach(function (el) {
+    var dias = el.getAttribute('data-weekdays').split(',').map(Number);
+    for (var i = 0; i <= 7; i++) {
+      var d = new Date(base);
+      d.setDate(base.getDate() + i);
+      if (dias.indexOf(d.getDay()) === -1) continue;
+      var texto;
+      if (i === 0) texto = 'hoje';
+      else if (i === 1) texto = 'amanhã';
+      else
+        texto =
+          curtos[d.getDay()] +
+          ', ' +
+          ('0' + d.getDate()).slice(-2) +
+          '/' +
+          ('0' + (d.getMonth() + 1)).slice(-2);
+      el.textContent = 'Próxima: ' + texto;
+      el.classList.add('is-on');
+      break;
+    }
+  });
+})();
+</script>
 
 <a class="zap-fixo" href="${esc(whatsappCidade(d.whatsappLink, city))}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp da Vivere">
   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.2.3 0 .5.2.3.7 1.2 1.6 2 1.1.9 1.9 1.2 2.2 1.3.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.5-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3Z"/></svg>
@@ -427,4 +460,7 @@ sup{font-size:.55em;font-family:Inter,sans-serif;font-weight:600;vertical-align:
 .nota-estrelas{color:#fbbc04;font-size:13px;letter-spacing:1px}
 .nota-txt{font-size:12px;color:rgba(255,255,255,.7)}
 a.nota:hover{background:rgba(255,255,255,.12)}
+
+.dc-proxima{display:none}
+.dc-proxima.is-on{display:block;margin-top:6px;font-size:12.5px;font-weight:700;color:var(--moss)}
 `

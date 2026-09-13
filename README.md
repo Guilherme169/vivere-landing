@@ -81,6 +81,20 @@ Prato sem `image` aparece com o monograma da marca no lugar da foto — não que
 
 A imagem de compartilhamento (`public/og-image.jpg`, 1200×630) é o que aparece quando o link é colado no WhatsApp ou no Instagram.
 
+## Próxima entrega
+
+Cada cidade com dia fixo mostra a **data da próxima passagem da rota** — "ter, 15/09", "amanhã", "hoje". Sai de `weekdays` em `cities.ts` (0 = domingo … 6 = sábado) pela função `proximaEntrega()`.
+
+É calculada **sempre no navegador, nunca no build**. Data de build congela: em dois dias a página estaria mentindo. Na landing isso é React; nas páginas de cidade é um script de 20 linhas embutido no HTML, que preenche o `<span class="dc-proxima">` a partir de um `data-weekdays`.
+
+Ao mudar o dia de entrega de uma cidade, mexa em **dois campos**: `days` (o texto que a pessoa lê) e `weekdays` (o cálculo). Eles não são derivados um do outro de propósito — "Segunda a sexta" e "Terças e sextas" não dão para interpretar com segurança a partir de texto livre.
+
+## Macros no card do prato
+
+Os pratos com análise de laboratório mostram proteína e calorias no próprio card, e existe um filtro "Mais de 30g de proteína". Os números ficam em `src/lib/nutrition.ts`, copiados das tabelas impressas na caixa e publicadas em `/nutricional`.
+
+Hoje são 9 dos 17 pratos. Prato sem análise não mostra nada — nunca estime um valor para preencher o espaço. Quando chegarem os laudos que faltam, é só acrescentar a entrada no mapa: o card e o filtro passam a considerá-la sozinhos.
+
 ## Regra de cor dos botões
 
 Contraste medido, não achismo. O verde da marca (`#49b657`) com texto branco dá **2,6:1** — abaixo do mínimo de 4,5:1 e visivelmente ruim num celular sob sol. A correção não foi trocar o verde, foi trocar o texto: os botões mantêm o verde da marca e usam `text-green-deep`, o que dá **6,0:1**.
