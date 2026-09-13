@@ -6,7 +6,7 @@ A página existe para uma coisa: levar quem chegou de um link externo até o car
 
 ## Fluxo da página
 
-1. **Hero** — cabeçalho com marca e atalhos, promessa e galeria com cinco pratos em transição lenta.
+1. **Hero** — cabeçalho com marca e atalhos, promessa e a vitrine de pratos (veja abaixo).
 2. **DeliveryBar** — as 8 cidades: cinco com dia fixo, três com data combinada no WhatsApp.
 3. **Combos** — oferta principal: 10, 15 e 30 marmitas, com preço "a partir de" por unidade e economia em reais. Abaixo, os cupons automáticos de quem compra avulso.
 4. **ComboCalculator** — quantas marmitas por semana → quanto tempo cada combo dura e qual encaixa melhor.
@@ -80,6 +80,18 @@ Ficam em `public/images/menu/<slug>.webp` com `<slug>.jpg` de fallback, em 700×
 Prato sem `image` aparece com o monograma da marca no lugar da foto — não quebra o layout.
 
 A imagem de compartilhamento (`public/og-image.jpg`, 1200×630) é o que aparece quando o link é colado no WhatsApp ou no Instagram.
+
+## Vitrine do hero
+
+Três quadros: um prato em destaque e dois menores ao lado. Um deles troca a cada 2,6 s — nunca os três juntos — e a foto que entra aparece por cima da anterior, com uma deriva lenta de escala. A ideia é mostrar a variedade do cardápio na primeira tela sem carrossel deslizante.
+
+A lista em `HeroGallery.tsx` tem **10 pratos, e o número importa**: os três quadros avançam sempre para o próximo prato da lista, então a cada instante eles mostram três posições seguidas — por isso a ordem alterna cor e textura. E como 10 não é múltiplo de 3, cada quadro passa por todos os pratos com o tempo; com 9, o quadro grande ficaria preso em três pratos fixos para sempre.
+
+Só a foto em destaque entra no HTML inicial (ela é o LCP, medido em ~0,46 s). As duas menores montam 1,2 s depois do primeiro paint. A rotação para quando o visitante põe o dedo ou o cursor na vitrine, para de vez se ele escolher uma foto na mão, e nem começa com `prefers-reduced-motion`.
+
+Tocar num quadro menor traz aquele prato para o destaque.
+
+As fotos originais são 700×700 — as mesmas do cardápio online. Os tamanhos da vitrine foram escolhidos para nenhuma foto passar disso.
 
 ## Páginas de cidade
 

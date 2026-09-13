@@ -56,20 +56,27 @@ export function Hero() {
         </header>
       </div>
 
-      <div className="shell grid gap-7 pb-14 pt-7 sm:gap-9 sm:pt-10 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-16 lg:pb-24">
-        <div className="order-2 flex flex-col items-start gap-5 lg:order-1">
-          {/* No celular o preço vira uma linha aqui, para não cobrir a foto. */}
-          <p className="tnum -mt-1 text-[13px] text-white/70 sm:hidden">
-            Nos combos, a partir de{' '}
-            <strong className="font-serif text-[19px] font-normal text-white">
-              R$ {formatBRL(BEST_UNIT_PRICE)}
-            </strong>
-            <sup className="ml-0.5 text-[10px] font-semibold text-green-moss">*</sup> por marmita
-            <span className="mt-0.5 block text-[10.5px] text-white/60">
-              * {UNIT_PRICE_NOTE_SHORT}
-            </span>
-          </p>
+      <div className="shell grid gap-6 pb-14 pt-7 sm:gap-8 sm:pt-10 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-16 lg:pb-12">
+        <div className="relative order-1 lg:order-2">
+          <HeroGallery
+            selo={
+              <p className="rounded-full border border-gold/30 bg-green-deep/80 px-3 py-1.5 text-right backdrop-blur-md lg:hidden">
+                <span className="block text-[8.5px] font-bold uppercase tracking-[.13em] text-gold">
+                  Combos a partir de
+                </span>
+                <span className="tnum block font-serif text-[15px] leading-tight text-white">
+                  R$ {formatBRL(BEST_UNIT_PRICE)}
+                  <sup className="ml-0.5 font-sans text-[9px] font-semibold text-green-moss">*</sup>
+                  <span className="ml-1 font-sans text-[10px] font-medium text-white/60">
+                    /marmita
+                  </span>
+                </span>
+              </p>
+            }
+          />
+        </div>
 
+        <div className="order-2 flex flex-col items-start gap-4 sm:gap-5 lg:order-1">
           <Eyebrow tone="light">Marmitas congeladas gourmet</Eyebrow>
 
           <h1 className="balance font-serif text-[clamp(2.5rem,10vw,4.4rem)] font-normal leading-[.96] tracking-[-.02em]">
@@ -79,8 +86,7 @@ export function Hero() {
           </h1>
 
           <p className="max-w-prose text-[15px] leading-relaxed text-white/75 sm:text-[15.5px]">
-            Feitas na nossa cozinha, ultracongeladas no mesmo dia e entregues na sua casa. Você
-            aquece em 5 minutos.
+            Feitas na nossa cozinha, ultracongeladas no mesmo dia. Você aquece em 5 minutos.
           </p>
 
           <div className="flex w-full items-center gap-2.5">
@@ -98,41 +104,41 @@ export function Hero() {
             </a>
           </div>
 
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-1">
+          {/* No desktop a âncora de preço tem espaço próprio na coluna de texto,
+              em vez de cobrir um canto da foto como antes. */}
+          <p className="hidden items-baseline gap-3 border-t border-gold/20 pt-4 lg:flex">
+            <span className="text-[10px] font-bold uppercase tracking-[.14em] text-gold">
+              Nos combos, a partir de
+            </span>
+            <span className="tnum font-serif text-[1.75rem] leading-none">
+              R$ {formatBRL(BEST_UNIT_PRICE)}
+              <sup className="ml-0.5 font-sans text-[11px] font-semibold text-green-moss">*</sup>
+              <span className="ml-1.5 font-sans text-[11.5px] font-medium text-white/60">
+                por marmita
+              </span>
+            </span>
+          </p>
+
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-0.5">
             {TRUST.map((item) => {
               const Icon = item.icon
               return (
-                <li key={item.label} className="flex items-center gap-2 text-[12.5px] text-white/70">
+                <li
+                  key={item.label}
+                  className="flex items-center gap-2 text-[12.5px] text-white/70"
+                >
                   <Icon size={14} className="text-green-moss" aria-hidden="true" />
                   {item.label}
                 </li>
               )
             })}
           </ul>
-        </div>
 
-        <div className="relative order-1 lg:order-2">
-          <HeroGallery />
-
-          <div className="absolute -bottom-8 right-6 hidden w-[280px] rounded-2xl border border-gold/25 bg-green-deep/90 px-5 py-3.5 backdrop-blur-md sm:block">
-            <p className="text-[10px] font-bold uppercase tracking-[.14em] text-gold">
-              Nos combos, a partir de
-            </p>
-            <p className="tnum mt-1 font-serif text-[1.9rem] leading-none">
-              R$ {formatBRL(BEST_UNIT_PRICE)}
-              <sup className="ml-0.5 font-sans text-[12px] font-semibold text-green-moss">*</sup>
-              <span className="ml-1.5 font-sans text-[11.5px] font-medium text-white/60">
-                por marmita
-              </span>
-            </p>
-            <p className="mt-1.5 text-[10px] leading-snug text-white/60">
-              * {UNIT_PRICE_NOTE_SHORT}
-            </p>
-          </div>
+          <p className="text-[10.5px] leading-snug text-white/50">* {UNIT_PRICE_NOTE_SHORT}</p>
         </div>
       </div>
 
-      <div className="h-6 lg:h-10" />
+      <div className="h-3 lg:h-4" />
     </section>
   )
 }
