@@ -40,8 +40,14 @@ export const CARDAPIO_LINK = 'https://app.cardapioweb.com/vivere_comercio_de_ali
  * Basta preencher aqui para a nota virar link em toda a landing e nas oito
  * páginas de cidade — não há endereço de perfil escrito em nenhum outro lugar.
  */
-export const GOOGLE_PROFILE_LINK: string = ''
-export const GOOGLE_REVIEW_LINK: string = ''
+export const GOOGLE_PROFILE_LINK: string = 'https://share.google/YVGRTC0Y3eG74wsAI'
+
+/**
+ * Abre a janela de estrelas já aberta, sem o cliente ter que procurar o
+ * botão dentro da ficha. É o link que a campanha de avaliações usa no
+ * WhatsApp e o mesmo que aparece embaixo dos depoimentos.
+ */
+export const GOOGLE_REVIEW_LINK: string = 'https://g.page/r/Cdb1irT3BiwjEAE/review'
 
 export const INSTAGRAM_HANDLE = '@viverealimentos'
 export const INSTAGRAM_LINK = 'https://instagram.com/viverealimentos'

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { ArrowUpRight, Star } from 'lucide-react'
 import { Eyebrow } from '@/components/ui/Badge'
 import { TESTIMONIALS } from '@/lib/testimonials'
-import { GOOGLE_PROFILE_LINK } from '@/lib/constants'
+import { GOOGLE_PROFILE_LINK, GOOGLE_REVIEW_LINK } from '@/lib/constants'
 import { trackGoogleProfile } from '@/lib/analytics'
 import { cn } from '@/lib/cn'
 
@@ -111,6 +111,18 @@ export function Testimonials() {
           </h2>
 
           <Selo />
+
+          {GOOGLE_REVIEW_LINK ? (
+            <a
+              href={GOOGLE_REVIEW_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackGoogleProfile('convite-avaliacao')}
+              className="text-[12.5px] text-neutral underline decoration-neutral/30 underline-offset-4 transition-colors hover:text-green-dark hover:decoration-green-dark/40"
+            >
+              Já pediu na Vivere? Deixe sua avaliação
+            </a>
+          ) : null}
         </div>
 
         <div
