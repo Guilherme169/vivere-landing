@@ -8,7 +8,6 @@ import { Menu } from '@/components/Menu/Menu'
 import { CardapioCTA } from '@/components/HowItWorks/CardapioCTA'
 import { HowItWorks } from '@/components/HowItWorks/HowItWorks'
 import { PersonalizedDiet } from '@/components/HowItWorks/PersonalizedDiet'
-import { Stats } from '@/components/Stats/Stats'
 import { Brand } from '@/components/Brand/Brand'
 import { Testimonials } from '@/components/Testimonials/Testimonials'
 import { NutricionalCTA } from '@/components/NutricionalCTA/NutricionalCTA'
@@ -26,13 +25,12 @@ export function Home() {
       <DeliveryBar />
       <Combos />
       <ComboCalculator />
-      <Menu />
-      <CardapioCTA />
-      <HowItWorks />
-      <PersonalizedDiet />
-      <Stats />
-      <Brand />
       <Testimonials />
+      <Menu />
+      <HowItWorks />
+      <CardapioCTA />
+      <PersonalizedDiet />
+      <Brand />
       <NutricionalCTA />
       <FAQ />
       <InstagramCTA />

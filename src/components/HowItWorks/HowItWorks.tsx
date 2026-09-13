@@ -72,7 +72,7 @@ export function HowItWorks() {
               Como comprar pelo <em className="text-orange-dark">cardápio online</em>
             </>
           }
-          description="Cinco passos. Toque em cada etapa para ver o detalhe antes de pedir."
+          description="O pedido é montado e pago no cardápio online. Aqui vão os cinco passos, para você chegar lá sabendo exatamente o que vai encontrar."
         />
 
         <ul className="flex flex-col">

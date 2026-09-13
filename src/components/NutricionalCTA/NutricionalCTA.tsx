@@ -13,7 +13,7 @@ const WITH_NUTRITION = MEALS.filter((meal) => meal.hasNutrition).length
 
 export function NutricionalCTA() {
   return (
-    <section className="bg-cream py-14 sm:py-20">
+    <section className="bg-sand/70 py-14 sm:py-20">
       <div className="shell grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-14">
         <div className="flex flex-col gap-5">
           <SectionTitle
