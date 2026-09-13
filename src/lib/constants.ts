@@ -4,7 +4,7 @@
  */
 
 /** Domínio público da landing (Vercel). Usado em canonical, og:url e JSON-LD. */
-export const SITE_URL = 'https://vivere-landing.vercel.app'
+export const SITE_URL = 'https://vivere-landing-alpha.vercel.app'
 
 export const WHATSAPP_NUMBER = '5551980889884'
 export const WHATSAPP_PHONE_HUMAN = '(51) 98088-9884'
